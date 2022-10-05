@@ -1,0 +1,98 @@
+<odoo>
+
+    <!-- Project Gantt View -->
+    <record id="ks_project_view_gantt" model="ir.ui.view">
+        <field name="name">Project Gantt View</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <ks_gantt
+                    ks_task_start_date="ks_project_start"
+                    ks_task_end_date="ks_project_end"
+                    ks_task_id="id"
+                    ks_task_name="name"
+                    ks_project_row="ks_project_row"
+                    ks_task_data="ks_project_task_json"
+            />
+        </field>
+    </record>
+
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="ks_view_project_form" model="ir.ui.view">
+        <field name="name">Ks Project Form View</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//page[@name='settings']" position="after">
+                <page name="ks_gantt_setting" string="Gantt Settings">
+                    <group>
+                        <group string="Auto mode tasks">
+                            <field name="ks_project_start"/>
+                            <field name="ks_project_end"/>
+                        </group>
+                        <group string="Gantt Chart Settings">
+                            <!--<field name="ks_enable_project_deadline" widget="boolean_toggle"/>-->
+                            <field name="ks_enable_task_dynamic_text" widget="boolean_toggle"/>
+                            <field name="ks_enable_task_dynamic_progress" widget="boolean_toggle"/>
+                            <field name="ks_days_off" widget="boolean_toggle"/>
+                            <field name="ks_hide_date" attrs="{'invisible': [('ks_days_off', '=', False)]}"/>
+                            <field name="ks_days_off_selection" widget="many2many_tags"
+                                   attrs="{'invisible': [('ks_days_off', '=', False)]}"
+                                   options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="ks_enable_quickinfo_extension" widget="boolean_toggle"/>
+                        </group>
+                        <group string="Tooltip Settings">
+                            <field name="ks_tooltip_task_name" widget="boolean_toggle"/>
+                            <field name="ks_tooltip_task_duration" widget="boolean_toggle"/>
+                            <field name="ks_tooltip_task_start_date" widget="boolean_toggle"/>
+                            <field name="ks_tooltip_task_end_date" widget="boolean_toggle"/>
+                            <field name="ks_tooltip_task_progress" widget="boolean_toggle"/>
+                            <field name="ks_tooltip_task_deadline" widget="boolean_toggle"/>
+                            <field name="ks_tooltip_task_stage" widget="boolean_toggle"/>
+                            <field name="ks_tooltip_task_constraint_type" widget="boolean_toggle"/>
+                            <field name="ks_tooltip_task_constraint_date" widget="boolean_toggle"/>
+                        </group>
+                        <group string="Mail timesheet user">
+                            <field name="ks_mail_timesheet_user"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    stage color form view-->
+    <record id="ks_task_stage_form_color" model="ir.ui.view">
+        <field name="name">Stage color</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_edit"/>
+        <field name="priority">32</field>
+        <field name="arch" type="xml">
+            <field name="sequence" position="after">
+                <field name="ks_stage_color" widget="ks_gantt_color_picker"/>
+            </field>
+        </field>
+    </record>
+
+    <!--    Stage Color tree view-->
+    <record id="ks_task_stage_tree_color" model="ir.ui.view">
+        <field name="name">Stage color</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_tree"/>
+        <field name="priority">32</field>
+        <field name="arch" type="xml">
+            <field name="fold" position="after">
+                <field name="ks_stage_color" widget="ks_gantt_color_picker"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Kanban view of project model -->
+    <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="view_mode">kanban,ks_gantt,form</field>
+    </record>
+
+    <record id="project.open_view_project_all_group_stage" model="ir.actions.act_window">
+        <field name="view_mode">kanban,ks_gantt,form</field>
+    </record>
+</odoo>

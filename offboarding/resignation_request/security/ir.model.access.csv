@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_resignation_request_id,offboarding.resignation.request.name,model_resignation_request,,1,1,1,1
+access_employee_project_id,offboarding.employee.project.name,model_employee_project,,1,1,1,1
+access_reject_message_resignation_id,offboarding.reject.message.resignation.name,model_reject_message_resignation,,1,1,1,1

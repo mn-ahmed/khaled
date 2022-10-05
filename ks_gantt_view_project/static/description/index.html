@@ -1,0 +1,2354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Gantt View</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* .ks_tabs ul .nav-item .nav-link {
+      
+    } */
+
+    /* ul .nav-item .nav-link.active {
+      color: #752DD3 !important;
+      font-weight: 600;
+    } */
+
+    /* .dot {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 26px;
+      color: #7A7979;
+      position: relative;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .dot::before {
+      content: '●';
+      position: absolute;
+      left: 0;
+      color: #000;
+    } */
+  </style>
+
+</head>
+
+<body style="font-family: 'Poppins', sans-serif;">
+  <section class="pb-5">
+    <div class="ks_ultimate">
+      <div class="container" style="background-color: #752DD3; border-radius: 10px;">
+        <div class="row  my-3">
+          <div class="col-md-6 py-4">
+            <div class="ks_left_cont pl-5 pr-2 pt-5 pb-5">
+              <p style="font-weight: 500;font-size:14px;line-height: 21px;color:#fff">Powered By Ksolves
+              </p>
+              <h3 style="font-weight: 700;font-size:30px;line-height: 40px;color:#fff">
+                The Ultimate Tool To Plan Projects Over a Cup Of Coffee!
+              </h3>
+              <p style="font-weight: 400;font-size:16px;line-height: 26px;color:#fff">Gantt View is a
+                tailored
+                solution to seamlessly plan, manage, modify, and conclude projects under a fixed
+                timeline.
+                Our Odoo Gantt Chart encapsulates all the amazing features into one easy-to-use
+                platform.</p>
+            </div>
+          </div>
+          <div class="col-md-6 pl-0 pr-0">
+            <div class="ks_bg_round"
+              style="display: flex; max-width: 100%;position: relative; left: 2px;justify-content: center; height: 100%;align-items: center;">
+              <img src="images/img4.png" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ks_connect_card position-relative" style="margin-top: -53px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <div class="row align-items-center"
+              style="background-color: #FFFFFF; box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06); border-radius: 10px;">
+              <div class="col-md-5 offset-md-1 py-5 pl-4 pr-1">
+                <p style="font-size: 24px;line-height:35px;font-weight:700;color:#514F4F">Connect with
+                  our
+                  experts to know more about Gantt View </p>
+                <!--<div class="py-2"><span
+                    style="border-radius: 25px;  color: #fff; height: 50px; align-items: center;  width: 252px; font-style: normal; font-weight: 600; font-size: 16px;background-color: #7758d1; line-height: 36px;font-family: 'Poppins', sans-serif;"
+                    class="btn">Try Out Our Demo Now!</span></div>-->
+                <ul class="py-2 list-inline" style="width:100%; margin: 0; padding: 0;">
+                  <li class="mr-1 d-inline"><a
+                      style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 500; font-size: 15px; line-height: 146%; /* or 23px */ color: #514F4F;"
+                      href="">sales@ksolves.com
+                    </a></li>
+                  <li class="px-1 d-inline">|</li>
+                  <li class="d-inline">
+                    <a style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 500; font-size: 15px; line-height: 146%; /* or 23px */ color: #514F4F;"
+                      href="">+91 7302636699
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-4 mx-auto text-center offset-md-2">
+                <div><img src="images/girl.png" class="img-fluid" alt=""></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="position-absolute"
+        style="background-color: #f9f9f9; bottom: 0px; width: 100%; z-index: -1; height: 20%;"></div>
+
+    </div>
+
+    </div>
+    <div class="ks_counter py-5" style="background-color: rgba(248, 248, 248, 0.8); height: 100%;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 pb-4 offset-md-2">
+            <h3 class="text-center" style="font-size:28px;font-weight:500;line-height:40px;color: #3D3B3B;">
+              All in One, From A Simple <b>Gantt Chart </b>to Elaborate
+              <b>Project Management Tool</b>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <div>
+              <h2 class="mb-3" style="font-size:50px;color: #E25C52;font-weight:700;border-right: 1px solid #ccc;">
+                <span>40%</span>
+              </h2>
+              <p style="font-weight:500;font-size:16px;line-height:25px;font-weight:600;color: #514F4F;">
+                Advancement/Enhancement in Team Productivity & Resource Planning </p>
+            </div>
+          </div>
+          <div class="col-md-3 text-center">
+            <div>
+              <h2 class="mb-3" style="font-size:50px;color:  #135DBF;font-weight:700"><span>75%</span>
+              </h2>
+              <p class="px-4" style="font-weight:500;font-size:16px;line-height:25px;font-weight:600;color: #514F4F;">
+                Improvement in Following Dates & Deadlines </p>
+            </div>
+          </div>
+          <div class="col-md-3 text-center">
+            <div>
+              <h2 class="mb-3" style="font-size:50px;color: #E25C52;font-weight:700;border-right: 1px solid #ccc;">
+                <span>50%</span>
+              </h2>
+              <p class="px-3" style="font-weight:500;font-size:16px;line-height:25px;font-weight:600;color: #514F4F;">
+                Reduction in Time Spent on Identifying Overlapping Activities & Task Dependencies </p>
+            </div>
+          </div>
+          <div class="col-md-3 text-center">
+            <div>
+              <h2 class="mb-3" style="font-size:50px;color:  #135DBF;font-weight:700"><span>38%</span>
+              </h2>
+              <p style="font-weight:500;font-size:16px;line-height:25px;font-weight:600;color: #514F4F;">
+                Cost Saving on
+                Project Management</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ks_usps position-relative ">
+      <!-- <div class="position-absolute"
+        style="background-color: #f9f9f9; top: 0px; width: 100%; z-index: -1; height: 10%;"></div> -->
+
+      <div class="container px-3  shadow rounded-lg my-4"
+      style="background-color: #FFFFFF; box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05); border-radius: 10px;">
+        <div class="px-3 pb-5 ">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h4 class="my-5"
+                style="font-size:36px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                USPs
+                <span class="mx-auto d-block my-2"
+                  style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div style="min-height:519px; border-radius: 10px;" class="col-md-4 overflow-auto pt-0 pr-2">
+              <ul class="nav flex-column" id="myTab" role="tablist">
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0  pr-0 active" id="action-bar-01-tab" data-toggle="tab" href="#action-bar-01"
+                    role="tab" aria-controls="action-bar-01" aria-selected="true"><i
+                      class="fa fa-file-text-o pr-2 "></i>Auto-Schedule
+                    Tasks</a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0" id="action-bar-02-tab" data-toggle="tab" href="#action-bar-02" role="tab"
+                    aria-controls="action-bar-02" aria-selected="false"><i class="fa fa-file-text-o pr-2"></i>Critical
+                    Path</a>
+                </li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0" id="action-bar-03-tab" data-toggle="tab" href="#action-bar-03" role="tab"
+                    aria-controls="action-bar-03" aria-selected="false"><i class="fa fa-file-text-o pr-2"></i>Eliminate
+                    Unproductive
+                    Days</a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0" id="action-bar-04-tab" data-toggle="tab" href="#action-bar-04" role="tab"
+                    aria-controls="action-bar-04" aria-selected="false"><i class="fa fa-file-text-o pr-2"
+                      aria-hidden-="true"></i>Deadline Alert</a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0 " id="action-bar-05-tab" data-toggle="tab" href="#action-bar-05"
+                    role="tab" aria-controls="action-bar-05" aria-selected="false"><i
+                      class="fa fa-file-text-o pr-2"></i>Presentation
+                    Mode</a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500"
+                    class="nav-link pl-0 pr-0 " id="action-bar-06-tab" data-toggle="tab" href="#action-bar-06"
+                    role="tab" aria-controls="action-bar-06" aria-selected="false"><i
+                      class="fa fa-file-text-o pr-2"></i>Set Your
+                    Milestones</a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0" id="action-bar-07-tab" data-toggle="tab" href="#action-bar-07" role="tab"
+                    aria-controls="action-bar-07" aria-selected="false"><i
+                      class="fa fa-file-text-o pr-2"></i>Multi-functional
+                    Resource
+                    Panel
+                  </a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0" id="action-bar-08-tab" data-toggle="tab" href="#action-bar-08" role="tab"
+                    aria-controls="action-bar-08" aria-selected="false"><i class="fa fa-file-text-o pr-2"></i>Smart
+                    Display of
+                    30000+ Tasks
+                  </a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0" id="action-bar-09-tab" data-toggle="tab" href="#action-bar-09" role="tab"
+                    aria-controls="action-bar-09" aria-selected="false"><i class="fa fa-file-text-o pr-2"></i>Email
+                    Alerts
+                  </a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0" id="action-bar-010-tab" data-toggle="tab" href="#action-bar-010"
+                    role="tab" aria-controls="action-bar-010" aria-selected="false"><i
+                      class="fa fa-file-text-o pr-2"></i>Single Gantt View
+                    For Multiple
+                    Projects</a></li>
+                <li style="height:45px;" class="nav-item"><a style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-011-tab" data-toggle="tab"
+                    href="#action-bar-011" role="tab" aria-controls="action-bar-011" aria-selected="false"><i
+                      class="fa fa-file-text-o pr-2"></i>Themes</a></li>
+              </ul>
+            </div>
+            <div class="col-md-8">
+              <div class="tab-content" id="myTabContent">
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane px-3 py-5 fade show active"
+                  id="action-bar-01" role="tabpanel" aria-labelledby="action-bar-01-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Auto-Schedule Tasks</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">In Odoo
+                    Gantt
+                    View App, Auto-schedule automatically schedules a dependent task easily by just
+                    linking it with a parent task. Relocating the parent task schedule in the Gantt
+                    View
+                    will result in the child task getting
+                    auto-scheduled based on the end date of the parent task. The latter starts
+                    automatically as the parent task ends.</p> <img src="images/usp/auto_scheduling.png"
+                    class="img-fluid mt-5" alt="">
+                </div>
+                <!-- Critical Path -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-02" role="tabpanel">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Critical Path</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">Critical
+                    path
+                    displays the task dependencies. It shoots an alert by marking the path in red if
+                    it
+                    is linked to a dependent task that remains pending when the former has finished.
+                  </p>
+                  <img src="images/usp/critical_path.png" class="img-fluid" alt="">
+                </div>
+                <!-- Eliminate Unproductive Days -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-03" role="tabpanel" aria-labelledby="action-bar-03-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Eliminate Unproductive
+                    Days</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">Gantt View
+                    allows you to eliminate holidays or unproductive days from the timeline in Odoo
+                    Gantt Chart for better project visualization & management. By hiding such days,
+                    you
+                    can focus on the work progress during productive days.</p> <img src="images/usp/days_off.png"
+                    class="img-fluid" alt="">
+                </div>
+                <!-- Deadline Alert -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-04" role="tabpanel" aria-labelledby="action-bar-04-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Deadline Alert</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">The Toggle
+                    Deadline feature lets you quickly go through the pending tasks in Gantt View in
+                    Odoo
+                    that have overrun their completion dates. Such tasks are marked in red in the
+                    Task
+                    list or an inverted arrow in the task timeline. This aids in prioritization of
+                    tasks, Stress-free task delegation & smarter staff scheduling decisions.</p>
+                  <img src="images/usp/deadline.png" class="img-fluid" alt="">
+                </div>
+                <!-- Presentation Mode -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-05" role="tabpanel" aria-labelledby="action-bar-05-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Presentation Mode</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">Presenting
+                    the
+                    nitty gritties of Odoo Project Management Module can be a daunting task. Gantt
+                    View
+                    allows you to launch the Presentation Mode that turns your screen into an ally
+                    as
+                    you alter, brainstorm & explain the project details by using the extensive
+                    Action
+                    Bar functionalities such as Graph Overlay, Grid, Resource Panel, Critical Path,
+                    etc.</p> <img src="images/usp/presentation.png" class="img-fluid" alt="">
+                </div>
+                <!-- Set Your Milestones -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-06" role="tabpanel" aria-labelledby="action-bar-06-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Set Your Milestones</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">Set
+                    milestones
+                    to mark the end of a critical phase or the end of a project in the Odoo Project
+                    Gantt Chart. The important days that are set as milestones aid in organizing the
+                    tasks better & adhere to a punctual approach to finish them in time.</p> <img
+                    src="images/usp/milestone.png" class="img-fluid" alt="">
+                </div>
+                <!-- Multi-functional Resource Panel -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-07" role="tabpanel" aria-labelledby="action-bar-07-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Multi-functional Resource
+                    Panel</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">From
+                    resource
+                    utilization to project cost estimation, manage everything from the Gantt View
+                    Resource Panel. Live task progress provides smart visualization & keeps you
+                    updated
+                    about everything at a glance. Project costs are estimated and managed in
+                    real-time
+                    while addressing constraints with pin-point accuracy.</p> <img src="images/usp/resource_panel.png"
+                    class="img-fluid" alt="Multi-functional Resource Panel">
+                </div>
+                <!-- Smart Display of 30000+ Tasks -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-08" role="tabpanel" aria-labelledby="action-bar-08-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Smart Display of 30000+
+                    Tasks</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">In Odoo
+                    Gantt
+                    Operate with more than 30,000 datasets with ease, thanks to smart rendering! It
+                    substantially enhances the data rendering speed while working with huge data
+                    volumes.</p> <img src="images/usp/3000_tasks.png" class="img-fluid"
+                    alt="Smart Display of 30000+ Tasks">
+                </div>
+                <!-- Email Alerts -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-09" role="tabpanel" aria-labelledby="action-bar-09-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Email Alerts</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">Email
+                    alerts
+                    can be scheduled for project tasks based on the End Date. As the task nears the
+                    completion date, alerts will be issued due in upcoming days. In addition to
+                    that,
+                    alerts can also be activated for overdue tasks, timesheet reminders etc.</p>
+                  <img src="images/usp/email_alert.png" class="img-fluid" alt="">
+                </div>
+                <!-- Single Gantt View For Multiple Projects -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-010" role="tabpanel" aria-labelledby="action-bar-010-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Single Gantt View For
+                    Multiple
+                    Projects</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">In Odoo
+                    Gantt
+                    View several projects at a glance in a unified Gantt View in the left pane, that
+                    displays information about projects. It holds columns of information about your
+                    project, such as the task name, duration, start date, and more. The right pane
+                    provides the graphical representation of the projects. Have an overview of every
+                    project at your fingertips!</p> <img src="images/usp/project_view.png" class="img-fluid"
+                    alt="Single Gantt View For Multiple Projects">
+                </div>
+                <!-- Themes -->
+                <div style="background-color: #FDEEEE; border-radius: 10px;" class="tab-pane  px-3 py-5  fade"
+                  id="action-bar-011" role="tabpanel" aria-labelledby="action-bar-011-tab">
+                  <h4 style="font-size: 24px;font-weight:600;color:#F53324">Themes</h4>
+                  <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">There are 7
+                    different template designs available to customize the User Interface of
+                    Gantt View.</p> <img src="images/usp/themes.png" class="img-fluid" alt="Themes">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="position-absolute"
+        style="background-color: #f9f9f9; bottom: 0px; width: 100%; z-index: -1; height: 10%;"></div> -->
+    </div>
+    <div style="background-color:rgba(248, 248, 248, 0.8);" class="ks_img position-relative py-3   ">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-10 offset-md-1" style="margin: 0 auto;"><img src="images/img2.png" alt=""
+              class="img-fluid"></div>
+        </div>
+      </div>
+    </div>
+
+
+<!--
+    padding: 4px 16px;
+      font-weight: 500; -->
+
+
+    <!-- New Tabs -->
+    <div class="ks_tabs position-relative">
+      <!-- <div class="position-absolute"
+        style="background-color: #f9f9f9; top: 0px; width: 100%; z-index: -1; height: 100px;"></div> -->
+      <div class="container pb-5 shadow rounded-lg my-4"
+        style="background-color: #FFFFFF;">
+        <ul class="pt-3 nav nav-tabs nav nav-tabs d-flex justify-content-center bg-white" role="tablist">
+          <li class="nav-item">
+            <a style="color:#3D3B3B; padding: 4px 16px; font-weight: 500;" class="nav-link active" data-toggle="tab" href="#tabs-60" role="tab">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a style="color:#3D3B3B; padding: 4px 16px; font-weight: 500;" class="nav-link" data-toggle="tab" href="#tabs-61" role="tab">All
+              Features</a>
+          </li>
+          <li class="nav-item">
+            <a style="color:#3D3B3B; padding: 4px 16px; font-weight: 500;" class="nav-link" data-toggle="tab" href="#tabs-62" role="tab">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a style="color:#3D3B3B; padding: 4px 16px; font-weight: 500;" class="nav-link" data-toggle="tab" href="#tabs-63" role="tab">Releases</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- 1st Tab -->
+          <div class="tab-pane active" id="tabs-60" role="tabpanel">
+            <div class="position-relative">
+              <div class="container">
+                <div class=" px-0  py-5">
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h3 class="mb-3" style="font-size:36px;color:#514F4F;line-height:60.12px;font-weight:700">
+                        Key
+                        Highlights</h3>
+                      <h4 class="mb-4"
+                        style="font-size:24px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                        Action Bar<span class="mx-auto d-block my-2"
+                          style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                      </h4>
+                      <p style="font-size: 18px;font-weight:500;color:#616060;line-height:30.06px;">
+                        Project
+                        Management
+                        Was Never So Easy! </p>
+                    </div>
+                  </div>
+                  <div class="row m-0">
+                    <div
+                      class="col-md-4 mb-3 overflow-auto" style="max-height: 612px;">
+                      <ul id="accordion" class="nav py-3 n flex-column accordion px-3" style="background-color: #FCEDED; margin-top: 15px; border-radius: 10px;" id="myTab" role="tablist">
+                        <!-- Graph overlay -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0  collapsed" id="action-bar-1-tab" data-toggle="tab"
+                            href="#action-bar-1" role="tab" aria-controls="action-bar-1" aria-selected="true"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width:90%;"
+                              data-target="#collapseOne" data-toggle="collapse">Graph Overlay<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapseOne" class=" show collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Graph
+                              overlay displays
+                              the
+                              progress of projects backed by two lines: blue & red. While the
+                              blue line
+                              shows
+                              the planned progress, the red one indicates the actual
+                              progress(in
+                              percentage).</p>
+                          </div>
+                        </div>
+
+                        <!-- Duration -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-2-tab" data-toggle="tab"
+                            href="#action-bar-2" role="tab" aria-controls="action-bar-2" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapseTwo" data-toggle="collapse">Duration<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapseTwo" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">This
+                              feature displays
+                              the
+                              number of days a task has consumed.</p>
+                          </div>
+                        </div>
+
+                        <!-- Grid -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-3-tab" data-toggle="tab"
+                            href="#action-bar-3" role="tab" aria-controls="action-bar-3" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapseThree" data-toggle="collapse">Grid<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapseThree" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">On clicking
+                              Grid, the
+                              left
+                              pane
+                              that holds columns of information about your project, such as
+                              the task name,
+                              duration, start date, and more (that displays the tasks details)
+                              gets
+                              removed
+                              and
+                              the graphical representation of Gantt View (in the right pane)
+                              takes up the
+                              entire
+                              screen giving you a focused outlook.</p>
+                          </div>
+                        </div>
+
+                        <!-- Resource Panel -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-4-tab" data-toggle="tab"
+                            href="#action-bar-4" role="tab" aria-controls="action-bar-4" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsefour" data-toggle="collapse">Resource Panel<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsefour" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Resource
+                              Panel helps
+                              you to
+                              manage resources efficiently while estimating project costs,
+                              tracking task
+                              progress,
+                              resolving bottlenecks, and much more.</p>
+                          </div>
+                        </div>
+
+                        <!-- Zoom To Fit -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-5-tab" data-toggle="tab"
+                            href="#action-bar-5" role="tab" aria-controls="action-bar-5" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsefive" data-toggle="collapse">Zoom To Fit<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsefive" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">As you
+                              click on Zoom To
+                              Fit,
+                              the Gantt View fits to the screen according to the convenience
+                              for different
+                              users.</p>
+                          </div>
+                        </div>
+
+                        <!-- Critical Path -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-6-tab" data-toggle="tab"
+                            href="#action-bar-6" role="tab" aria-controls="action-bar-6" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsesix" data-toggle="collapse">Critical Path<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsesix" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Critical
+                              Path is meant
+                              to
+                              display the task dependencies. It shoots an alert by marking the
+                              path in
+                              red, if
+                              it
+                              is linked to a dependent task that remains pending when the
+                              former has
+                              finished.</p>
+                          </div>
+                        </div>
+
+                        <!-- Today -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-7-tab" data-toggle="tab"
+                            href="#action-bar-7" role="tab" aria-controls="action-bar-7" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapseseven" data-toggle="collapse">Today<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapseseven" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">If you
+                              click on the
+                              Today
+                              button, a today-marker will highlight the graphical section in
+                              the Gantt
+                              view
+                              that
+                              reflects the current day.</p>
+                          </div>
+                        </div>
+
+                        <!-- Time Sorting -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-8-tab" data-toggle="tab"
+                            href="#action-bar-8" role="tab" aria-controls="action-bar-8" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapseeighth" data-toggle="collapse">Time Sorting<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapseeighth" class=" collapse" data-parent="#accordion"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Time
+                              Sorting button
+                              allows
+                              you to sort the Gantt View results in several time patterns such
+                              as day,
+                              week,
+                              month, quarter, etc.</p>
+                          </div>
+                        </div>
+
+                        <!-- Sorting -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-9-tab" data-toggle="tab"
+                            href="#action-bar-9" role="tab" aria-controls="action-bar-9" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsenine" data-toggle="collapse">Sorting<i
+                                style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsenine" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Sorting
+                              button
+                              helps to
+                              sort the Gantt Gantt table (in the left pane) in different ways
+                              such as
+                              Ascending/Descending order(based on Task Names or Task Duration)
+                              & Old to
+                              New or
+                              New
+                              To Old(as per task creation dates).</p>
+                          </div>
+                        </div>
+
+                        <!-- Zoom In -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-10-tab" data-toggle="tab"
+                            href="#action-bar-10" role="tab" aria-controls="action-bar-10" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapseten" data-toggle="collapse">Zoom In
+                              <i style="color:#D68E8E;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #FF2E62;border-radius: 10px;width:94%;" class="">
+                          <div id="collapseten" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Zoom In
+                              feature
+                              zooms
+                              into
+                              the Gantt View that takes up the full screen. From here, one can
+                              easily use
+                              the
+                              scroll bars to better visualize, manage and present tasks. The
+                              Action Bar
+                              will
+                              aid
+                              in customizing the View & analyze everything with ease.</p>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="tab-content d-flex align-items-center" id="myTabContent" style="min-height: 611px; ">
+                        <!-- graph overlay -->
+                        <div class="tab-pane fade show active" id="action-bar-1" role="tabpanel"
+                          aria-labelledby="action-bar-1-tab"><img src="images/action_bar/graph_overlay.png"
+                            class="img-fluid" alt="">
+                        </div>
+                        <!-- Duration -->
+                        <div class="tab-pane fade" id="action-bar-2" role="tabpanel" aria-labelledby="action-bar-2-tab">
+                          <img src="images/action_bar/duration.png" class="img-fluid" alt="">
+                        </div>
+                        <!-- Grid -->
+                        <div class="tab-pane fade" id="action-bar-3" role="tabpanel" aria-labelledby="action-bar-3-tab">
+                          <img src="images/action_bar/grid.png" class="img-fluid" alt="">
+                        </div>
+                        <!-- Resource Panel -->
+                        <div class="tab-pane fade" id="action-bar-4" role="tabpanel" aria-labelledby="action-bar-4-tab">
+                          <img src="images/action_bar/resource_panel.png" class="img-fluid" alt="">
+                        </div>
+                        <!-- Zoom To Fit -->
+                        <div class="tab-pane fade" id="action-bar-5" role="tabpanel" aria-labelledby="action-bar-5-tab">
+                          <img src="images/action_bar/zoom_to_fit.png" class="img-fluid" alt="">
+                        </div>
+                        <!-- Critical Path -->
+                        <div class="tab-pane fade" id="action-bar-6" role="tabpanel" aria-labelledby="action-bar-6-tab">
+                          <img src="images/action_bar/critical_path.png" class="img-fluid" alt="">
+                        </div>
+                        <!-- Today -->
+                        <div class="tab-pane fade" id="action-bar-7" role="tabpanel" aria-labelledby="action-bar-7-tab">
+                          <img src="images/action_bar/today.png" class="img-fluid" alt="">
+                        </div>
+                        <!-- Time Sorting -->
+                        <div class="tab-pane fade" id="action-bar-8" role="tabpanel" aria-labelledby="action-bar-8-tab">
+                          <img src="images/action_bar/time_sort.png" class="img-fluid" alt="">
+                        </div>
+                        <!-- Sorting -->
+                        <div class="tab-pane fade" id="action-bar-9" role="tabpanel" aria-labelledby="action-bar-9-tab">
+                          <img src="images/action_bar/sorting.png" class="img-fluid" alt="">
+                        </div>
+                        <!-- Zoom In -->
+                        <div class="tab-pane fade" id="action-bar-10" role="tabpanel"
+                          aria-labelledby="action-bar-10-tab"><img src="images/action_bar/zoom_in.png" class="img-fluid"
+                            alt=""></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h4 class="mb-4"
+                        style="font-size:24px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                        Gantt View<span class="mx-auto d-block my-2"
+                          style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                      </h4>
+                      <p style="font-size: 18px;font-weight:500;color:#616060;line-height:30.06px;">
+                        Modify The
+                        View As
+                        Per Your Wish! </p>
+                    </div>
+                  </div>
+                  <div class="row m-0">
+                    <div class="col-md-8">
+                      <div class="tab-content d-flex align-items-center" id="myTabContent" style="min-height: 611px; ">
+                        <!-- Create -->
+                        <div class="tab-pane fade show active" id="action-bar-11" role="tabpanel"
+                          aria-labelledby="action-bar-11-tab"><img src="images/gantt_view/create.png" class="img-fluid"
+                            alt="">
+                        </div>
+                        <!-- Export -->
+                        <div class="tab-pane fade" id="action-bar-12" role="tabpanel"
+                          aria-labelledby="action-bar-12-tab"><img src="images/gantt_view/export.png" class="img-fluid"
+                            alt=""></div>
+                        <!-- Task Bar -->
+                        <div class="tab-pane fade" id="action-bar-13" role="tabpanel"
+                          aria-labelledby="action-bar-13-tab"><img src="images/gantt_view/task_bar.png"
+                            class="img-fluid" alt=""></div>
+                        <!-- Task Tooltip -->
+                        <div class="tab-pane fade" id="action-bar-14" role="tabpanel"
+                          aria-labelledby="action-bar-14-tab"><img src="images/gantt_view/tooltip.png" class="img-fluid"
+                            alt=""></div>
+                        <!-- Task Status  -->
+                        <div class="tab-pane fade" id="action-bar-15" role="tabpanel"
+                          aria-labelledby="action-bar-15-tab"><img src="images/gantt_view/status.png" class="img-fluid"
+                            alt=""></div>
+                        <!--Quick Add, Edit and Delete  -->
+                        <div class="tab-pane fade" id="action-bar-16" role="tabpanel"
+                          aria-labelledby="action-bar-16-tab"><img src="images/gantt_view/quick_buttons.png"
+                            class="img-fluid" alt=""></div>
+                        <!-- Markers -->
+                        <div class="tab-pane fade" id="action-bar-17" role="tabpanel"
+                          aria-labelledby="action-bar-17-tab"><img src="images/gantt_view/markers.png" class="img-fluid"
+                            alt=""></div>
+                        <!-- Taskbar Color  -->
+                        <div class="tab-pane fade" id="action-bar-18" role="tabpanel"
+                          aria-labelledby="action-bar-18-tab"><img src="images/gantt_view/stage_color.png"
+                            class="img-fluid" alt=""></div>
+                        <!-- Keyboard Shortcuts -->
+                        <div class="tab-pane fade" id="action-bar-19" role="tabpanel"
+                          aria-labelledby="action-bar-19-tab"><img src="images/gantt_view/keyboard.png"
+                            class="img-fluid" alt=""></div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3 overflow-auto" style="max-height: 612px;">
+                      <ul id="accordion1" class="nav py-3 flex-column accordion px-3" style="background-color: #E5F5F7; margin-top: 15px; border-radius: 10px;" id="myTab" role="tablist">
+                        <!-- Create -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0  collapsed" id="action-bar-11-tab" data-toggle="tab"
+                            href="#action-bar-11" role="tab" aria-controls="action-bar-11" aria-selected="true"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width:90%;"
+                              data-target="#collapseeleven" data-toggle="collapse">Create<i
+                                style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapseeleven" class=" collapse" data-parent="#accordion1"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Create
+                              button helps
+                              to
+                              create a project as you fill the required fields in the project
+                              creation
+                              form.</p>
+                          </div>
+                        </div>
+
+                        <!-- Export -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-12-tab" data-toggle="tab"
+                            href="#action-bar-12" role="tab" aria-controls="action-bar-12" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsetwelve" data-toggle="collapse">Export<i
+                                style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsetwelve" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion1">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Export
+                              button is
+                              used
+                              to
+                              export the Gantt View in various formats such as PDF, PNG,
+                              EXcel, Json, MS
+                              Project
+                              (XML), Primavera P6, and ICal</p>
+                          </div>
+                        </div>
+
+                        <!-- Task Bar -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-13-tab" data-toggle="tab"
+                            href="#action-bar-13" role="tab" aria-controls="action-bar-13" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsethrteen" data-toggle="collapse">Task Bar
+
+                              <i style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsethrteen" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion1">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Task
+                              Name is
+                              displayed
+                              within the Task Bar or beside it in the right pane of Gantt
+                              View. The task
+                              progress
+                              is also displayed on it (in percentage) in a darker color.</p>
+                          </div>
+                        </div>
+
+                        <!-- Task Tooltip -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-14-tab" data-toggle="tab"
+                            href="#action-bar-14" role="tab" aria-controls="action-bar-14" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsefourteen" data-toggle="collapse">Task Tooltip<i
+                                style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsefourteen" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion1">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">When a user
+                              hovers
+                              around
+                              the
+                              tasks, the Task Tooltip emerges. It displays the Task Details
+                              such as Task
+                              Name,
+                              Task Duration, Start & End Date of a task, Stage, and Task
+                              constraints. By
+                              going
+                              into the task settings, one can customize the display by
+                              enabling/disabling
+                              the
+                              information.</p>
+                          </div>
+                        </div>
+
+                        <!-- Task Status -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-15-tab" data-toggle="tab"
+                            href="#action-bar-15" role="tab" aria-controls="action-bar-15" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsefifteen" data-toggle="collapse">Task Status<i
+                                style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsefifteen" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion1">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Task
+                              Status is
+                              shown by
+                              a
+                              color bar beside each task that is present in the left pane
+                              displaying
+                              project
+                              information. A red bar indicates that the task has not yet
+                              started, a yellow
+                              bar
+                              indicates that the task is in progress & a green bar implies
+                              that the task
+                              has
+                              been
+                              accomplished.</p>
+                          </div>
+                        </div>
+
+                        <!-- Quick Add, Edit and Delete -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-16-tab" data-toggle="tab"
+                            href="#action-bar-16" role="tab" aria-controls="action-bar-16" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsesixteen" data-toggle="collapse">Quick Add, Edit and Delete<i
+                                style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsesixteen" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion1">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Beside each
+                              task that
+                              of
+                              the
+                              project information (in the left pane) there are 3 options-
+                              Edit, Add &
+                              Remove.
+                              The
+                              Edit button allows you to modify the task. The Add button allows
+                              you to
+                              create
+                              sub-tasks within the parent task or project & the Remove button
+                              will simply
+                              delete
+                              the task.</p>
+                          </div>
+                        </div>
+
+                        <!-- Markers -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-17-tab" data-toggle="tab"
+                            href="#action-bar-17" role="tab" aria-controls="action-bar-17" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapseseventeen" data-toggle="collapse">Markers<i
+                                style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapseseventeen" class=" collapse" data-parent="#accordion1"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">There are 3
+                              distinct
+                              markers in
+                              the Gantt View. They mark the start of the project, the current
+                              date(or
+                              day),
+                              and
+                              the end date of the project. They come in handy to organize the
+                              tasks of the
+                              project.</p>
+                          </div>
+                        </div>
+
+                        <!-- Taskbar Color -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-18-tab" data-toggle="tab"
+                            href="#action-bar-18" role="tab" aria-controls="action-bar-18" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse19" data-toggle="collapse" aria-expanded="false">Taskbar Color<i
+                                style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse19" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion1">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">By
+                              activating the
+                              developer
+                              mode, you can set the color of various stages of a project.
+                              Based on the
+                              color
+                              assigned to different project stages, the task bar color in
+                              Gantt View will
+                              automatically change, as the project progresses.</p>
+                          </div>
+                        </div>
+
+                        <!-- Keyboard Shortcuts -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-19-tab" data-toggle="tab"
+                            href="#action-bar-19" role="tab" aria-controls="action-bar-19" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapsenineteen19" data-toggle="collapse" aria-expanded="false">Keyboard
+                              Shortcuts<i style="color:#82B6BC;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;" class="">
+                          <div id="collapsenineteen19" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion1">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">There are
+                              several
+                              Keyboard
+                              shortcuts that can be used to perform the tasks that one has to
+                              perform
+                              manually
+                              using the functionalities of Gantt View.</p>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h4 class="mb-4"
+                        style="font-size:24px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                        Edit Task
+                        <span class="mx-auto d-block my-2"
+                          style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                      </h4>
+                      <p style="font-size: 18px;font-weight:500;color:#616060;line-height:30.06px;">
+                        Tailor Each
+                        Task
+                        On the Go! </p>
+                    </div>
+                  </div>
+                  <div class="row m-0">
+                    <div
+                      class="col-md-4 mb-3 overflow-auto" style="max-height: 612px;">
+                      <ul id="accordion3" class="nav py-3 px-3 flex-column accordion" style="background-color: #DCFAF1; margin-top: 15px; border-radius: 10px;" id="myTab" role="tablist">
+                        <!-- Overall Project Information -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0  collapsed" id="action-bar-21-tab" data-toggle="tab"
+                            href="#action-bar-21" role="tab" aria-controls="action-bar-21" aria-selected="true"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width:90%;"
+                              data-target="#collapse21" data-toggle="collapse">Overall Project Information<i
+                                style="color:#7DB8A7;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #51927f;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse21" class="  collapse" data-parent="#accordion3"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Link the
+                              task to a
+                              project
+                              from
+                              the Project option. The Assigned To feature assigns the project
+                              to an
+                              employee.
+                              Parent Task links the task to a parent task. Deadline feature
+                              sets a
+                              deadline
+                              for
+                              the project. Labels help to mark the project genre by its type
+                              for ease of
+                              understanding. Customer option links the task to its
+                              customer.</p>
+                          </div>
+                        </div>
+
+                        <!-- Unschedule -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-22-tab" data-toggle="tab"
+                            href="#action-bar-22" role="tab" aria-controls="action-bar-22" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse22" data-toggle="collapse">Unschedule<i
+                                style="color:#7DB8A7;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #51927f;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse22" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion3">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The
+                              Unschedule feature
+                              will
+                              unschedule the task from Gantt View.</p>
+                          </div>
+                        </div>
+
+                        <!-- Task Type -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-223-tab" data-toggle="tab"
+                            href="#action-bar-223" role="tab" aria-controls="action-bar-223" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse23" data-toggle="collapse">Task Type
+
+                              <i style="color:#7DB8A7;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #51927f;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse23" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion3">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Task
+                              Type feature
+                              helps
+                              to
+                              flag the task as either a task or a milestone of the
+                              project.</p>
+                          </div>
+                        </div>
+
+                        <!-- Task Duration -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-224-tab" data-toggle="tab"
+                            href="#action-bar-224" role="tab" aria-controls="action-bar-224" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse24" data-toggle="collapse">Task Duration
+                              <i style="color:#7DB8A7;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #51927f;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse24" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion3">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Set the
+                              Start Date &
+                              End
+                              Date
+                              of a task. Enable Task Duration enables to set the start date &
+                              enter the
+                              Duration
+                              (number of days), and the end date will be generated
+                              automatically.</p>
+                          </div>
+                        </div>
+
+                        <!-- Average Hour Per Day -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-225-tab" data-toggle="tab"
+                            href="#action-bar-225" role="tab" aria-controls="action-bar-225" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse25" data-toggle="collapse">Average Hour Per Day<i
+                                style="color:#7DB8A7;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #51927f;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse25" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion3">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">It shows
+                              the average
+                              number
+                              of
+                              hours an employee has logged on to the project per day.</p>
+                          </div>
+                        </div>
+
+                        <!-- Schedule Mode -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-226-tab" data-toggle="tab"
+                            href="#action-bar-226" role="tab" aria-controls="action-bar-226" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse26" data-toggle="collapse">Schedule Mode<i
+                                style="color:#7DB8A7;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #51927f;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse26" class=" collapse" data-parent="#accordion3"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Schedule
+                              mode can
+                              either be
+                              Auto or Manual. If it is set to Auto, the task will be
+                              automatically
+                              scheduled
+                              based
+                              on the parent task. By changing it to Manual mode, you can
+                              modify the task
+                              dates
+                              individually.</p>
+                          </div>
+                        </div>
+
+                        <!-- Days off -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-227-tab" data-toggle="tab"
+                            href="#action-bar-227" role="tab" aria-controls="action-bar-227" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse27" data-toggle="collapse">Days off<i
+                                style="color:#7DB8A7;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #51927f;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse27" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion3">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">This
+                              feature eliminates
+                              holidays/unproductive days from Odoo Gantt Chart timeline. Hide
+                              Holiday Day
+                              removes
+                              such days & focuses on the work progress to showcase the
+                              productive days in
+                              Gantt
+                              View.</p>
+                          </div>
+                        </div>
+
+                        <!-- Constraints -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-228-tab" data-toggle="tab"
+                            href="#action-bar-228" role="tab" aria-controls="action-bar-228" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse28h" data-toggle="collapse">Constraints<i
+                                style="color:#7DB8A7;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #51927f;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse28h" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion3">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Using
+                              Constraint Type,
+                              you
+                              can
+                              denote the task’s urgency. It sets the priority of the task and
+                              its
+                              initiation
+                              arrangement depending on which constraint date will be set.</p>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="tab-content d-flex align-items-center" id="myTabContent" style="min-height: 611px; ">
+                        <!-- Overall Project Information -->
+                        <div class="tab-pane fade show active" id="action-bar-21" role="tabpanel"
+                          aria-labelledby="action-bar-21-tab"><img src="images/edit_task/overall.png" class="img-fluid"
+                            alt="">
+                        </div>
+
+                        <!-- Unschedule -->
+                        <div class="tab-pane fade" id="action-bar-22" role="tabpanel"
+                          aria-labelledby="action-bar-22-tab"><img src="images/edit_task/unschedule.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Task Type -->
+                        <div class="tab-pane fade" id="action-bar-223" role="tabpanel"
+                          aria-labelledby="action-bar-223-tab"><img src="images/edit_task/task_type.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Task Duration -->
+                        <div class="tab-pane fade" id="action-bar-224" role="tabpanel"
+                          aria-labelledby="action-bar-224-tab"><img src="images/edit_task/task_duration.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Average Hour Per Day -->
+                        <div class="tab-pane fade" id="action-bar-225" role="tabpanel"
+                          aria-labelledby="action-bar-225-tab"><img src="images/edit_task/average_hours.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Schedule Mode -->
+                        <div class="tab-pane fade" id="action-bar-226" role="tabpanel"
+                          aria-labelledby="action-bar-226-tab"><img src="images/edit_task/schedule_mode.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Days off -->
+                        <div class="tab-pane fade" id="action-bar-227" role="tabpanel"
+                          aria-labelledby="action-bar-227-tab"><img src="images/edit_task/days_off.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Constraints -->
+                        <div class="tab-pane fade" id="action-bar-228" role="tabpanel"
+                          aria-labelledby="action-bar-228-tab"><img src="images/edit_task/constraint_type.png"
+                            class="img-fluid" alt=""></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <h4 class="mb-4"
+                        style="font-size:24px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                        Project Level Customization
+                        <span class="mx-auto d-block my-2"
+                          style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                      </h4>
+                      <p style="font-size: 18px;font-weight:500;color:#616060;line-height:30.06px;">
+                        Customize The
+                        Project UI </p>
+                    </div>
+                  </div>
+                  <div class="row m-0">
+                    <div class="col-md-8">
+                      <div class="tab-content d-flex align-items-center" id="myTabContent" style="min-height: 611px; ">
+                        <!-- Start Date -->
+                        <div class="tab-pane fade show active" id="action-bar-51" role="tabpanel"
+                          aria-labelledby="action-bar-51-tab"><img src="images/project_level/start.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- End Date -->
+                        <div class="tab-pane fade" id="action-bar-52" role="tabpanel"
+                          aria-labelledby="action-bar-52-tab"><img src="images/project_level/end.png" class="img-fluid"
+                            alt=""></div>
+
+                        <!-- Tooltip Settings -->
+                        <div class="tab-pane fade" id="action-bar-53" role="tabpanel"
+                          aria-labelledby="action-bar-53-tab"><img src="images/project_level/tooltip.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Dynamic Text -->
+                        <div class="tab-pane fade" id="action-bar-54" role="tabpanel"
+                          aria-labelledby="action-bar-54-tab"><img src="images/project_level/dynamic_text.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Dynamic Progress -->
+                        <div class="tab-pane fade" id="action-bar-55" role="tabpanel"
+                          aria-labelledby="action-bar-55-tab"><img src="images/project_level/dynamic_progress.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Days Off -->
+                        <div class="tab-pane fade" id="action-bar-56" role="tabpanel"
+                          aria-labelledby="action-bar-56-tab"><img src="images/project_level/days_off.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Quick Info -->
+                        <div class="tab-pane fade" id="action-bar-57" role="tabpanel"
+                          aria-labelledby="action-bar-57-tab"><img src="images/project_level/quick_info.png"
+                            class="img-fluid" alt=""></div>
+
+                        <!-- Mail User -->
+                        <div class="tab-pane fade" id="action-bar-60" role="tabpanel"
+                          aria-labelledby="action-bar-60-tab"><img src="images/project_level/mail_user.png"
+                            class="img-fluid" alt=""></div>
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-4 mb-3 overflow-auto" style="max-height: 612px;">
+                      <ul id="accordion4" class="nav py-3 px-3 flex-column accordion" style="background-color: #F3E9FF; margin-top: 15px; border-radius: 10px;" id="myTab" role="tablist">
+                        <!-- Start Date -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0  collapsed" id="action-bar-51-tab" data-toggle="tab"
+                            href="#action-bar-51" role="tab" aria-controls="action-bar-51" aria-selected="true"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width:90%;"
+                              data-target="#collapse51" data-toggle="collapse">Start Date<i
+                                style="color:#613B92;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #7a33d0;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse51" class=" collapse" data-parent="#accordion4"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">From here,
+                              the user can
+                              set
+                              the
+                              start date & time of the project.</p>
+                          </div>
+                        </div>
+
+                        <!-- End Date -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-52-tab" data-toggle="tab"
+                            href="#action-bar-52" role="tab" aria-controls="action-bar-52" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse52" data-toggle="collapse">End Date<i
+                                style="color:#613B92;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #7a33d0;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse52" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion4">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The End
+                              Date entry
+                              allows
+                              the
+                              user to set the end date & time of the project.</p>
+                          </div>
+                        </div>
+
+                        <!-- Tooltip Settings -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-53-tab" data-toggle="tab"
+                            href="#action-bar-53" role="tab" aria-controls="action-bar-53" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse53" data-toggle="collapse">Tooltip Settings
+
+
+
+                              <i style="color:#613B92;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #7a33d0;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse53" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion4">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Tooltip
+                              Settings
+                              allows
+                              you
+                              to customize the task information display in the Tooltip view by
+                              enabling/disabling
+                              the information. If you turn on these options, the related
+                              information will
+                              be
+                              shown
+                              in the Tooltip view.</p>
+                          </div>
+                        </div>
+
+                        <!-- Dynamic Text -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-54-tab" data-toggle="tab"
+                            href="#action-bar-54" role="tab" aria-controls="action-bar-54" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse54" data-toggle="collapse">Dynamic Text <i
+                                style="color: #613B92;;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #7a33d0;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse54" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion4">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The project
+                              name is
+                              often
+                              too
+                              long and does not fit the task bar in the Gantt View. If you
+                              turn on the
+                              Dynamic
+                              Text, the name will be adjusted and displayed beside it or else
+                              it will be
+                              shown
+                              within the bar.</p>
+                          </div>
+                        </div>
+
+                        <!-- Dynamic Progress -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-55-tab" data-toggle="tab"
+                            href="#action-bar-55" role="tab" aria-controls="action-bar-55" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse55" data-toggle="collapse">Dynamic Progress<i
+                                style="color: #613B92;;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #7a33d0;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse55" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion4">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Dynamic
+                              Progress lets
+                              you look
+                              into the percentage progress of a task quickly.</p>
+                          </div>
+                        </div>
+
+                        <!-- Days Off -->
+                        <li style="height:45px;" class="nav-item"><a
+                            style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-56-tab" data-toggle="tab"
+                            href="#action-bar-56" role="tab" aria-controls="action-bar-56" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse56" data-toggle="collapse">Days Off
+
+
+                              <i style="color: #613B92;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                        <div style="background-color: #7a33d0;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse56" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion4">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">The Days
+                              Off option
+                              accounts
+                              for the holidays & unproductive days in Gantt View. If you
+                              choose to hide
+                              them, they
+                              won’t be displayed in the Gantt View.</p>
+                          </div>
+                        </div>
+
+                        <!-- Quick Info -->
+                        <li style="height:45px;" class="nav-item">
+                          <a style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-57-tab" data-toggle="tab"
+                            href="#action-bar-57" role="tab" aria-controls="action-bar-57" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse57" data-toggle="collapse">Quick Info<i
+                                style="color: #613B92;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #7a33d0;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse57" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion4">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">If you
+                              click on the
+                              Project Bar
+                              in the Gantt View, you can view the Dynamic Progress. It shows
+                              the Start
+                              Date & the
+                              End Date of the project. There is also an edit & delete option
+                              to modify or
+                              delete
+                              the project.</p>
+                          </div>
+                        </div>
+
+                        <!-- Mail User -->
+                        <li style="height:45px;" class="nav-item">
+                          <a style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                            class="nav-link pl-0 pr-0 collapsed" id="action-bar-60-tab" data-toggle="tab"
+                            href="#action-bar-60" role="tab" aria-controls="action-bar-60" aria-selected="false"><i
+                              class="fa fa-file-text-o pr-2"></i><span style="display:inline-block; width: 90%;"
+                              data-target="#collapse60" data-toggle="collapse">Mail User<i
+                                style="color: #613B92;height:12px;width:12px"
+                                class="fa fa-plus pl-2 float-right"></i></span></a>
+                        </li>
+                        <div style="background-color: #7a33d0;border-radius: 10px;width:94%;" class="">
+                          <div id="collapse60" class=" collapse"
+                            style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;" data-parent="#accordion4">
+                            <p style="font-size:16px;line-height:26.72px;color:#fff">Mail User
+                              inputs the
+                              name of
+                              the user to whom email notifications are sent for the Task
+                              Timesheet
+                              Report(when the
+                              task achieves 90% completion) and Reminder Email Notification as
+                              a task is
+                              due in 7
+                              days, 3 days, and 1 day.</p>
+                          </div>
+                        </div>
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class=" pb-0">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h4 class="mb-4"
+                    style="font-size:24px;line-height:40px;font-weight:500;justify-content: center;color:#3D3B3B;">
+                    All
+                    Features
+                    <span class="mx-auto d-block my-2"
+                      style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                  </h4>
+                </div>
+              </div>
+              <div class="row px-2 m-0">
+                <div class="col-md-3 px-2  my-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                      Auto-Schedule
+                      <br>Tasks
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  my-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FFD8D8; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Critical
+                      <br>Path Tasks
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  my-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FFEAD8; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Eliminate
+                      <br>Unproductive Days
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  my-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #FFD8D8; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Deadline
+                      <br> Alert
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2   mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FFEAD8; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                      Presentation
+                      <br> Mod
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:#FFFBE9; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;"> Set Your
+                      <br>Milestones
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                      Multi-functional
+                      <br>Resource Panel
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Smart
+                      Display of
+                      <br>30000+ Tasks
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2   mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FDEEEE; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Email
+                      <br>Alerts
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #DCFAF1; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                      Multi-Project
+                      <br>Support
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #FFFBE9; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;"> 7 Themes
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3  px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #FADCF5;border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Graph
+                      <br> Overlay
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FFD8D8; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;"> Duration
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2 mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Grid </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Zoom To
+                      <br>Fit
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-2 px-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #FDEEEE; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;"> Today
+                      <br>Button
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2   mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Time
+                      <br>Sorting
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2 mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #FDEEEE; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Zoom In
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #FFEAD8; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                      Unschedule
+                      <br>Task
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2 mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #E5F5F7; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Task
+                      <br> Duration
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #F6FBE3; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Average
+                      Hour Per
+                      <br>Day
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #DCFAF1; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Schedule
+                      <br> Mode
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2 mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FDEEEE; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Days off
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2 mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                      Constraints
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Start &
+                      End
+                      Date of
+                      <br> Project Constraints
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2 mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FFD8D8;border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Tooltip
+                      <br>Settings
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2   mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FFEAD8;border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Dynamic
+                      <br> Text
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 mb-2 px-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #FFD8D8; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Dynamic
+                      <br>Progress
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:#F6FBE3; border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Quick
+                      <br>Info
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2 mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FFEAD8;border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Markers
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Taskbar
+                      <br>Color
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-3 px-2  mb-2 text-center">
+                  <div class="d-flex justify-content-center align-items-center"
+                    style="background-color:  #D4FCF2;border-radius: 10px;min-height:88px">
+                    <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Keyboard
+                      <br>Shortcuts
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2nd tab -->
+          <div class="tab-pane" id="tabs-61" role="tabpanel">
+            <div class="row px-2 pt-4 m-0">
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Auto-Schedule
+                    <br>Tasks
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FFD8D8; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Critical
+                    <br>Path Tasks
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FFEAD8; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Eliminate
+                    <br>Unproductive Days
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #FFD8D8; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Deadline
+                    <br> Alert
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2   my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FFEAD8; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Presentation
+                    <br> Mod
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:#FFFBE9; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Set Your
+                    <br>Milestones
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Multi-functional
+                    <br>Resource Panel
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Smart
+                    Display of
+                    <br>30000+ Tasks
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2   my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FDEEEE; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Email
+                    <br>Alerts
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #DCFAF1; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Multi-Project
+                    <br>Support
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #FFFBE9; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    7 Themes
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3  px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #FADCF5;border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Graph
+                    <br> Overlay
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FFD8D8; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Duration
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2 my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Grid </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Zoom To
+                    <br>Fit
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 my-2 px-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #FDEEEE; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Today
+                    <br>Button
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2   my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Time
+                    <br>Sorting
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2 my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #FDEEEE; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Zoom In
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #FFEAD8; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Unschedule
+                    <br>Task
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2 my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #E5F5F7; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Task
+                    <br> Duration
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #F6FBE3; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Average
+                    Hour Per
+                    <br>Day
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #DCFAF1; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Schedule
+                    <br> Mode
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2 my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FDEEEE; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Days off
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2 my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Constraints
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Start & End
+                    Date of
+                    <br> Project Constraints
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2 my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FFD8D8;border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Tooltip
+                    <br>Settings
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2   my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FFEAD8;border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Dynamic
+                    <br> Text
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 my-2 px-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #FFD8D8; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Dynamic
+                    <br>Progress
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:#F6FBE3; border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Quick
+                    <br>Info
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2 my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FFEAD8;border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Markers
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Taskbar
+                    <br>Color
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-3 px-2  my-2 text-center">
+                <div class="d-flex justify-content-center align-items-center"
+                  style="background-color:  #D4FCF2;border-radius: 10px;min-height:88px">
+                  <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                    Keyboard
+                    <br>Shortcuts
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3rd Tab -->
+          <div class="tab-pane" id="tabs-62" role="tabpanel">
+            <div class="row m-0">
+              <div class="container">
+                <div id="accordion6" class="accordion" style="">
+                  <div class="mt-5 mb-0">
+                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseFAQOne"
+                      style="background:none; cursor: pointer;">
+                      <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                        Q.1. What is a Gantt chart?<i class="fa fa-plus float-right pt-2" style="color: #8A8A8A;"></i>
+
+                      </a>
+                    </div>
+                    <div id="collapseFAQOne" class="card-body collapse" data-parent="#accordion6">
+                      <p style="font-size:16px;line-height:27px;color:#514F4F">
+                        Using Gantt Chart, you can simply organize & manage numerous tasks as
+                        you
+                        create & schedule projects with the assistance of a Gantt diagram.
+
+                      </p>
+                    </div>
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                      href="#collapseFAQTwo" style="background:none; cursor: pointer;">
+                      <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                        Q.2. Can I create Project, Task and Sub-task in the gantt view itself?<i
+                          class="fa fa-plus float-right pt-2" style="color: #8A8A8A;"></i>
+
+                      </a>
+                    </div>
+                    <div id="collapseFAQTwo" class="card-body collapse" data-parent="#accordion6">
+                      <p style="font-size:16px;line-height:27px;color:#514F4F"> Yes, it is possible to
+                        create projects along with tasks & sub-tasks utilizing the shortcuts like
+                        create and add buttons.
+                      </p>
+                    </div>
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                      href="#collapseFAQThree" style="background:none; cursor: pointer;">
+                      <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                        Q.3. How to set up a duration for specific tasks & milestones?<i
+                          class="fa fa-plus float-right pt-2" style="color: #8A8A8A;"></i>
+
+
+                      </a>
+                    </div>
+                    <div id="collapseFAQThree" class="collapse" data-parent="#accordion6">
+                      <div class="card-body">
+                        <p style="font-size:16px;line-height:27px;color:#514F4F"> Task Duration can
+                          be set by turning on the Enable Task Duration option from the Task Edit
+                          section. Enter the Duration (number of days) from a start date and the
+                          end date will be calculated accordingly. On the other hand, to set
+                          Milestones, utilize the Task Type functionality from the Gantt View
+                          Settings. From here you can mark a task as a general task or a milestone
+                          of the project. If you mark the task as a milestone, it will have a
+                          diamond-shaped display instead of a bar
+                        </p>
+                      </div>
+                    </div>
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                      href="#collapse4" style="background:none; cursor: pointer;">
+                      <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                        Q.4. How do I export the gantt chart?<i class="fa fa-plus float-right pt-2"
+                          style="color: #8A8A8A;"></i>
+                      </a>
+                    </div>
+                    <div id="collapse4" class="collapse" data-parent="#accordion6">
+                      <div class="card-body">
+                        <p style="font-size:16px;line-height:27px;color:#514F4F"> It’s pretty simple
+                          to export the Gantt chart by clicking on the Export button at the top
+                          left corner. Export the Gantt View in the format of your choice such as
+                          PDF, PNG, EXcel, Json, MS Project(XML), PrimaveraP6, iCal, etc.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                      href="#collapse5" style="background:none; cursor: pointer;">
+                      <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                        Q.5. Can I Link Tasks to Risks and Issues?<i class="fa fa-plus float-right pt-2"
+                          style="color: #8A8A8A;"></i>
+                      </a>
+                    </div>
+                    <div id="collapse5" class="collapse" data-parent="#accordion6">
+                      <div class="card-body">
+                        <p style="font-size:16px;line-height:27px;color:#514F4F"> You can easily
+                          link a task to potential risks, alterations, and issues making is quite
+                          simple for navigation in the software. The emerging problems get
+                          highlighted that require your attention & intervention. Critical Path
+                          lets you analyze an aberration caused due to overlapping of related task
+                          progress.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                      href="#collapse6" style="background:none; cursor: pointer;">
+                      <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                        Q.6. What is the difference between zoom to fit and zoom in? <i
+                          class="fa fa-plus float-right pt-2" style="color: #8A8A8A;"></i>
+
+
+                      </a>
+                    </div>
+                    <div id="collapse6" class="collapse" data-parent="#accordion6">
+                      <div class="card-body">
+                        <p style="font-size:16px;line-height:27px;color:#514F4F"> Well, they sound
+                          similar but are not the same. If we talk about Zoom To Fit, it is used
+                          to fit the Gantt chart display on the screen for your convenience. It
+                          simply fits the Gantt chart by adjusting the display of a project on the
+                          grid. On the other hand, Zoom In launches a magnified view of the Gantt
+                          View from where you can modify, brainstorm & explain the project details
+                          utilizing the wide range of Action Bar functionalities.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                      href="#collapse7" style="background:none; cursor: pointer;">
+                      <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                        Q.7. What are the shortcuts in Gantt View? <i class="fa fa-plus float-right pt-2"
+                          style="color: #8A8A8A;"></i>
+
+
+                      </a>
+                    </div>
+                    <div id="collapse7" class="collapse" data-parent="#accordion6">
+                      <div class="card-body">
+                        <p style="font-size:16px;line-height:27px;color:#514F4F"> In Gantt View, for
+                          your convenience, you can use shortcuts. There are the following
+                          combinations: 1) Tab -Press on Tab to select the entire graphical
+                          representation of Gantt View. 2) Alt + Left/Right- Simply hold the Alt
+                          key & the Left/Right key to move the Gantt view rightward or leftward.
+                          3) Space - By pressing the spacebar on the keyboard, you can select a
+                          task. 4) Enter - Press on Enter to open the task form. 5) Delete - The
+                          Delete key on the keyboard can be used to delete a task. 6) Ctrl +
+                          Left/Right - Hold the control key & left/right key to expand and
+                          collapse the Gantt View display.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="card-header collapsed border-bottom-0" data-toggle="collapse" data-parent="#accordion6"
+                      href="#collapse8" style="background:none; cursor: pointer;">
+                      <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                        Q.8. What kinds of email notifications do I receive? <i class="fa fa-plus float-right pt-2"
+                          style="color: #8A8A8A;"></i>
+
+
+                      </a>
+                    </div>
+                    <div id="collapse8" class="collapse" data-parent="#accordion6">
+                      <div class="card-body">
+                        <p style="font-size:16px;line-height:27px;color:#514F4F"> The Mail User
+                          option present inside the Project settings allows you to assign the user
+                          Here is the list of email notifications that you can receive: -
+                          Timesheet Email Notification It is sent to the user to whom the Task
+                          Timesheet Report is assigned to, once the task is 90% completed. -
+                          Reminder Email Notification When a task approaches its deadline, an
+                          email notification is sent as the task is due in 7 days, 3 days, and 1
+                          day. - Assignee Email Notification Whenever a user has been assigned
+                          with a task, he/she will get an email notification regarding the same.
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4th Tab -->
+          <div class="tab-pane" id="tabs-63" role="tabpanel">
+
+            <div class="row pt-5 m-0">
+              <div class="col-md-3">
+                <h4 style="font-size: 16px; color: #514F4F;margin: 0;line-height: 26px;"> Version
+                  15.0.1.0.1</h4>
+                <span style="font-size: 14px; color: #7A7979;display: block; margin-bottom: 20px;">11 February 2022</span>
+              </div>
+              <div class="col-md-8">
+                <div style="padding: 24px 0 40px; border-bottom: 1px solid #E3E3E3;">
+                  <div style="margin: 0 0 10px;">
+                    <div
+                      style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                      </div>
+                  </div>
+                  <p style="margin: 0;">
+                    <div style="display: inline-block; padding-right: 6px;">●</div>
+                    Gant view project code compatibility with project stages.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    <!-- End Of New Tabs -->
+
+
+    <!-- <div class="position-absolute" style="background-color: #f9f9f9; top: 0px; width: 100%; z-index: -1; height: 3%;">
+              </div> -->
+    <!-- background-color: #FFFFFF;box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05);border-radius: 10px; -->
+
+  </section>
+  <script src="https://code.jquery.com/jquery-1.8.0.min.js"
+    integrity="sha256-jFdOCgY5bfpwZLi0YODkqNXQdIxKpm6y5O/fy0baSzE=" crossorigin="anonymous"></script>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script>
+    $('.counter').each(function () {
+      var $this = $(this),
+        countTo = $this.attr('data-count');
+
+      $({ countNum: $this.text() }).animate({
+        countNum: countTo
+      },
+        {
+          duration: 8000,
+          easing: 'linear',
+          step: function () {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function () {
+            $this.text(this.countNum);
+            //alert('finished');
+          }
+        });
+    });
+
+  </script>
+</body>
+
+</html>

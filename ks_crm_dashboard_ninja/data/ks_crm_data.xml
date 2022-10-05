@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ks_crm" model="ks_dashboard_ninja.board_template">
+            <field name="name">CRM</field>
+            <field name="ks_gridstack_config">[
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_1", "data": {"x": 2, "y": 4, "w": 2, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_2", "data": {"x": 0, "y": 4, "w": 2, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_3", "data": {"x": 2, "y": 2, "w": 2, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_13", "data": {"x": 0, "y": 0, "w": 4, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_4", "data": {"x": 0, "y": 8, "w": 2, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_14", "data": {"x": 0, "y": 2, "w": 2, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_15", "data": {"x": 2, "y": 8, "w": 2, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_16", "data": {"x": 2, "y": 6, "w": 2, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_17", "data": {"x": 0, "y": 6, "w": 2, "h": 2}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_5", "data": {"x": 4, "y": 0, "w": 8, "h": 4}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_6", "data": {"x": 4, "y": 10, "w": 8, "h": 5}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_7", "data": {"x": 0, "y": 10, "w": 4, "h": 5}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_8", "data": {"x": 8, "y": 4, "w": 4, "h": 6}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_9", "data": {"x": 0, "y": 15, "w": 4, "h": 5}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_10", "data": {"x": 4, "y": 4, "w": 4, "h": 6}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_11", "data": {"x": 0, "y": 20, "w": 12, "h": 4}},
+                {"item_id":"ks_crm_dashboard_ninja.ks_crm_item_12", "data": {"x": 4, "y": 15, "w": 8, "h": 5}}
+                ]
+            </field>
+            <field name="ks_item_count">17</field>
+        </record>
+
+        <record id="ks_crm_item_1" model="ks_dashboard_ninja.item">
+            <field name="name">MY Opportunity</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"],["user_id","=","%UID"]]</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">yellow</field>
+            <field name="ks_background_color">#f0ad4e,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout3</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+        <record id="ks_crm_item_2" model="ks_dashboard_ninja.item">
+            <field name="name">Total leads</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[['type','=','lead']]</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">red</field>
+            <field name="ks_background_color">#d9534f,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout3</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+        <record id="ks_crm_item_3" model="ks_dashboard_ninja.item">
+            <field name="name">Total Opportunity</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"]]</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">green</field>
+            <field name="ks_background_color">#5cb85c,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout2</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+        <record id="ks_crm_item_13" model="ks_dashboard_ninja.item">
+            <field name="name">Total Revenue</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">sum</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"],["stage_id.is_won","=",True]]</field>
+            <field name="ks_record_field" eval="ref('crm.field_crm_lead__expected_revenue')"/>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">green</field>
+            <field name="ks_background_color">#5cb85c,0.99</field>
+            <field name="ks_font_color">#5cb85c,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout4</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+        <record id="ks_crm_item_4" model="ks_dashboard_ninja.item">
+            <field name="name">Opportunity win lose ratio</field>
+            <field name="ks_dashboard_item_type">ks_kpi</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_record_count_type_2">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_model_id_2" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"],["active","=",True],["stage_id.is_won","=",True]]</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_domain_2">[["type","=","opportunity"],["active","=",False]]</field>
+            <field name="ks_data_comparison">Ratio</field>
+            <field name="ks_date_filter_field_2" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">blue</field>
+            <field name="ks_background_color">#0000FF</field>
+            <field name="ks_font_color">#ffffff</field>
+            <field name="ks_default_icon_color">#ffffff</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+        <record id="ks_crm_item_5" model="ks_dashboard_ninja.item">
+            <field name="name">Salesperson wise Opportunity</field>
+            <field name="ks_dashboard_item_type">ks_bar_chart</field>
+            <field name="ks_chart_data_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"]]</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_chart_relation_groupby" eval="ref('crm.field_crm_lead__user_id')"/>
+            <field name="ks_chart_item_color">default</field>
+            <field name="ks_show_data_value">1</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+        <record id="ks_crm_item_6" model="ks_dashboard_ninja.item">
+            <field name="name">Sales team wise Opportunity</field>
+            <field name="ks_dashboard_item_type">ks_bar_chart</field>
+            <field name="ks_chart_data_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"]]</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_chart_relation_groupby" eval="ref('crm.field_crm_lead__team_id')"/>
+            <field name="ks_chart_item_color">cool</field>
+            <field name="ks_show_data_value">1</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+        <record id="ks_crm_item_7" model="ks_dashboard_ninja.item">
+            <field name="name">Stage wise Opportunity</field>
+            <field name="ks_dashboard_item_type">ks_bar_chart</field>
+            <field name="ks_chart_data_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"]]</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_chart_relation_groupby" eval="ref('crm.field_crm_lead__stage_id')"/>
+            <field name="ks_chart_item_color">warm</field>
+            <field name="ks_show_data_value">1</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+<!--        expected_revenue-->
+        <record id="ks_crm_item_8" model="ks_dashboard_ninja.item">
+            <field name="name">Revenue Salesperson wise</field>
+            <field name="ks_dashboard_item_type">ks_pie_chart</field>
+            <field name="ks_chart_data_count_type">sum</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"],["stage_id.is_won","=",True]]</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_chart_measure_field"
+                   eval="[(6, 0, [ref('crm.field_crm_lead__expected_revenue')])]"/>
+            <field name="ks_chart_relation_groupby" eval="ref('crm.field_crm_lead__user_id')"/>
+            <field name="ks_chart_item_color">cool</field>
+            <field name="ks_show_data_value">1</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+        <record id="ks_crm_item_9" model="ks_dashboard_ninja.item">
+            <field name="name">Priority wise opportunity</field>
+            <field name="ks_dashboard_item_type">ks_pie_chart</field>
+            <field name="ks_chart_data_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"]]</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_chart_relation_groupby" eval="ref('crm.field_crm_lead__priority')"/>
+            <field name="ks_chart_relation_sub_groupby" eval="ref('crm.field_crm_lead__user_id')"/>
+            <field name="ks_chart_item_color">neon</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+        <record id="ks_crm_item_10" model="ks_dashboard_ninja.item">
+            <field name="name">Opportunity Salesperson and stage wise</field>
+            <field name="ks_dashboard_item_type">ks_line_chart</field>
+            <field name="ks_chart_data_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"]]</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_chart_relation_groupby" eval="ref('crm.field_crm_lead__stage_id')"/>
+            <field name="ks_chart_relation_sub_groupby" eval="ref('crm.field_crm_lead__user_id')"/>
+            <field name="ks_chart_item_color">default</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+
+
+         <record id="ks_crm_item_11" model="ks_dashboard_ninja.item">
+            <field name="name">Top 5 probability Opportunity customer wise</field>
+            <field name="ks_dashboard_item_type">ks_horizontalBar_chart</field>
+            <field name="ks_chart_data_count_type">sum</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"]]</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_chart_measure_field"
+                   eval="[(6, 0, [ref('crm.field_crm_lead__probability')])]"/>
+            <field name="ks_sort_by_field" eval="ref('crm.field_crm_lead__probability')"/>
+            <field name="ks_chart_relation_groupby" eval="ref('crm.field_crm_lead__partner_id')"/>
+            <field name="ks_sort_by_order">DESC</field>
+            <field name="ks_record_data_limit">5</field>
+            <field name="ks_chart_item_color">cool</field>
+            <field name="ks_show_data_value">1</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+         <record id="ks_crm_item_12" model="ks_dashboard_ninja.item">
+            <field name="name">Campaign wise lead</field>
+            <field name="ks_dashboard_item_type">ks_line_chart</field>
+            <field name="ks_chart_data_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","lead"]]</field>
+            <field name="ks_chart_groupby_type">relational_type</field>
+            <field name="ks_chart_relation_groupby" eval="ref('crm.field_crm_lead__campaign_id')"/>
+            <field name="ks_chart_item_color">default</field>
+            <field name="ks_show_data_value">1</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+         <record id="ks_crm_item_14" model="ks_dashboard_ninja.item">
+            <field name="name">New Opportunites</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"],["stage_id.name","ilike","New"]]</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">green</field>
+            <field name="ks_background_color">#5cb85c,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">"#ffffff,0.99</field>
+            <field name="ks_layout">layout6</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+         <record id="ks_crm_item_15" model="ks_dashboard_ninja.item">
+            <field name="name">Won Opportunites</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"],["stage_id.name","ilike","Won"]]</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">white</field>
+            <field name="ks_background_color">#ffffff,0.99</field>
+            <field name="ks_font_color">#000000,0.99</field>
+            <field name="ks_default_icon_color">#000000,0.99</field>
+            <field name="ks_layout">layout2</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+         <record id="ks_crm_item_16" model="ks_dashboard_ninja.item">
+            <field name="name">Proposition Opportunites</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"],["stage_id.name","ilike","Proposition"]]</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">yellow</field>
+            <field name="ks_background_color">#f0ad4e,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout5</field>
+            <field name="ks_company_id" eval="0"/>
+         </record>
+
+         <record id="ks_crm_item_17" model="ks_dashboard_ninja.item">
+             <field name="name">Qualified Opportunites</field>
+            <field name="ks_dashboard_item_type">ks_tile</field>
+            <field name="ks_record_count_type">count</field>
+            <field name="ks_model_id" eval="ref('crm.model_crm_lead')"/>
+            <field name="ks_domain">[["type","=","opportunity"],["stage_id.name","ilike","Qualified"]]</field>
+            <field name="ks_date_filter_field" eval="ref('crm.field_crm_lead__create_date')"/>
+            <field name="ks_default_icon">money</field>
+            <field name="ks_dashboard_item_theme">blue</field>
+            <field name="ks_background_color">#337ab7,0.99</field>
+            <field name="ks_font_color">#ffffff,0.99</field>
+            <field name="ks_default_icon_color">#ffffff,0.99</field>
+            <field name="ks_layout">layout3</field>
+            <field name="ks_company_id" eval="0"/>
+        </record>
+
+                <!-- Single CRM Demo Dashboard Templates-->
+
+        <record id="demo_crm_dashboard" model="ks_dashboard_ninja.board">
+            <field name="name">CRM Dashboard</field>
+            <field name="ks_dashboard_menu_name">CRM Dashboard</field>
+            <field name="ks_dashboard_top_menu_id" eval="ref('crm.crm_menu_root')"/>
+            <field name="ks_dashboard_default_template" eval="ref('ks_crm_dashboard_ninja.ks_crm')"/>
+            <field name="ks_dashboard_active">1</field>
+            <field name="ks_dashboard_group_access" eval="False"/>
+            <field name="ks_dashboard_menu_sequence" eval="1"/>
+        </record>
+
+    </data>
+
+</odoo>

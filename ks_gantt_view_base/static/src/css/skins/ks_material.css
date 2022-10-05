@@ -1,0 +1,10 @@
+ .gantt_tree_icon.gantt_open,
+ .gantt_tree_icon.gantt_close {
+    background-size: 13px !important;
+}
+div.gantt_task_line{
+    border-radius: 30px;
+}
+.gantt_task_line .gantt_link_control {
+    border-color: initial !important;
+}

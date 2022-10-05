@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+
+        <record id="ks_hr_leave_view_gantt" model="ir.ui.view">
+            <field name="name">Time Off Gantt View</field>
+            <field name="model">hr.leave</field>
+            <field name="arch" type="xml">
+                <ks_gantt
+                        ks_task_start_date="date_from"
+                        ks_task_end_date="date_to"
+                        ks_task_id="id"
+                        ks_task_name="name"
+                        ks_task_duration="number_of_days"
+                        ks_task_stage_id="state"
+                        ks_task_color="ks_stage_color"
+                        ks_owner_task="employee_id"
+                        ks_resource_hours_available="ks_resource_hours_available"
+                        ks_gantt_config='{
+                            "ks_hide_graph_overlay": "True",
+                            "ks_hide_deadline": "True",
+                            "ks_hide_sub_task_icon": "True"
+                        }'
+                        ks_task_link="ks_hr_leave_link_json"
+                        ks_task_link_info='{
+                            "ks_link_source": "ks_source_hr_leave_id",
+                            "ks_link_target": "ks_target_hr_leave_id"
+                        }'
+                        ks_export_field='["name", "holiday_status_id", "date_from", "date_to", "number_of_days",
+                    "holiday_type", "employee_id", "department_id", "request_date_from",
+                    "request_date_to"]'
+                >
+                </ks_gantt>
+            </field>
+        </record>
+
+        <record id="hr_holidays.hr_leave_action_new_request" model="ir.actions.act_window">
+            <field name="view_mode">calendar,tree,form,activity,ks_gantt</field>
+        </record>
+
+        <record id="hr_holidays.hr_leave_action_action_approve_department" model="ir.actions.act_window">
+            <field name="view_mode">tree,kanban,form,calendar,activity,ks_gantt</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,141 @@
+<odoo>
+    <data>
+        <record id="mail_template_offboarding_creation_mail" model="mail.template">
+            <field name="name">Offboarding Request</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="email_to">finance@bbi-consultancy.com,people.team@bbi-consultancy.com,helpdesk@bbi-consultancy.com</field>
+            <field name="subject">Offboarding Request </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+                    <p>Dears,
+                        <br></br>
+                        Hope this mail finds you well,
+                        <br></br>
+                        I am writing to let you know there’s a new offboarding request for “${object.employee_name.name}” opened in odoo
+                        <br></br>
+                        <br></br>
+                        Best regards
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_offboarding_hr_request_mail" model="mail.template">
+            <field name="name">Offboarding Reques</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="email_to">${object.get_email_to_hr() |safe}</field>
+            <field name="subject">Offboarding Request </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR ,
+                        <br></br>
+                        There’s a new offboarding request opened in odoo for “${object.employee_name.name}”
+                        <br></br>
+                        please go to odoo to complete the request Number “${object.name} ”
+                        <br></br>
+                        To reach the request go to the ESS Module -> Organization Request -> Offboarding Request
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        Best regards
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_offboarding_it_request_mail" model="mail.template">
+            <field name="name">Offboarding Reques</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="email_to">${object.get_email_to_it() |safe}</field>
+            <field name="subject">Offboarding Request </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR ,
+                        <br></br>
+                        There’s a new offboarding request opened in odoo for “${object.employee_name.name}”
+                        <br></br>
+                        please go to odoo to complete the request Number “${object.name} ”
+                        <br></br>
+                        To reach the request go to the ESS Module -> Organization Request -> Offboarding Request
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        Best regards
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_offboarding_finance_request_mail" model="mail.template">
+            <field name="name">Offboarding Reques</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="email_to">${object.get_email_to_finance() |safe}</field>
+            <field name="subject">Offboarding Request </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR ,
+                        <br></br>
+                        There’s a new offboarding request opened in odoo for “${object.employee_name.name}”
+                        <br></br>
+                        please go to odoo to complete the request Number “${object.name} ”
+                        <br></br>
+                        To reach the request go to the ESS Module -> Organization Request -> Offboarding Request
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        Best regards
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_offboarding_erp_request_mail" model="mail.template">
+            <field name="name">Offboarding Reques</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="email_to">${object.get_email_to_erp() |safe}</field>
+            <field name="subject">Offboarding Request </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR ,
+                        <br></br>
+                        There’s a new offboarding request opened in odoo for “${object.employee_name.name}”
+                        <br></br>
+                        please go to odoo to complete the request Number “${object.name} ”
+                        <br></br>
+                        To reach the request go to the ESS Module -> Organization Request -> Offboarding Request
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        Best regards
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

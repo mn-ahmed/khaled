@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="assets_backend" name="ks GanttView assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/ks_gantt_view_base/static/src/js/ks_gantt_controller.js"/>
+                <script type="text/javascript" src="/ks_gantt_view_base/static/src/js/ks_gantt_model.js"/>
+                <script type="text/javascript" src="/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js"/>
+                <script type="text/javascript" src="/ks_gantt_view_base/static/src/js/ks_gantt_view.js"/>
+                <script type="text/javascript" src="/ks_gantt_view_base/static/src/js/ks_recommend_colorpicker.js"/>
+
+                <!-- style sheet-->
+                <link rel="stylesheet" href="/ks_gantt_view_base/static/src/scss/ks_mixins.scss"/>
+                <link rel="stylesheet" href="/ks_gantt_view_base/static/src/scss/ks_control_panel.scss"/>
+                <!-- Custom css to modify existing theme design -->
+                <link rel="stylesheet" href="/ks_gantt_view_base/static/src/scss/ks_web_gantt.scss"/>
+                <link rel="stylesheet" href="/ks_gantt_view_base/static/src/scss/ks_control_panel_slider.scss"/>
+
+                <script type="text/javascript" src="/ks_gantt_view_base/static/lib/gantt_7.0.11_commercial/codebase/sources/dhtmlxgantt.js"/>
+
+                <script type="text/javascript" src="/ks_gantt_view_base/static/lib/gantt_export.js"/>
+                <script type="text/javascript" src="/ks_gantt_view_base/static/lib/gantt_fullscreen.js"/>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js?v=7.0.11"/>
+
+            </xpath>
+        </template>
+</odoo>

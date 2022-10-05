@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <record id="mail_template_reminder_emp_survey" model="mail.template">
+            <field name="name">Employee survey </field>
+            <field name="model_id" ref="onboarding_employee_appraisal.model_hr_appraisal"/>
+            <field name="email_to">${object.emp_id.work_email |safe}</field>
+            <field name="subject">Employee survey</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+                    <p>Dear,
+                        <br></br>
+                        reminder to do employee survey
+                        <br></br>
+                         % if object.emp_record_url
+                            <div style="margin: 16px 0px 16px 0px;">
+                                <a href="${object.emp_record_url}"
+                                    style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;">Start Survey</a>
+                            </div>
+                        % endif
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_reminder_manager_survey" model="mail.template">
+            <field name="name">manager evaluation survey </field>
+            <field name="model_id" ref="onboarding_employee_appraisal.model_hr_appraisal"/>
+            <field name="email_to">${object.emp_id.parent_id.work_email |safe}</field>
+            <field name="subject">Manager Evaluation Survey</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+                    <p>Dear,
+                        <br></br>
+                        reminder to do manager evaluation survey
+                        <br></br>
+                        <br></br>
+                         % if object.manager_record_url
+                            <div style="margin: 16px 0px 16px 0px;">
+                                <a href="${object.manager_record_url}"
+                                    style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size: 13px;">Start Survey</a>
+                            </div>
+                        % endif
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="hr.leave.gantt.settings" id="ks_gantt_view_hr_holidays.ks_gantt_view_holidays_data_settings">
+            <field name="ks_enable_dynamic_text">True</field>
+            <field name="ks_enable_dynamic_progress">False</field>
+            <field name="ks_enable_quickinfo_extension">True</field>
+            <field name="ks_tooltip_task_name">True</field>
+            <field name="ks_tooltip_task_duration">True</field>
+            <field name="ks_tooltip_task_start_date">True</field>
+            <field name="ks_tooltip_task_end_date">True</field>
+            <field name="ks_tooltip_task_stage">True</field>
+        </record>
+    </data>
+</odoo>

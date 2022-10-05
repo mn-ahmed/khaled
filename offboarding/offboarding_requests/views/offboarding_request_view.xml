@@ -1,0 +1,134 @@
+<odoo>
+  <data>
+
+      <record id="offboarding_request_form_view" model="ir.ui.view">
+            <field name="name">Offboarding Request Form</field>
+            <field name="model">offboarding.request</field>
+            <field name="arch" type="xml">
+                <form string="Offboarding Request">
+                    <header>
+                        <button name="hr_approve" type="object"
+                                string="HR Approve" class="oe_highlight"
+                                states="hr"
+                                groups="offboarding.offboarding_request_hr_group"/>
+
+                        <button name="it_approve" type="object"
+                                string="IT Approve" class="oe_highlight"
+                                states="it"
+                                groups="offboarding.offboarding_request_it_group"/>
+
+                        <button name="finance_approve" type="object"
+                                string="Finance Approve" class="oe_highlight"
+                                states="finance"
+                                groups="offboarding.offboarding_request_finance_group"/>
+
+                        <button name="erp_approve" type="object"
+                                string="ERP Aprrove"
+                                states="erp"
+                                class="oe_highlight"
+                                groups="offboarding.offboarding_request_erp_group"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" /></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_name"/>
+                                <field name="employee_full_name"/>
+                                <field name="employee_email"/>
+                                <field name="employee_direct_manager"/>
+                                <field name="bbi_last_date"/>
+                            </group>
+                            <group>
+                                <field name="employee_project" widget="many2many_tags" />
+                                <field name="employee_project_manager"/>
+                                <field name="employee_laptop"/>
+                                <field name="vacations_balance"/>
+                            </group>
+
+                            <group>
+                                <group>
+                                  <label for="hr_dep" string="HR Department"  style="font-weight: bold;"/>
+                                      <group>
+                                          <field name="hr_dep" invisible='1'/>
+                                          <field name="medical_card"/>
+                                          <field name="sim_card"/>
+                                          <field name="access_card"/>
+                                          <field name="uniform" />
+                                          <field name="Company_key"/>
+                                      </group>
+                                </group>
+                                <group>
+                                  <label for="it_dep" string="IT Department"  style="font-weight: bold;"/>
+                                      <group>
+                                          <field name="it_dep" invisible='1'/>
+                                          <field name="laptop_handover"/>
+                                          <field name="email_handover"/>
+                                      </group>
+                                </group>
+                            </group>
+
+                            <group>
+                              <group>
+                                  <label for="finance_dep" string="Finance Department"  style="font-weight: bold;"/>
+                                      <group>
+                                          <field name="finance_dep" invisible='1'/>
+                                          <field name="no_loan"/>
+                                          <field name="signed_resignations"/>
+                                          <field name="fully_paid"/>
+                                      </group>
+                              </group>
+
+                              <group>
+                                  <label for="erp_dep" string="ERP Department"  style="font-weight: bold;"/>
+                                      <group>
+                                          <field name="erp_dep"/>
+                                          <field name="user_deactivated"/>
+                                      </group>
+                              </group>
+
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+      <record id="offboarding_request_tree_view" model="ir.ui.view">
+            <field name="name">Offboarding Request Tree</field>
+            <field name="model">offboarding.request</field>
+            <field name="arch" type="xml">
+                <tree string="Offboarding Request">
+                    <field name="name"/>
+                    <field name="employee_name"/>
+                    <field name="employee_direct_manager"/>
+                    <field name="employee_project_manager"/>
+                    <field name="bbi_last_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+      <record id="offboarding_request_action" model="ir.actions.act_window">
+          <field name="name">Offboarding Request</field>
+          <field name="res_model">offboarding.request</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="Offboarding Request"
+                  id="offboarding_request_menu"
+                  parent="employees_self_services.organization_request_ess_menu"
+                  groups="offboarding.offboarding_request_erp_group,offboarding.offboarding_request_finance_group,offboarding.offboarding_request_it_group,offboarding.offboarding_request_hr_group"
+                  action="offboarding_request_action" sequence="3"/>
+
+  </data>
+</odoo>

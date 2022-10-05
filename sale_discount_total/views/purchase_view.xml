@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="discount_purchase_view_form" model="ir.ui.view">
+            <field name="name">discount.purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+               
+                <xpath expr="//field[@name='notes']" position="after">
+                    <group name="note_group" col="6">
+                        <group name="discount" colspan="2">
+                            <field name="discount_type"/>
+                            <field name="discount_rate"/>
+                        </group>
+
+                        <group class="oe_subtotal_footer oe_right" colspan="2" name="purchase_total">
+                            <field name="amount_untaxed" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_discount" widget='monetary'
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_tax" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                <label for="amount_total"/>
+                                <button name="button_dummy"
+                                        states="draft,sent" string="(update)" type="object"
+                                        class="oe_edit_only oe_link"/>
+                            </div>
+                            <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator"
+                                   widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                        
+                        <div class="oe_clear"/>
+                    </group>
+
+                </xpath>
+                <!-- Roundoff the discount field -->
+               <xpath expr="//notebook/page/field[@name='order_line']/tree/field[@name='product_qty']" position="after">
+                       <field name="discount" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

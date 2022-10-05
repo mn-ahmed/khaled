@@ -1,0 +1,131 @@
+<odoo>
+    <data>
+        <record id="mail_template_resignation_request_direct_manager_mail" model="mail.template">
+            <field name="name">Resignation Request</field>
+            <field name="model_id" ref="model_resignation_request"/>
+            <field name="email_to">${object.employee_direct_manager.work_email |safe}</field>
+            <field name="subject">Resignation Request </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear ${object.employee_direct_manager.name} ,
+                        <br></br>
+                        This is to inform you that “${object.employee_name.name}”
+                        submitted his resignation request Number “${object.name} ” and waiting your action.
+                        <br></br>
+                        <br></br>
+                        To reach the request go to the ESS Module -> Manager to Approve -> Resignation Request
+                        <br></br>
+                        <br></br>
+
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_resignation_request_hr_mail" model="mail.template">
+            <field name="name">Resignation Request</field>
+            <field name="model_id" ref="model_resignation_request"/>
+            <field name="email_to">${object.get_email_to_hr() |safe}</field>
+            <field name="subject">Resignation Request </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR ,
+                        <br></br>
+                        This is to inform you that “${object.employee_name.name}”
+                        submitted his resignation request Number “${object.name} ” ,
+                        <br></br>
+                        and Manager “${object.employee_direct_manager.name}” approved , and now waiting your action.
+                        <br></br>
+                        <br></br>
+                        To reach the request go to the ESS Module -> Manager to Approve -> HR Approve -> Resignation Request
+                        <br></br>
+                        <br></br>
+
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_resignation_request_user_approve_mail" model="mail.template">
+            <field name="name">Resignation Request</field>
+            <field name="model_id" ref="model_resignation_request"/>
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject">Resignation Request Approved </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear ${object.employee_name.name} ,
+                        <br></br>
+
+                        This is to inform you that your resignation is approved by HR department and
+                        your off boarding cycle Is going to start
+                        <br></br>
+                        <br></br>
+
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_resignation_request_user_reject_mail" model="mail.template">
+            <field name="name">Resignation Request</field>
+            <field name="model_id" ref="model_resignation_request"/>
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject">Resignation Request Rejected </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear ${object.employee_name.name} ,
+                        <br></br>
+
+                        This is to inform you that your resignation is rejected by HR department / Direct
+                        manager for the following reason
+                        <br></br>
+                        <br></br>
+                        Reason :
+                        ${object.reject_reason}
+
+                        <br></br>
+                        <br></br>
+                            Please go and resubmit if the reason is related to the Last day date or wrong
+                            information, ignore if it is for any other reason.
+                        <br></br>
+                        <br></br>
+
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

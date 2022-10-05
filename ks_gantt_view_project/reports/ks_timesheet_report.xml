@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="report_ks_gantt_tasks_timesheet">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="task">
+                        <div class="page" style="page-break-after:always">
+                            <div>
+                                <t t-set="ks_task_heading" t-value="task.name + ' (' + task.project_id.name + ') ' +
+                                ' Timesheet List'"/>
+                                <h2 t-esc="ks_task_heading"/>
+                                <div>
+                                    <span>
+                                        <b>Initially Planned Hours: </b><t t-esc="task.planned_hours"
+                                                                           t-options="{'widget': 'float_time'}"/>
+                                    </span>
+                                    <span style="float: right">
+                                        <b>Hours Spent:</b> <t t-esc="task.effective_hours"
+                                                               t-options="{'widget': 'float_time'}"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <table class="table table-sm o_main_table">
+                                <thead style="display: table-row-group">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Employee</th>
+                                        <th>Description</th>
+                                        <th>Duration (Hours)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="task.timesheet_ids" t-as="doc">
+                                        <tr>
+                                            <td>
+                                                <t t-esc="doc.date"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="doc.employee_id.name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="doc.name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="doc.unit_amount" t-options="{'widget': 'float_time'}"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_report_gantt_tasks_timesheet" model="ir.actions.report">
+            <field name="name">Print Timesheet</field>
+            <field name="model">project.task</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ks_gantt_view_project.report_ks_gantt_tasks_timesheet</field>
+            <field name="report_file">ks_gantt_view_project.report_ks_gantt_tasks_timesheet</field>
+            <field name="print_report_name">object.name + ' timesheet'
+            </field>
+            <field name="binding_model_id" ref="model_project_task"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

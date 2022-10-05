@@ -1,0 +1,73 @@
+<odoo>
+    <data noupdate="0">
+
+        <record id="offboarding_request_hr_group" model="res.groups">
+            <field name="name">Offboarding HR</field>
+            <field name="category_id" ref="offboarding.offboarding_request_module_category"/>
+        </record>
+
+        <record id="offboarding_request_it_group" model="res.groups">
+            <field name="name">Offboarding IT</field>
+            <field name="category_id" ref="offboarding.offboarding_request_module_category"/>
+        </record>
+
+        <record id="offboarding_request_finance_group" model="res.groups">
+            <field name="name">Offboarding Finance</field>
+            <field name="category_id" ref="offboarding.offboarding_request_module_category"/>
+        </record>
+
+        <record id="offboarding_request_erp_group" model="res.groups">
+            <field name="name">Offboarding ERP</field>
+            <field name="category_id" ref="offboarding.offboarding_request_module_category"/>
+        </record>
+
+<!--        <record id="user_request_offboarding_rule" model="ir.rule">-->
+<!--            <field name="name">user records assignment Rule</field>-->
+<!--            <field name="model_id" ref="model_offboarding_request"/>-->
+<!--            <field name="domain_force">-->
+<!--                [('employee_name.user_id','=',user.id)]-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="all_record_hr_offboarding_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="groups" eval="[(4, ref('offboarding.offboarding_request_hr_group'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="all_record_it_offboarding_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="groups" eval="[(4, ref('offboarding.offboarding_request_it_group'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="all_record_finance_offboarding_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="groups" eval="[(4, ref('offboarding.offboarding_request_finance_group'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="all_record_erp_offboarding_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_offboarding_request"/>
+            <field name="groups" eval="[(4, ref('offboarding.offboarding_request_erp_group'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+    </data>
+</odoo>

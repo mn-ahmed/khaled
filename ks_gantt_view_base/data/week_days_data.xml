@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="ks_week_day_0" model="ks.week.days">
+            <field name="ks_day_name">Sunday</field>
+            <field name="ks_day_no">0</field>
+        </record>
+
+        <record id="ks_week_day_1" model="ks.week.days">
+            <field name="ks_day_name">Monday</field>
+            <field name="ks_day_no">1</field>
+        </record>
+
+        <record id="ks_week_day_2" model="ks.week.days">
+            <field name="ks_day_name">Tuesday</field>
+            <field name="ks_day_no">2</field>
+        </record>
+
+        <record id="ks_week_day_3" model="ks.week.days">
+            <field name="ks_day_name">Wednesday</field>
+            <field name="ks_day_no">3</field>
+        </record>
+
+        <record id="ks_week_day_4" model="ks.week.days">
+            <field name="ks_day_name">Thursday</field>
+            <field name="ks_day_no">4</field>
+        </record>
+
+        <record id="ks_week_day_5" model="ks.week.days">
+            <field name="ks_day_name">Friday</field>
+            <field name="ks_day_no">5</field>
+        </record>
+
+        <record id="ks_week_day_6" model="ks.week.days">
+            <field name="ks_day_name">Saturday</field>
+            <field name="ks_day_no">6</field>
+        </record>
+    </data>
+</odoo>

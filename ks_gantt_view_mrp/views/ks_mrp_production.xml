@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+
+        <record id="ks_mrp_production_view_gantt" model="ir.ui.view">
+            <field name="name">MRP Production Gantt View</field>
+            <field name="model">mrp.production</field>
+            <field name="arch" type="xml">
+                <ks_gantt
+                        ks_task_start_date="ks_datetime_start"
+                        ks_task_end_date="ks_datetime_end"
+                        ks_task_id="id"
+                        ks_task_name="name"
+                        ks_mark_as_important="priority"
+                        ks_owner_task="user_id"
+                        ks_task_stage_id="state"
+                        ks_unschedule="ks_task_unschedule"
+                        ks_task_link="ks_task_link_json"
+                        ks_task_link_info='{
+                            "ks_link_source": "ks_source_mrp_id",
+                            "ks_link_target": "ks_target_mrp_id"
+                        }'
+                        ks_gantt_config='{
+                            "ks_hide_graph_overlay": "True",
+                            "ks_hide_deadline": "True",
+                            "ks_hide_task_reorder": "True",
+                            "ks_hide_sub_task_icon": "True"
+                        }'
+                        ks_work_duration="ks_work_duration"
+                        ks_constraint_task_type="ks_constraint_task_type"
+                        ks_constraint_task_date="ks_constraint_task_date"
+                        ks_resource_hours_available="ks_resource_hours_available"
+                        ks_task_color="ks_stage_color"
+                        ks_schedule_mode="ks_schedule_mode"
+                        ks_export_field='[
+                                          "name",
+                                          "product_id",
+                                          "product_qty",
+                                          "qty_producing",
+                                          "lot_producing_id",
+                                          "bom_id",
+                                          "date_planned_start",
+                                          "user_id",
+                                          "company_id",
+                                          "picking_type_id",
+                                          "origin",
+                                          "ks_task_unschedule",
+                                          "ks_enable_task_duration",
+                                          "ks_datetime_start",
+                                          "ks_datetime_end",
+                                          "ks_task_duration",
+                                          "ks_schedule_mode",
+                                          "ks_constraint_task_type",
+                                          "ks_constraint_task_date",
+                                          "state",
+                                          "product_uom_id"
+                                        ]'
+                >
+                </ks_gantt>
+            </field>
+        </record>
+
+        <record id="mrp.mrp_production_action" model="ir.actions.act_window">
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,ks_gantt</field>
+        </record>
+
+        <record id="mrp.mrp_production_report" model="ir.actions.act_window">
+            <field name="view_mode">graph,pivot,form,ks_gantt</field>
+        </record>
+    </data>
+</odoo>

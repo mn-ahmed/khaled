@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="ks_view_task_form" model="ir.ui.view">
+            <field name="name">Ks Task Form View</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <!-- '&lt;' means '<' -->
+                    <button name="ks_action_send_email_tasks" type="object" class="btn btn-secondary"
+                            attrs="{'invisible': [('progress', '&lt;', 90)]}" string="Send Email" groups="hr_timesheet.group_hr_timesheet_user"/>
+                </xpath>
+                <xpath expr="//notebook//page[@name='description_page']" position="after">
+                    <page name="ks_gantt_task_setting" string="Gantt Detail">
+                        <group>
+                            <group>
+                                <field name="ks_task_unschedule"/>
+                                <field name="ks_task_type"/>
+                                <field name="ks_enable_task_duration" widget="boolean_toggle"
+                                       attrs="{'invisible': [('ks_task_type', '=', 'milestone')]}"/>
+                                <field name="ks_start_datetime"
+                                       attrs="{'readonly': [('ks_schedule_mode', '=', 'auto')]}"/>
+                                <field name="ks_task_duration"
+                                       attrs="{'invisible': ['|', ('ks_enable_task_duration', '=', False), ('ks_task_type', '=', 'milestone')]}"/>
+                                <field name="ks_end_datetime"
+                                       attrs="{'readonly': ['|', ('ks_schedule_mode', '=', 'auto'),
+                                       ('ks_enable_task_duration', '=', True)],
+                                       'invisible': [('ks_task_type', '=', 'milestone')]}"/>
+                                <field name="ks_work_duration"
+                                       attrs="{'invisible': [('ks_enable_task_duration', '=', True)]}"/>
+                                <field name="ks_resource_hours_per_day"/>
+                            </group>
+                            <group>
+                                <field name="ks_schedule_mode" widget="radio"/>
+                                <field name="ks_constraint_task_type"/>
+                                <field name="ks_constraint_task_date"
+                                       attrs="{'invisible': [('ks_constraint_task_type', 'in', ('asap', 'alap', False))],
+                                       'required': [('ks_constraint_task_type', 'not in', ('asap', 'alap', False))]}"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//notebook//page[@name='extra_info']" position="before">
+                    <page name="ks_gantt_task_link" string="Link Task">
+                        <field name="ks_task_link_ids">
+                            <tree editable="bottom">
+                                <field name="ks_target_task_id"/>
+                                <field name="ks_task_link_type"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

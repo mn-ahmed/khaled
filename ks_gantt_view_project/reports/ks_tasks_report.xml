@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="report_ks_gantt_tasks">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <h2>Tasks List</h2>
+                    <table class="table table-sm o_main_table">
+                        <thead style="display: table-row-group">
+                            <tr>
+                                <th style="width: 25%;">Task</th>
+                                <th style="width: 20%;">Project</th>
+                                <th style="width: 15%;">Stage</th>
+                                <th style="width: 15%;">Assigned to</th>
+                                <th style="width: 10%;">Progress</th>
+                                <th style="width: 15%;">Deadline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="doc">
+                                <tr>
+                                    <td><t t-esc="doc.name"/></td>
+                                    <td><t t-esc="doc.project_id.name"/></td>
+                                    <td><t t-esc="doc.stage_id.name"/></td>
+                                    <td><t t-esc="doc.user_ids.name"/></td>
+                                    <td><t t-esc="doc.progress"/>%</td>
+                                    <td><t t-esc="doc.date_deadline"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_report_gantt_tasks" model="ir.actions.report">
+            <field name="name">Print Tasks</field>
+            <field name="model">project.task</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">ks_gantt_view_project.report_ks_gantt_tasks</field>
+            <field name="report_file">ks_gantt_view_project.report_ks_gantt_tasks</field>
+            <field name="print_report_name">object.project_id.name
+            </field>
+            <field name="binding_model_id" ref="model_project_task"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

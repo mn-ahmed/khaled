@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mrp_gantt_settings,access_mrp_gantt_settings,model_mrp_gantt_settings,,1,1,1,1
+access_ks_mrp_gantt_stage_color,access_ks_mrp_gantt_stage_color,model_ks_mrp_gantt_stage_color,,1,1,1,1
+access_ks_mrp_gantt_stage_color_wo,access_ks_mrp_gantt_stage_color_wo,model_ks_mrp_gantt_stage_color_wo,,1,1,1,1

@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="mail_template_wfa_medical_replacement" model="mail.template">
+            <field name="name">Waiting for Approve Medical Card Replacement</field>
+            <field name="model_id" ref="medical_replacement.model_medical_replacement"/>
+            <field name="email_to">${object.get_email_to() |safe}</field>
+            <field name="subject">Medical Card Replacement for ${object.employee.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR ,
+                        <br></br>
+                        ${object.employee.name} is requesting Medical Card Replacement and needs your approve
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        Best regards,
+
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_done_medical_replacement" model="mail.template">
+            <field name="name">Medical Card Replacement Done</field>
+            <field name="model_id" ref="medical_replacement.model_medical_replacement"/>
+            <field name="email_to">${object.employee.work_email |safe}</field>
+            <field name="subject"> Medical Card Replacement is done </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee.name}) ,
+                        <br></br>
+                        Congratulation your request is Done
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_reject_medical_replacement" model="mail.template">
+            <field name="name">Medical Card Replacement Rejected</field>
+            <field name="model_id" ref="medical_replacement.model_medical_replacement"/>
+            <field name="email_to">${object.employee.work_email |safe}</field>
+            <field name="subject"> Medical Card Replacement is Rejected </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee.name}) ,
+                        <br></br>
+                        Your request is rejected
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

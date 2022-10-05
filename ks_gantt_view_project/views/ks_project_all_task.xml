@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="project.action_view_all_task" model="ir.actions.act_window">
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity,ks_gantt</field>
+        </record>
+    </data>
+</odoo>

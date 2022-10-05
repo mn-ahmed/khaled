@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="Colorpicker">
+        <t t-jquery="div.o_colorpicker_widget" t-operation="after">
+            <t t-if="widget.getParent().getParent().ks_gantt_color_widget">
+                <span class="font-weight-bold">Recommended Colors</span>
+
+                <div class="card-columns" style="column-count: auto;">
+                    <div class="ks_recommend_color " data-hex="#F44336"
+                         style="background-color: #F44336;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#E91E63"
+                         style="background-color: #E91E63;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#9c27b0"
+                         style="background-color: #9c27b0;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#673ab7"
+                         style="background-color: #673ab7;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#3f51b5"
+                         style="background-color: #3f51b5;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#2196f3"
+                         style="background-color: #2196f3;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#03a9f4"
+                         style="background-color: #03a9f4;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#00bcd4"
+                         style="background-color: #00bcd4;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#009688"
+                         style="background-color: #009688;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#8bc34a"
+                         style="background-color: #8bc34a;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#83bf68"
+                         style="background-color: #83bf68;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#cddc39"
+                         style="background-color: #cddc39;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#ffeb3b"
+                         style="background-color: #ffeb3b;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#ffc107"
+                         style="background-color: #ffc107;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#ff9800"
+                         style="background-color: #ff9800;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#FB7839"
+                         style="background-color: #FB7839;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#ff5722"
+                         style="background-color: #ff5722;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#795548"
+                         style="background-color: #795548;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#9e9e9e"
+                         style="background-color: #9e9e9e;">
+                    </div>
+                    <div class="ks_recommend_color " data-hex="#607d8b"
+                         style="background-color: #607d8b;">
+                    </div>
+                </div>
+            </t>
+        </t>
+    </t>
+</templates>

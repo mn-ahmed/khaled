@@ -1,0 +1,68 @@
+<odoo>
+  <data>
+    <record id="onboarding_request_form_view_add_info" model="ir.ui.view">
+        <field name="name">Onboarding Request</field>
+        <field name="model">onboarding.proccess</field>
+        <field name="inherit_id" ref="employees_self_services.onboarding_request_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='email']" position="after">
+              <field name="personal_email" />
+            </xpath>
+            <xpath expr="//field[@name='id_type']" position="after">
+              <field name="employee_type" />
+              <field name="contract_type" />
+
+            </xpath>
+            <xpath expr="//field[@name='start_date']" position="attributes">
+                    <attribute name="required">1</attribute>
+            </xpath>
+             <xpath expr="//field[@name='leave_opening_balance']" position="attributes">
+                 <attribute name="attrs">{'invisible': [('contract_type', 'in', ['intern', 'part_time'])]}</attribute>
+            </xpath>
+            <xpath expr="//header" position="inside">
+              <button name="update_employee_info" type="object"
+                                string="Update employee Info" class="oe_highlight"
+                                states="a,b,c,f,e,m"
+                        />
+<!--                groups="employees_self_services.onboarding_cycle_direct_manager"-->
+            </xpath>
+        </field>
+    </record>
+    <record id="onboarding_request_tree_view_add_info" model="ir.ui.view">
+        <field name="name">Onboarding Request</field>
+        <field name="model">onboarding.proccess</field>
+        <field name="inherit_id" ref="employees_self_services.onboarding_request_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sim_card']" position="after">
+              <field name="start_date" />
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="onboarding_request_form_manager_info" model="ir.ui.view">
+        <field name="name">Onboarding Request</field>
+        <field name="model">onboarding.proccess</field>
+        <field name="inherit_id" ref="sla_onboard.onboard_sla_view_deadline"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='employee_manager']" position="attributes">
+                    <attribute name="required">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='task_id']" position="after">
+                <field name="employee_bank_account" />
+                <field name="bank_account_no" attrs="{'invisible' : [('employee_bank_account', '=', 'create_acc')]}" />
+                <field name="account_holder_name" attrs="{'invisible' : [('employee_bank_account', '=', 'create_acc')]}"/>
+                <field name="branch_code" attrs="{'invisible' : [('employee_bank_account', 'in', ['create_acc','cib'])]}" />
+                <field name="client_id" attrs="{'invisible' : [('employee_bank_account', 'in', ['create_acc','cib'])]}" />
+
+            </xpath>
+
+        </field>
+    </record>
+
+
+  </data>
+</odoo>

@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="offboarding_request_module_category">
+            <field name="name">Offboarding Process</field>
+            <field name="description">User access level for this module</field>
+        </record>
+
+        <record id="resignation_request_hr_group" model="res.groups">
+            <field name="name">Resignation HR</field>
+            <field name="category_id" ref="offboarding_request_module_category"/>
+        </record>
+
+        <record id="resignation_request_manager_group" model="res.groups">
+            <field name="name">Resignation Managers</field>
+            <field name="category_id" ref="offboarding_request_module_category"/>
+        </record>
+
+        <record id="manager_request_approve_resignation_rule" model="ir.rule">
+            <field name="name">team records assignment Rule</field>
+            <field name="model_id" ref="model_resignation_request"/>
+            <field name="groups" eval="[(4,ref('resignation_request_manager_group'))]"/>
+            <field name="domain_force">
+                    ['|',('employee_name.user_id','=',user.id),('employee_direct_manager.user_id','=',user.id)]
+            </field>
+
+        </record>
+
+        <record id="hr_request_approve_resignation_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_resignation_request"/>
+            <field name="groups" eval="[(4,ref('resignation_request_hr_group'))]"/>
+            <field name="domain_force">[(1, '=' ,1)]</field>
+        </record>
+
+        <record id="employee_request_approve_resignation_rule" model="ir.rule">
+            <field name="name">team records assignment Rule</field>
+            <field name="model_id" ref="model_resignation_request"/>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+            <field name="domain_force">
+                    [('employee_name.user_id', '=' ,user.id)]
+            </field>
+        </record>
+
+    </data>
+</odoo>

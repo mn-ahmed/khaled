@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="mrp.gantt.settings" id="ks_gantt_view_mrp.ks_gantt_mrp_data_settings">
+            <field name="ks_enable_dynamic_text">True</field>
+        </record>
+    </data>
+</odoo>

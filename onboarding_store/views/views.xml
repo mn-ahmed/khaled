@@ -1,0 +1,193 @@
+<odoo>
+  <data>
+
+        <record id="onboarding_proccess_inherite_form_view" model="ir.ui.view">
+            <field name="name">onboarding.proccess.inherite.form.view</field>
+            <field name="model">onboarding.proccess</field>
+            <field name="inherit_id" ref="employees_self_services.onboarding_request_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='pass_to_done']" position="after">
+                    <button name="laptop_delivered" type="object"
+                            string="Laptop Delivered" states="b,c,f,e,m"
+                            groups="employees_self_services.onboarding_cycle_it_lead"
+                            class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="product_template_tree_view2" model="ir.ui.view">
+            <field name="name">product.template.product.tree</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <tree string="Product">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="model_code"/>
+                    <field name="employee_device" string="Employee"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_template_only_form_view2" model="ir.ui.view">
+            <field name="name">product.template.product.form</field>
+            <field name="model">product.template</field>
+            <field name="priority" eval="70" />
+            <field name="groups_id" eval="[(4, ref('stock.group_stock_user'))]"/>
+<!--            <field name="inherit_id" ref="product.product_template_form_view"/>-->
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="name">Product Template</attribute>
+                </xpath>
+
+                <header position="inside" >
+                    <button name="preparing_stage" string="preparing" type="object" class="oe_highlight" attrs="{'invisible': [('type', '!=', 'product')]}"/>
+                    <button name="maintenance_stage" string="Maintenance" type="object" class="oe_highlight" attrs="{'invisible': [('type', '!=', 'product')]}"/>
+                    <button name="used_stage" string="Used" type="object" class="oe_highlight" attrs="{'invisible': [('type', '!=', 'product')]}"/>
+                    <button name="available_stage" string="Available" type="object" class="oe_highlight" attrs="{'invisible': [('type', '!=', 'product')]}"/>
+
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <field name="categ_id" position="after">
+                    <field name="default_code" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+                    <field name="model_code" attrs="{'invisible': [('type', '!=', 'product')]}"/>
+                    <field name="barcode" attrs="{'invisible': [('product_variant_count', '>', 1)]}"/>
+                    <field name="employee_device" string="Employee"/>
+                    <field name="device_cpu" attrs="{'invisible': [('type', '!=', 'product')]}"/>
+                    <field name="device_ram" attrs="{'invisible': [('type', '!=', 'product')]}"/>
+                    <field name="device_hd" attrs="{'invisible': [('type', '!=', 'product')]}"/>
+                </field>
+
+                <button name="action_view_po" position="replace">
+                    <button string="Product Moves" type="object"
+                                name= "action_view_stock_move_lines"
+                                attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}"
+                                class="oe_stat_button" icon="fa-arrows-v"
+                                groups="stock.group_stock_user"/>
+                    <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                    </button>
+                </button>
+
+                <xpath expr="//page[@name='general_information']" position="after">
+                    <page name="variants" string="Variants" groups="product.group_product_variant">
+                        <field name="attribute_line_ids" widget="one2many_list" context="{'show_attribute': False}">
+                            <tree string="Variants" editable="bottom">
+                                <field name="attribute_id"/>
+                                <field name="value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}"/>
+                            </tree>
+                        </field>
+                            <p class="oe_grey">
+                            <strong>Warning</strong>: adding or deleting attributes
+                            will delete and recreate existing variants and lead
+                            to the loss of their possible customizations.
+                        </p>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+<!--        <record id="product_template_kanban_view2" model="ir.ui.view">-->
+<!--            <field name="name">Product.template.product.kanban</field>-->
+<!--            <field name="model">product.template</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <kanban>-->
+<!--                    <field name="id"/>-->
+<!--&lt;!&ndash;                    <field name="image_small"/>&ndash;&gt;-->
+<!--                    <field name="lst_price"/>-->
+<!--                    <field name="product_variant_count"/>-->
+<!--                    <field name="currency_id"/>-->
+<!--                    <templates>-->
+<!--                        <t t-name="kanban-box">-->
+<!--                            <div class="oe_kanban_global_click">-->
+<!--                                <div class="o_kanban_image">-->
+<!--                                    <img t-att-src="kanban_image('product.template', 'image_small', record.id.raw_value)" alt="Product"/>-->
+<!--                                </div>-->
+<!--                                <div class="oe_kanban_details">-->
+<!--                                    <strong class="o_kanban_record_title">-->
+<!--                                        <field name="name"/>-->
+<!--                                        <small t-if="record.default_code.value">[<field name="default_code"/>]</small>-->
+<!--                                    </strong>-->
+<!--                                    <div t-if="record.product_variant_count.value &gt; 1" groups="product.group_product_variant">-->
+<!--                                        <strong>-->
+<!--                                            <t t-esc="record.product_variant_count.value"/> Variants-->
+<!--                                        </strong>-->
+<!--                                    </div>-->
+<!--                                    <div name="tags"/>-->
+<!--                                    <ul>-->
+<!--                                        <li>Price: <field name="lst_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"></field></li>-->
+<!--                                    </ul>-->
+<!--                                    <div name="tags"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </t>-->
+<!--                    </templates>-->
+<!--                </kanban>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.search</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <search string="Product">
+                <field name="name" string="Product" filter_domain="['|', '|', ('product_variant_ids.default_code', 'ilike', self),('name', 'ilike', self), ('barcode', 'ilike', self)]"/>
+                <field name="model_code" string="Model Code" filter_domain="[('model_code', 'ilike', self)]"/>
+                <field name="categ_id" filter_domain="[('categ_id', 'child_of', raw_value)]"/>
+
+                <separator/>
+                <filter string="Services" name="services" domain="[('type','=','service')]"/>
+                <filter string="Products" name="consumable" domain="[('type', 'in', ['consu', 'product'])]"/>
+                <separator/>
+                <filter string="Can be Sold" name="filter_to_sell" domain="[('sale_ok','=',True)]"/>
+                <filter string="Can be Purchased" name="filter_to_purchase" domain="[('purchase_ok', '=', True)]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                <field string="Attributes" name="attribute_line_ids" groups="product.group_product_variant"/>
+                <field name="pricelist_id" widget="selection" context="{'pricelist': self}" filter_domain="[]" groups="product.group_sale_pricelist"/> <!-- Keep widget=selection on this field to pass numeric `self` value, which is not the case for regular m2o widgets! -->
+                <separator/>
+                <filter string="Late Activities" name="activities_overdue"
+                    domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                    help="Show all records which has next action date is before today"/>
+                <filter string="Today Activities" name="activities_today"
+                    domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Future Activities" name="activities_upcoming_all"
+                    domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
+                    ]"/>
+            </search>
+        </field>
+    </record>
+
+        <record id="product_template_action2" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="product_template_tree_view2"/>
+            <field name="search_view_id" ref="onboarding_store.product_template_search_view"/>
+            <field name="context">{"search_default_consumable": 1, 'default_type': 'product'}</field>
+
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('product_template_tree_view2')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('product_template_only_form_view2')})]"/>
+<!--            <field name="domain">[('type', '=', 'product')]</field>           (0, 0, {'view_mode': 'kanban', 'view_id': ref('product_template_kanban_view2')}),    -->
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new product
+                </p><p>
+                    You must define a product for everything you purchase,
+                    whether it's a physical product, a consumable or services.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_product_onboarding" name="Product Stored"
+                  parent="employees_self_services.organization_request_ess_menu"
+                  groups="employees_self_services.onboarding_cycle_it_lead"
+                  action="product_template_action2" />
+
+  </data>
+</odoo>
+

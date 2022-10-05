@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="ks GanttView assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/ks_gantt_view_mrp/static/src/js/ks_gantt_renderer_inherit.js"/>
+        </xpath>
+    </template>
+</odoo>

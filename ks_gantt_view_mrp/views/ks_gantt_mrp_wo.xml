@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+
+        <record id="ks_mrp_work_order_view_gantt" model="ir.ui.view">
+            <field name="name">MRP Work Order Gantt View</field>
+            <field name="model">mrp.workorder</field>
+            <field name="arch" type="xml">
+                <ks_gantt
+                        create="false"
+                        ks_context='{
+                          "form_view_ref" : "mrp.mrp_production_workorder_form_view_inherit"
+                        }'
+                        ks_task_start_date="date_planned_start"
+                        ks_task_end_date="date_planned_finished"
+                        ks_task_id="id"
+                        ks_task_name="display_name"
+                        ks_task_stage_id="state"
+                        ks_gantt_config='{
+                            "ks_hide_graph_overlay": "True",
+                            "ks_hide_deadline": "True",
+                            "ks_hide_task_reorder": "True",
+                            "ks_hide_resource_panel": "True",
+                            "ks_hide_days_off": "True",
+                            "ks_hide_grid_owner": "True",
+                            "ks_hide_sub_task_icon": "True"
+                        }'
+                        ks_task_link_info='{
+                            "ks_link_source": "ks_source_wo_id",
+                            "ks_link_target": "ks_target_wo_id"
+                        }'
+                        ks_task_progress="ks_progress"
+                        ks_task_color="ks_stage_color"
+                        ks_task_link="ks_task_link_json"
+                        ks_export_field='[
+                                        "production_id",
+                                        "date_planned_start",
+                                        "date_planned_finished",
+                                        "duration_expected",
+                                        "state",
+                                        "name",
+                                        "workcenter_id",
+                                        "product_uom_id",
+                                        "consumption"
+                                        ]'
+                >
+                </ks_gantt>
+            </field>
+        </record>
+
+        <record id="mrp.mrp_workorder_todo" model="ir.actions.act_window">
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,gantt,ks_gantt</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="mrp.mrp_workorder_report">
+            <field name="view_mode">graph,pivot,tree,form,gantt,ks_gantt</field>
+        </record>
+
+        <!-- Work order tree view inherit -->
+        <record id="ks_gantt_view_mrp.ks_mrp_production_workorder_tree_views" model="ir.ui.view">
+            <field name="name">mrp.production.work.order.tree</field>
+            <field name="model">mrp.workorder</field>
+            <field name="inherit_id" ref="mrp.mrp_production_workorder_tree_editable_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date_planned_start']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

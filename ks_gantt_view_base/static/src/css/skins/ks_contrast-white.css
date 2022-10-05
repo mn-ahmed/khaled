@@ -1,0 +1,6 @@
+.gantt_task_line .gantt_link_control {
+    border-color: initial !important;
+}
+div.gantt_task_line{
+   border-radius: 0px;
+}

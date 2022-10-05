@@ -1,0 +1,521 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ks_gantt_view_mrp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-21 14:16+0000\n"
+"PO-Revision-Date: 2021-05-21 14:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_constraint_task_type__alap
+msgid "As Late As Possible"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_constraint_task_type__asap
+msgid "As Soon As Possible"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_schedule_mode__auto
+msgid "Auto"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: code:addons/ks_gantt_view_mrp/models/ks_task_link_inherit.py:0
+#: code:addons/ks_gantt_view_mrp/models/ks_task_link_inherit.py:0
+#, python-format
+msgid "Can't create same link with same record."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color__ks_state__cancel
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color_wo__ks_state__cancel
+msgid "Cancelled"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color__ks_state__confirmed
+msgid "Confirmed"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_constraint_date_mo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_constraint_task_date
+msgid "Constraint Date"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_constraint_type_mo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_constraint_task_type
+msgid "Constraint Type"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__create_uid
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__create_uid
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__create_date
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__create_date
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_task_link__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_workorder__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color__ks_state__done
+msgid "Done"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color__ks_state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_duration_mo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_duration_wo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_task_duration
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_work_duration
+msgid "Duration"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_dynamic_progress_wo
+msgid "Dynamic Progress"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_dynamic_text
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_dynamic_text_wo
+msgid "Dynamic Text"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_enable_task_duration
+msgid "Enable Order Duration"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_constraint_date_mo
+msgid "Enable constraint date on tooltip"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_constraint_type_mo
+msgid "Enable constraint type on tooltip"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_duration_mo
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_duration_wo
+msgid "Enable duration on tooltip"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_end_date_mo
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_end_date_wo
+msgid "Enable end date on tooltip"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_name_mo
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_name_wo
+msgid "Enable name on tooltip"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_progress_wo
+msgid "Enable progress on tooltip"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_stage_mo
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_stage_wo
+msgid "Enable stage on tooltip"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_start_date_mo
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_start_date_wo
+msgid "Enable start date on tooltip"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_dynamic_progress_wo
+msgid "Enable/Disable Dynamic Progress."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_dynamic_text
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_dynamic_text_wo
+msgid "Enable/Disable Dynamic Text."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_quickinfo_extension
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_quickinfo_extension_wo
+msgid "Enable/Disable Quick Info."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_end_date_mo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_end_date_wo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_datetime_end
+msgid "End Date"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_constraint_task_type__fnet
+msgid "Finish No Earlier Than"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_constraint_task_type__fnlt
+msgid "Finish No Later Than"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color_wo__ks_state__done
+msgid "Finished"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_gantt_settings_form
+msgid "Gantt Chart Settings"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_production_form
+msgid "Gantt Detail"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.ui.menu,name:ks_gantt_view_mrp.ks_mrp_gantt_setting
+msgid "Gantt Settings"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__id
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__id
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_task_link__id
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__id
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__id
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_workorder__id
+msgid "ID"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color__ks_state__progress
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color_wo__ks_state__progress
+msgid "In Progress"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__ks_gantt_setting
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__ks_gantt_setting
+msgid "Ks Gantt Setting"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model,name:ks_gantt_view_mrp.model_ks_task_link
+msgid "Ks Gantt Task Linking"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_workorder__ks_progress
+msgid "Ks Progress"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_resource_hours_available
+msgid "Ks Resource Hours Available"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_stage_color
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_workorder__ks_stage_color
+msgid "Ks Stage Color"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_task_link_json
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_workorder__ks_task_link_json
+msgid "Ks Task Link Json"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_task_link____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_workorder____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__write_uid
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__write_uid
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__write_date
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__write_date
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_production_form
+msgid "Link Orders"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_production_form
+msgid "Link Type"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model,name:ks_gantt_view_mrp.model_ks_mrp_gantt_stage_color
+msgid "MRP Stage Color For Gantt View"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model,name:ks_gantt_view_mrp.model_ks_mrp_gantt_stage_color_wo
+msgid "MRP State Color For Gantt View Work Order"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_schedule_mode__manual
+msgid "Manual"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model,name:ks_gantt_view_mrp.model_mrp_gantt_settings
+msgid "Manufacturing Gantt Settings"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_gantt_settings_form
+msgid "Manufacturing Order"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.actions.act_window,name:ks_gantt_view_mrp.action_mrp_gantt_setting
+msgid "Manufacturing Orders Gantt Settings"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_constraint_task_type__mfo
+msgid "Must Finish On"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_constraint_task_type__mso
+msgid "Must Start On"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__name
+msgid "Name"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: code:addons/ks_gantt_view_mrp/models/ks_gantt_mrp_production.py:0
+#, python-format
+msgid "Order should be finish on the constraint date or after it."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: code:addons/ks_gantt_view_mrp/models/ks_gantt_mrp_production.py:0
+#, python-format
+msgid "Order should be finish on the constraint date or before it."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: code:addons/ks_gantt_view_mrp/models/ks_gantt_mrp_production.py:0
+#, python-format
+msgid "Order should be start on the constraint date or after it."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: code:addons/ks_gantt_view_mrp/models/ks_gantt_mrp_production.py:0
+#, python-format
+msgid "Order should be start on the constraint date or before it."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: code:addons/ks_gantt_view_mrp/models/ks_gantt_mrp_production.py:0
+#, python-format
+msgid "Order should finish exactly on the constraint date."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: code:addons/ks_gantt_view_mrp/models/ks_gantt_mrp_production.py:0
+#, python-format
+msgid "Order should start exactly on the constraint date."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model,name:ks_gantt_view_mrp.model_mrp_production
+msgid "Production Order"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_progress_wo
+msgid "Progress"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_quickinfo_extension
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_enable_quickinfo_extension_wo
+msgid "Quick Info"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color_wo__ks_state__ready
+msgid "Ready"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_resource_hours_per_day
+msgid "Resource Hours Per Day"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_schedule_mode
+msgid "Schedule Mode"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_task_link__ks_source_mrp_id
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_task_link__ks_source_wo_id
+msgid "Source Task"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_stage_mo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_stage_wo
+msgid "Stage"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__ks_color
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__ks_color
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_mo_stage_color_ids
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_stage_color_wo_ids
+msgid "Stage Color"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_start_date_mo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_start_date_wo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_datetime_start
+msgid "Start Date"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_constraint_task_type__snet
+msgid "Start No Earlier Than"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__mrp_production__ks_constraint_task_type__snlt
+msgid "Start No Late Than"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color__ks_state
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_mrp_gantt_stage_color_wo__ks_state
+msgid "State"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.constraint,message:ks_gantt_view_mrp.constraint_ks_mrp_gantt_stage_color_unique_code
+#: model:ir.model.constraint,message:ks_gantt_view_mrp.constraint_ks_mrp_gantt_stage_color_wo_unique_code
+msgid "State can't be duplicated."
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_gantt_settings_form
+msgid "State color"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_production_form
+msgid "Target Order"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_task_link__ks_target_mrp_id
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_ks_task_link__ks_target_wo_id
+msgid "Target Task"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_task_link_ids
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_workorder__ks_task_link_ids
+msgid "Task links"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_name_mo
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_gantt_settings__ks_tooltip_name_wo
+msgid "Title"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color__ks_state__to_close
+msgid "To Close"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_gantt_settings_form
+msgid "Tooltip Settings"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,field_description:ks_gantt_view_mrp.field_mrp_production__ks_task_unschedule
+msgid "Unschedule"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields.selection,name:ks_gantt_view_mrp.selection__ks_mrp_gantt_stage_color_wo__ks_state__pending
+msgid "Waiting for another WO"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model,name:ks_gantt_view_mrp.model_mrp_workorder
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_mrp.ks_view_mrp_gantt_settings_form
+msgid "Work Order"
+msgstr ""
+
+#. module: ks_gantt_view_mrp
+#: model:ir.model.fields,help:ks_gantt_view_mrp.field_mrp_production__ks_work_duration
+msgid "Working Duration in day Hours"
+msgstr ""

@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gantt View</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    /* .ks_tabs ul .nav-item .nav-link {
+      
+    } */
+
+    /* ul .nav-item .nav-link.active {
+      color: #752DD3 !important;
+      font-weight: 600;
+    } */
+
+    /* .dot {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 26px;
+      color: #7A7979;
+      position: relative;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .dot::before {
+      content: '●';
+      position: absolute;
+      left: 0;
+      color: #000;
+    } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body style="font-family: 'Poppins', sans-serif;">
+<section class="pb-5">
+    <div class="ks_ultimate">
+        <div class="container" style="background-color: #752DD3; border-radius: 10px;">
+            <div class="row  my-3">
+                <div class="col-md-6 py-4">
+                    <div class="ks_left_cont pl-5 pr-2 pt-5 pb-5">
+                        <p style="font-weight: 500;font-size:14px;line-height: 21px;color:#fff">Powered By Ksolves
+                        </p>
+                        <h3 style="font-weight: 700;font-size:30px;line-height: 40px;color:#fff">
+                            The Ultimate Tool To Plan Leaves Over a Cup Of Coffee!
+                        </h3>
+                        <p style="font-weight: 400;font-size:16px;line-height: 26px;color:#fff">Gantt View is a
+                            <tailored></tailored>
+                            The module helps in managing all the leaves of the employees of an organization from a
+                            centralized platform. From the Gantt View, one can keep track of all the leaves and
+                            manage them effectively.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 pl-0 pr-0">
+                    <div class="ks_bg_round"
+                         style="display: flex; max-width: 100%;position: relative; left: 2px;justify-content: center; height: 100%;align-items: center;">
+                        <img src="images/img4.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ks_connect_card position-relative" style="margin-top: -53px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="row align-items-center"
+                         style="background-color: #FFFFFF; box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06); border-radius: 10px;">
+                        <div class="col-md-5 offset-md-1 py-5 pl-4 pr-1">
+                            <p style="font-size: 24px;line-height:35px;font-weight:700;color:#514F4F">Connect with
+                                our
+                                experts to know more about Gantt View </p>
+                            <!--<div class="py-2"><span
+                                    style="border-radius: 25px;  color: #fff; height: 50px; align-items: center;  width: 252px; font-style: normal; font-weight: 600; font-size: 16px;background-color: #7758d1; line-height: 36px;font-family: 'Poppins', sans-serif;"
+                                    class="btn">Try Out Our Demo Now!</span></div>-->
+                            <ul class="py-2 list-inline" style="width:100%; margin: 0; padding: 0;">
+                                <li class="mr-1 d-inline"><a
+                                        style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 500; font-size: 15px; line-height: 146%; /* or 23px */ color: #514F4F;"
+                                        href="">sales@ksolves.com
+                                </a></li>
+                                <li class="px-1 d-inline">|</li>
+                                <li class="d-inline">
+                                    <a style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 500; font-size: 15px; line-height: 146%; /* or 23px */ color: #514F4F;"
+                                       href="">+91 7302636699
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mx-auto text-center offset-md-2">
+                            <div><img src="images/girl.png" class="img-fluid" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="position-absolute"
+             style="background-color: #f9f9f9; bottom: 0px; width: 100%; z-index: -1; height: 20%;"></div>
+
+    </div>
+
+    </div>
+    <div class="ks_counter py-5" style="background-color: rgba(248, 248, 248, 0.8); height: 100%;">
+    </div>
+    <div class="ks_usps position-relative ">
+
+        <div class="container px-3  shadow rounded-lg my-4"
+             style="background-color: #FFFFFF; box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.05); border-radius: 10px;">
+            <div class="px-3 pb-5 ">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h4 class="my-5"
+                            style="font-size:36px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                            USPs
+                            <span class="mx-auto d-block my-2"
+                                  style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="min-height:519px; border-radius: 10px;" class="col-md-4 overflow-auto pt-0 pr-2">
+                        <ul class="nav flex-column" id="myTab" role="tablist">
+                            <li style="height:45px;" class="nav-item"><a
+                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                                    class="nav-link pl-0 pr-0" id="action-bar-02-tab" data-toggle="tab"
+                                    href="#action-bar-02" role="tab"
+                                    aria-controls="action-bar-02" aria-selected="false"><i
+                                    class="fa fa-file-text-o pr-2"></i>Critical
+                                Path</a>
+                            </li>
+                            <li style="height:45px;" class="nav-item"><a
+                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                                    class="nav-link pl-0 pr-0 " id="action-bar-05-tab" data-toggle="tab"
+                                    href="#action-bar-05"
+                                    role="tab" aria-controls="action-bar-05" aria-selected="false"><i
+                                    class="fa fa-file-text-o pr-2"></i>Presentation
+                                Mode</a></li>
+                            <li style="height:45px;" class="nav-item"><a
+                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                                    class="nav-link pl-0 pr-0" id="action-bar-07-tab" data-toggle="tab"
+                                    href="#action-bar-07" role="tab"
+                                    aria-controls="action-bar-07" aria-selected="false"><i
+                                    class="fa fa-file-text-o pr-2"></i>Multi-functional
+                                Resource
+                                Panel
+                            </a></li>
+                            <li style="height:45px;" class="nav-item"><a
+                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                                    class="nav-link pl-0 pr-0" id="action-bar-08-tab" data-toggle="tab"
+                                    href="#action-bar-08" role="tab"
+                                    aria-controls="action-bar-08" aria-selected="false"><i
+                                    class="fa fa-file-text-o pr-2"></i>Smart
+                                Display of
+                                30000+ Leaves
+                            </a></li>
+                            <li style="height:45px;" class="nav-item"><a
+                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;"
+                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-011-tab" data-toggle="tab"
+                                    href="#action-bar-011" role="tab" aria-controls="action-bar-011"
+                                    aria-selected="false"><i
+                                    class="fa fa-file-text-o pr-2"></i>Themes</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content" id="myTabContent">
+                            <!-- Critical Path -->
+                            <div style="background-color: #FDEEEE; border-radius: 10px;"
+                                 class="tab-pane  px-3 py-5 fade show active"
+                                 id="action-bar-02" role="tabpanel">
+                                <h4 style="font-size: 24px;font-weight:600;color:#F53324">Critical Path</h4>
+                                <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">Critical
+                                    path
+                                    displays the leave dependencies.
+                                </p>
+                                <img src="images/usp/critical_path.png" class="img-fluid" alt=""
+                                     style="border-radius: 6px; border: 1px solid #ccc;"/>
+                            </div>
+                            <!-- Presentation Mode -->
+                            <div style="background-color: #FDEEEE; border-radius: 10px;"
+                                 class="tab-pane  px-3 py-5  fade"
+                                 id="action-bar-05" role="tabpanel" aria-labelledby="action-bar-05-tab">
+                                <h4 style="font-size: 24px;font-weight:600;color:#F53324">Presentation Mode</h4>
+                                <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">Presenting
+                                    the
+                                    nitty gritties of Odoo Project Management Module can be a daunting task. Gantt
+                                    View
+                                    allows you to launch the Presentation Mode that turns your screen into an ally
+                                    as
+                                    you alter, brainstorm & explain the leave details by using the extensive
+                                    Action
+                                    Bar functionalities such as Grid, Resource Panel, Critical Path,
+                                    etc.</p> <img src="images/usp/presentation.png" class="img-fluid" alt=""
+                                    style="border-radius: 6px; border: 1px solid #ccc;"/>
+                            </div>
+                            <!-- Multi-functional Resource Panel -->
+                            <div style="background-color: #FDEEEE; border-radius: 10px;"
+                                 class="tab-pane  px-3 py-5  fade"
+                                 id="action-bar-07" role="tabpanel" aria-labelledby="action-bar-07-tab">
+                                <h4 style="font-size: 24px;font-weight:600;color:#F53324">Multi-functional Resource
+                                    Panel</h4>
+                                <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">The Resource
+                                    Panel helps in managing the leaves efficiently while checking out the working hours,
+                                    leaves, leave applicants, resolving leave related bottlenecks, etc.</p> <img
+                                    src="images/usp/resource_panel.png"
+                                    style="border-radius: 6px; border: 1px solid #ccc;"
+                                    class="img-fluid" alt="Multi-functional Resource Panel"/>
+                            </div>
+                            <!-- Smart Display of 30000+ Leaves -->
+                            <div style="background-color: #FDEEEE; border-radius: 10px;"
+                                 class="tab-pane  px-3 py-5  fade"
+                                 id="action-bar-08" role="tabpanel" aria-labelledby="action-bar-08-tab">
+                                <h4 style="font-size: 24px;font-weight:600;color:#F53324">Smart Display of 30000+
+                                    Leaves</h4>
+                                <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">In Odoo
+                                    Gantt
+                                    Operate with more than 30,000 datasets with ease, thanks to smart rendering! It
+                                    substantially enhances the data rendering speed while working with huge data
+                                    volumes.</p> <img src="images/usp/3000_tasks.png" class="img-fluid"
+                                                      style="border-radius: 6px; border: 1px solid #ccc;"
+                                                      alt="Smart Display of 30000+ Leaves"/>
+                            </div>
+                            <!-- Themes -->
+                            <div style="background-color: #FDEEEE; border-radius: 10px;"
+                                 class="tab-pane  px-3 py-5  fade"
+                                 id="action-bar-011" role="tabpanel" aria-labelledby="action-bar-011-tab">
+                                <h4 style="font-size: 24px;font-weight:600;color:#F53324">Themes</h4>
+                                <p style="font-size:16px;font-weight:400;line-height:25px;color:#3D3B3B">There are 7
+                                    different template designs available to customize the User Interface of
+                                    Gantt View.</p> <img src="images/usp/themes.png" class="img-fluid"
+                                                         style="border-radius: 6px; border: 1px solid #ccc;"
+                                                         alt="Themes"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Tabs -->
+    <div class="ks_tabs position-relative">
+        <div class="container pb-5 shadow rounded-lg my-4"
+             style="background-color: #FFFFFF;">
+            <ul class="pt-3 nav nav-tabs nav nav-tabs d-flex justify-content-center bg-white" role="tablist">
+                <li class="nav-item">
+                    <a style="color:#3D3B3B; padding: 4px 16px; font-weight: 500;" class="nav-link active"
+                       data-toggle="tab" href="#tabs-60" role="tab">Overview</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color:#3D3B3B; padding: 4px 16px; font-weight: 500;" class="nav-link" data-toggle="tab"
+                       href="#tabs-61" role="tab">All
+                        Features</a>
+                </li>
+                <li class="nav-item">
+                    <a style="color:#3D3B3B; padding: 4px 16px; font-weight: 500;" class="nav-link" data-toggle="tab"
+                       href="#tabs-62" role="tab">FAQs</a>
+                </li>
+                <!-- Todo: Uncomment for release logs.-->
+                <!--<li class="nav-item">
+                    <a style="color:#3D3B3B; padding: 4px 16px; font-weight: 500;" class="nav-link" data-toggle="tab"
+                       href="#tabs-63" role="tab">Releases</a>
+                </li>-->
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- 1st Tab -->
+                <div class="tab-pane active" id="tabs-60" role="tabpanel">
+                    <div class="position-relative">
+                        <div class="container">
+                            <div class=" px-0  py-5">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <h3 class="mb-3"
+                                            style="font-size:36px;color:#514F4F;line-height:60.12px;font-weight:700">
+                                            Key
+                                            Highlights</h3>
+                                        <h4 class="mb-4"
+                                            style="font-size:24px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                                            Action Bar<span class="mx-auto d-block my-2"
+                                                            style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                                        </h4>
+                                        <p style="font-size: 18px;font-weight:500;color:#616060;line-height:30.06px;">
+                                            Leave
+                                            Management
+                                            Was Never So Easy! </p>
+                                    </div>
+                                </div>
+                                <div class="row m-0">
+                                    <div class="col-md-4 mb-3 overflow-auto" style="max-height: 612px;">
+                                        <ul id="accordion" class="nav py-3 n flex-column accordion px-3"
+                                            style="background-color: #FCEDED; margin-top: 15px; border-radius: 10px;"
+                                            id="myTab" role="tablist">
+
+                                            <!-- Duration -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item "><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-2-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-2" role="tab" aria-controls="action-bar-2"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapseTwo" data-toggle="collapse">Duration<i
+                                                    style="color:#D68E8E;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapseTwo" class=" show collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">Duration
+                                                        feature displays the number of leave day/days in the chart.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Grid -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-3-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-3" role="tab" aria-controls="action-bar-3"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapseThree" data-toggle="collapse">Grid<i
+                                                    style="color:#D68E8E;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapseThree" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">Utilizing
+                                                        the Grid feature, once can remove the left pane that holds
+                                                        columns of information about the leaves, such as the leave
+                                                        title, duration, start date, etc. The graphical representation
+                                                        of Gantt View (in the right pane) takes up the entire screen
+                                                        providing a focused visualization of the leaves.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Resource Panel -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-4-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-4" role="tab" aria-controls="action-bar-4"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapsefour" data-toggle="collapse">Resource Panel<i
+                                                    style="color:#D68E8E;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapsefour" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">The
+                                                        Resource Panel helps in managing the leaves efficiently while
+                                                        checking out the working hours, leaves, leave applicants,
+                                                        resolving leave related bottlenecks, etc.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Zoom To Fit -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-5-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-5" role="tab" aria-controls="action-bar-5"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapsefive" data-toggle="collapse">Zoom To Fit<i
+                                                    style="color:#D68E8E;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapsefive" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">Zoom To Fit
+                                                        option to fit the Gantt View to the screen as per the
+                                                        convenience of the different users.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Critical Path -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-6-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-6" role="tab" aria-controls="action-bar-6"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapsesix" data-toggle="collapse">Critical Path<i
+                                                    style="color:#D68E8E;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapsesix" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">Critical
+                                                        Path displays the leave dependencies.</p>
+                                                </div>
+                                            </div>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapseseven" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">If you
+                                                        click on the
+                                                        Today
+                                                        button, a today-marker will highlight the graphical section in
+                                                        the Gantt
+                                                        view
+                                                        that
+                                                        reflects the current day.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Time Sorting -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-8-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-8" role="tab" aria-controls="action-bar-8"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapseeighth" data-toggle="collapse">Time Sorting<i
+                                                    style="color:#D68E8E;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapseeighth" class=" collapse" data-parent="#accordion"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">Time
+                                                        Sorting allows the users to sort the Gantt View leaves in
+                                                        several time patterns such as day, week, month, quarter, etc.
+                                                        There is a Today-marker that highlights the graphical section in
+                                                        the Gantt view and reflects the current day.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Sorting -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-9-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-9" role="tab" aria-controls="action-bar-9"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapsenine" data-toggle="collapse">Sorting<i
+                                                    style="color:#D68E8E;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapsenine" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">Using
+                                                        Sorting, users can sort the Gantt table (in the left pane) in
+                                                        many ways like Ascending/Descending order(based on Leave Names
+                                                        or Leave Duration) & Old to New or New To Old(as per leave
+                                                        creation dates).</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Zoom In -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-10-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-10" role="tab" aria-controls="action-bar-10"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapseten" data-toggle="collapse">Zoom In
+                                                <i style="color:#D68E8E;height:12px;width:12px; padding-top: 15px;"
+                                 class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #FF2E62;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapseten" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">Using the
+                                                        Zoom In feature users can zoom into the Gantt View that takes up
+                                                        the full screen. In this mode, one can easily utilize the scroll
+                                                        bars to better visualize, manage and present leaves. </p>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="tab-content d-flex align-items-center" id="myTabContent"
+                                             style="min-height: 611px; ">
+                                            <!-- Duration -->
+                                            <div class="tab-pane fade show active" id="action-bar-2" role="tabpanel"
+                                                 aria-labelledby="action-bar-2-tab">
+                                                <img src="images/action_bar/show_duration.png" class="img-fluid" alt=""
+                                                    style=" border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                            <!-- Grid -->
+                                            <div class="tab-pane fade" id="action-bar-3" role="tabpanel"
+                                                 aria-labelledby="action-bar-3-tab">
+                                                <img src="images/action_bar/hide_grid.png" class="img-fluid" alt=""
+                                                    style=" border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                            <!-- Resource Panel -->
+                                            <div class="tab-pane fade" id="action-bar-4" role="tabpanel"
+                                                 aria-labelledby="action-bar-4-tab">
+                                                <img src="images/action_bar/resource_panel.png" class="img-fluid"
+                                                     style=" border-radius: 6px; border: 1px solid #ccc;" alt=""/>
+                                            </div>
+                                            <!-- Zoom To Fit -->
+                                            <div class="tab-pane fade" id="action-bar-5" role="tabpanel"
+                                                 aria-labelledby="action-bar-5-tab">
+                                                <img src="images/action_bar/zoom_to_fit.png" class="img-fluid" alt=""
+                                                    style=" border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                            <!-- Critical Path -->
+                                            <div class="tab-pane fade" id="action-bar-6" role="tabpanel"
+                                                 aria-labelledby="action-bar-6-tab">
+                                                <img src="images/action_bar/critical_path.png" class="img-fluid" alt=""
+                                                    style=" border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                            <!-- Time Sorting -->
+                                            <div class="tab-pane fade" id="action-bar-8" role="tabpanel"
+                                                 aria-labelledby="action-bar-8-tab">
+                                                <img src="images/action_bar/time-scale.png" class="img-fluid" alt=""
+                                                    style=" border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                            <!-- Sorting -->
+                                            <div class="tab-pane fade" id="action-bar-9" role="tabpanel"
+                                                 aria-labelledby="action-bar-9-tab">
+                                                <img src="images/action_bar/gantt-sorting.png" class="img-fluid" alt=""
+                                                    style=" border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                            <!-- Zoom In -->
+                                            <div class="tab-pane fade" id="action-bar-10" role="tabpanel"
+                                                 aria-labelledby="action-bar-10-tab"><img
+                                                    src="images/action_bar/presentation.png" class="img-fluid"
+                                                    alt="" style=" border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <h4 class="mb-4"
+                                            style="font-size:24px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                                            Gantt View<span class="mx-auto d-block my-2"
+                                                            style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                                        </h4>
+                                        <p style="font-size: 18px;font-weight:500;color:#616060;line-height:30.06px;">
+                                            Modify The
+                                            View As
+                                            Per Your Wish! </p>
+                                    </div>
+                                </div>
+                                <div class="row m-0">
+                                    <div class="col-md-8">
+                                        <div class="tab-content d-flex align-items-center" id="myTabContent"
+                                             style="min-height: 611px; ">
+                                            <!-- Create -->
+                                            <div class="tab-pane fade show active" id="action-bar-11" role="tabpanel"
+                                                 aria-labelledby="action-bar-11-tab"><img
+                                                    src="images/gantt_view/create_leaves.png" class="img-fluid"
+                                                    style=" border-radius: 6px; border: 1px solid #ccc;" alt=""/>
+                                            </div>
+                                            <!-- Export -->
+                                            <div class="tab-pane fade" id="action-bar-12" role="tabpanel"
+                                                 aria-labelledby="action-bar-12-tab"><img
+                                                    src="images/gantt_view/export_gantt.png" class="img-fluid"
+                                                    style=" border-radius: 6px; border: 1px solid #ccc;" alt=""/>
+                                            </div>
+                                            <!-- Leave Tooltip -->
+                                            <div class="tab-pane fade" id="action-bar-14" role="tabpanel"
+                                                 aria-labelledby="action-bar-14-tab"><img
+                                                    src="images/gantt_view/tooltip.png" class="img-fluid"
+                                                    alt="" style="border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                            <!-- Leavebar Color  -->
+                                            <div class="tab-pane fade" id="action-bar-18" role="tabpanel"
+                                                 aria-labelledby="action-bar-18-tab"><img
+                                                    src="images/gantt_view/setting_page.png"
+                                                    class="img-fluid" alt=""
+                                                    style="border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                            <!-- Keyboard Shortcuts -->
+                                            <div class="tab-pane fade" id="action-bar-19" role="tabpanel"
+                                                 aria-labelledby="action-bar-19-tab"><img
+                                                    src="images/gantt_view/keyboard.png"
+                                                    class="img-fluid" alt=""
+                                                    style="border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3 overflow-auto" style="max-height: 612px;">
+                                        <ul id="accordion1" class="nav py-3 flex-column accordion px-3"
+                                            style="background-color: #E5F5F7; margin-top: 15px; border-radius: 10px;"
+                                            id="myTab" role="tablist">
+                                            <!-- Create -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0  collapsed" id="action-bar-11-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-11" role="tab" aria-controls="action-bar-11"
+                                                    aria-selected="true"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width:90%;"
+                                                    data-target="#collapseeleven" data-toggle="collapse">Create<i
+                                                    style="color:#82B6BC;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapseeleven" class="show collapse" data-parent="#accordion1"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">The Create
+                                                        button helps
+                                                        to
+                                                        create a leave record as you fill the required fields in the
+                                                        leave
+                                                        form.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Export -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-12-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-12" role="tab" aria-controls="action-bar-12"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapsetwelve" data-toggle="collapse">Export<i
+                                                    style="color:#82B6BC;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapsetwelve" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion1">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">The Gantt
+                                                        View Time Off report can be exported in various formats like
+                                                        Excel, PDF, PNG, JSON, MS Project(XML), Primavera P6, and
+                                                        iCal.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Leave Tooltip -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-14-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-14" role="tab" aria-controls="action-bar-14"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapsefourteen"
+                                                    data-toggle="collapse">Leave Tooltip<i
+                                                    style="color:#82B6BC;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapsefourteen" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion1">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">The Hover
+                                                        Tooltip feature displays the leave details such as Start Date &
+                                                        the End Date of the leave as the mouse is moved over a leave-bar in
+                                                        the Gantt View . There is also an edit & delete option to modify
+                                                        or delete the project.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Leave Color -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-18-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-18" role="tab" aria-controls="action-bar-18"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapse19" data-toggle="collapse"
+                                                    aria-expanded="false">Leave Color<i
+                                                    style="color:#82B6BC;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapse19" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion1">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">
+                                                        Based on the
+                                                        color
+                                                        assigned to different states, the leave bar color in
+                                                        Gantt View will
+                                                        automatically change.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Keyboard Shortcuts -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-19-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-19" role="tab" aria-controls="action-bar-19"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%;"
+                                                    data-target="#collapsenineteen19" data-toggle="collapse"
+                                                    aria-expanded="false">Keyboard Shortcuts<i
+                                                    style="color:#82B6BC;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #6ea9b1;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapsenineteen19" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion1">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">There are
+                                                        several
+                                                        Keyboard
+                                                        shortcuts that can be used to perform the tasks that one has to
+                                                        perform
+                                                        manually
+                                                        using the functionalities of Gantt View.</p>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <h4 class="mb-4"
+                                            style="font-size:24px;line-height:40px;font-weight:600;justify-content: center;color:#3D3B3B;">
+                                            Gantt Settings
+                                            <span class="mx-auto d-block my-2"
+                                                  style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                                        </h4>
+                                        <p style="font-size: 18px;font-weight:500;color:#616060;line-height:30.06px;">
+                                            Customize The
+                                            Gantt View </p>
+                                    </div>
+                                </div>
+                                <div class="row m-0">
+                                    <div class="col-md-8">
+                                        <div class="tab-content d-flex align-items-center" id="myTabContent"
+                                             style="min-height: 611px; ">
+
+                                            <!-- Tooltip Settings -->
+                                            <div class="tab-pane fade show active" id="action-bar-53" role="tabpanel"
+                                                 aria-labelledby="action-bar-53-tab"><img
+                                                    src="images/gantt_settings/tooltip.png"
+                                                    class="img-fluid" alt=""
+                                                    style="border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+
+                                            <!-- Dynamic Text -->
+                                            <div class="tab-pane fade" id="action-bar-54" role="tabpanel"
+                                                 aria-labelledby="action-bar-54-tab"><img
+                                                    src="images/gantt_settings/dynamic_text.png"
+                                                    class="img-fluid" alt=""
+                                                    style="border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+
+                                            <!-- Quick Info -->
+                                            <div class="tab-pane fade" id="action-bar-57" role="tabpanel"
+                                                 aria-labelledby="action-bar-57-tab"><img
+                                                    src="images/gantt_settings/quick_info.png"
+                                                    class="img-fluid" alt=""
+                                                    style="border-radius: 6px; border: 1px solid #ccc;"/>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div
+                                            class="col-md-4 mb-3 overflow-auto" style="max-height: 612px;">
+                                        <ul id="accordion4" class="nav py-3 px-3 flex-column accordion"
+                                            style="background-color: #F3E9FF; margin-top: 15px; border-radius: 10px;"
+                                            id="myTab" role="tablist">
+
+                                            <!-- Tooltip Settings -->
+
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-53-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-53" role="tab" aria-controls="action-bar-53"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%"
+                                                    data-target="#collapse53" data-toggle="collapse">Tooltip Settings <i
+                                                    style="color: #613B92;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a></li>
+
+                                            <div style="background-color: #7a33d0;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapse53" class="show collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion4">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">The Tooltip
+                                                        Settings
+                                                        allows
+                                                        you
+                                                        to customize the leave information display in the Tooltip view
+                                                        by
+                                                        enabling/disabling
+                                                        the information. If you turn on these options, the related
+                                                        information will
+                                                        be
+                                                        shown
+                                                        in the Tooltip view.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Dynamic Text -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item"><a
+                                                    style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                    class="nav-link pl-0 pr-0 collapsed" id="action-bar-54-tab"
+                                                    data-toggle="tab"
+                                                    href="#action-bar-54" role="tab" aria-controls="action-bar-54"
+                                                    aria-selected="false"><i
+                                                    class="fa fa-file-text-o pr-2"></i><span
+                                                    style="display:inline-block; width: 90%"
+                                                    data-target="#collapse54" data-toggle="collapse">Dynamic Text <i
+                                                    style="color: #613B92;height:12px;width:12px; padding-top: 15px;"
+                                                    class="fa fa-plus pl-2 float-right"></i></span></a></li>
+                                            <div style="background-color: #7a33d0;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapse54" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion4">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">The leave
+                                                        description is
+                                                        often
+                                                        too
+                                                        long and does not fit the leave bar in the Gantt View. If you
+                                                        turn on the
+                                                        Dynamic
+                                                        Text, the name will be adjusted and displayed beside it or else
+                                                        it will be
+                                                        shown
+                                                        within the bar.</p>
+                                                </div>
+                                            </div>
+
+                                            <!-- Quick Info -->
+                                            <li style="height:45px; line-height: 45px;" class="nav-item">
+                                                <a style="color: #3D3B3B;font-size: 16px;font-weight:500;background-color: transparent;"
+                                                   class="nav-link pl-0 pr-0 collapsed" id="action-bar-57-tab"
+                                                   data-toggle="tab"
+                                                   href="#action-bar-57" role="tab" aria-controls="action-bar-57"
+                                                   aria-selected="false"><i
+                                                        class="fa fa-file-text-o pr-2"></i><span
+                                                        style="display:inline-block; width: 90%;"
+                                                        data-target="#collapse57" data-toggle="collapse">Quick Info<i
+                                                        style="color: #613B92;height:12px;width:12px; padding-top: 15px;"
+                                                        class="fa fa-plus pl-2 float-right"></i></span></a>
+                                            </li>
+                                            <div style="background-color: #7a33d0;border-radius: 10px;width:94%;"
+                                                 class="">
+                                                <div id="collapse57" class=" collapse"
+                                                     style="flex: 1 1 auto; min-height: 1px; padding: 1.25rem;"
+                                                     data-parent="#accordion4">
+                                                    <p style="font-size:16px;line-height:26.72px;color:#fff">Quick Info
+                                                        feature to quickly see the information of a leave in the Gantt
+                                                        View(Start & End date, leave type) and edit/delete options on
+                                                        the go.</p>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" pb-0">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h4 class="mb-4"
+                                    style="font-size:24px;line-height:40px;font-weight:500;justify-content: center;color:#3D3B3B;">
+                                    All
+                                    Features
+                                    <span class="mx-auto d-block my-2"
+                                          style="width: 45px;height:4px;background-color: #752DD3;display: inline-block;"></span>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="row px-2 m-0">
+                            <div class="col-md-3 px-2   mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #FFD8D8; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                        Critical
+                                        <br> Path
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 px-2   mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #FFEAD8; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                        Presentation
+                                        <br> Mod
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2  mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                        Multi-functional
+                                        <br>Resource Panel
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2  mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Smart
+                                        Display of
+                                        <br>30000+ Leaves
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2  mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color:  #FFFBE9; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;"> 7 Themes
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2  mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #FFD8D8; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;"> Duration
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2 mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Grid </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2  mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Zoom To
+                                        <br>Fit
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2 px-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color:  #FDEEEE; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;"> Today
+                                        <br>Button
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2   mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Time
+                                        <br>Sorting
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2 mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color:  #FDEEEE; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Zoom In
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2 mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #FFD8D8;border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Tooltip
+                                        <br>Settings
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2   mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #FFEAD8;border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Dynamic
+                                        <br> Text
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2  mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color:#F6FBE3; border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Quick
+                                        <br>Info
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2  mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Leavebar
+                                        <br>Color
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 px-2  mb-2 text-center">
+                                <div class="d-flex justify-content-center align-items-center"
+                                     style="background-color:  #D4FCF2;border-radius: 10px;min-height:88px">
+                                    <p class="mb-0"
+                                       style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">Keyboard
+                                        <br>Shortcuts
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2nd tab -->
+                <div class="tab-pane" id="tabs-61" role="tabpanel">
+                    <div class="row px-2 pt-4 m-0">
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #FFD8D8; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Critical
+                                    <br>Path
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2   my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #FFEAD8; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Presentation
+                                    <br> Mod
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Multi-functional
+                                    <br>Resource Panel
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Smart
+                                    Display of
+                                    <br>30000+ Leaves
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color:  #FFFBE9; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    7 Themes
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #FFD8D8; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Duration
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2 my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Grid </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #DCFAF1; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Zoom To
+                                    <br>Fit
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 my-2 px-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color:  #FDEEEE; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Today
+                                    <br>Button
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2   my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #D4FCF2; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Time
+                                    <br>Sorting
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2 my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color:  #FDEEEE; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Zoom In
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2 my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #FFD8D8;border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Tooltip
+                                    <br>Settings
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2   my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #FFEAD8;border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Dynamic
+                                    <br> Text
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color:#F6FBE3; border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Quick
+                                    <br>Info
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color: #FADCF5;border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Leavebar
+                                    <br>Color
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3 px-2  my-2 text-center">
+                            <div class="d-flex justify-content-center align-items-center"
+                                 style="background-color:  #D4FCF2;border-radius: 10px;min-height:88px">
+                                <p class="mb-0" style="font-size:16px;line-height:25px;font-weight:500; color:#514F4F;">
+                                    Keyboard
+                                    <br>Shortcuts
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3rd Tab -->
+                <div class="tab-pane" id="tabs-62" role="tabpanel">
+                    <div class="row m-0">
+                        <div class="container">
+                            <div id="accordion6" class="accordion" style="">
+                                <div class="mt-5 mb-0">
+                                    <div class="card-header collapsed" data-toggle="collapse" href="#collapseFAQOne"
+                                         style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.1. What is Gantt View Time Off ?<i class="fa fa-plus float-right pt-2"
+                                                                                 style="color: #8A8A8A;"></i>
+
+                                        </a>
+                                    </div>
+                                    <div id="collapseFAQOne" class="card-body collapse" data-parent="#accordion6">
+                                        <p style="font-size:16px;line-height:27px;color:#514F4F">
+                                            Gantt View Time Off module is the one-stop platform to manage the leaves of
+                                            employees for an organization/ business.
+                                        </p>
+                                    </div>
+                                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                                         href="#collapseFAQTwo" style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.2. How will it help in leave management?<i
+                                                class="fa fa-plus float-right pt-2" style="color: #8A8A8A;"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapseFAQTwo" class="card-body collapse" data-parent="#accordion6">
+                                        <p style="font-size:16px;line-height:27px;color:#514F4F"> With it’s easy-to-use
+                                            functionalities, anyone can leverage the Gantt Chart to organize regular
+                                            leave routines. There are various leave types that can be set up along with
+                                            specific durations, extra notes, etc. Critical path and leave dependencies
+                                            can also be set up easily.
+                                        </p>
+                                    </div>
+                                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                                         href="#collapseFAQThree" style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.3. Is this app compatible with Odoo Enterprise?<i
+                                                class="fa fa-plus float-right pt-2" style="color: #8A8A8A;"></i>
+
+
+                                        </a>
+                                    </div>
+                                    <div id="collapseFAQThree" class="collapse" data-parent="#accordion6">
+                                        <div class="card-body">
+                                            <p style="font-size:16px;line-height:27px;color:#514F4F"> No, it is not
+                                                currently compatible with the Odoo Enterprise. However, future updates
+                                                can make it compatible with Odoo Enterprise later.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                                         href="#collapse4" style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.4. How to create time off request?<i class="fa fa-plus float-right pt-2"
+                                                                                   style="color: #8A8A8A;"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapse4" class="collapse" data-parent="#accordion6">
+                                        <div class="card-body">
+                                            <p style="font-size:16px;line-height:27px;color:#514F4F"> These are the
+                                                steps to create the time off request:
+                                                <br/>
+                                                1. Click on the create/plus icon button on the Gantt view,
+                                                <br/>
+                                                2. Select the leave type,
+                                                <br/>
+                                                3. Add leave start/end date,
+                                                <br/>
+                                                4. Add description(regarding the leave) and then save it.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                                         href="#collapse5" style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.5. Do you provide any free support?<i
+                                                class="fa fa-plus float-right pt-2"
+                                                style="color: #8A8A8A;"></i>
+                                        </a>
+                                    </div>
+                                    <div id="collapse5" class="collapse" data-parent="#accordion6">
+                                        <div class="card-body">
+                                            <p style="font-size:16px;line-height:27px;color:#514F4F"> Ksolves provides
+                                                120 days of free support since the day of app purchase regarding any
+                                                issues, glitches, etc.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                                         href="#collapse6" style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.6. Need some customization in this app, whom to contact? <i
+                                                class="fa fa-plus float-right pt-2" style="color: #8A8A8A;"></i>
+
+
+                                        </a>
+                                    </div>
+                                    <div id="collapse6" class="collapse" data-parent="#accordion6">
+                                        <div class="card-body">
+                                            <p style="font-size:16px;line-height:27px;color:#514F4F"> For customization
+                                                in the Gantt View Time Off Module, you can contact the developers of the
+                                                app, which is us. We will check the feasibility of your customization
+                                                request and definitely work on it.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion6"
+                                         href="#collapse7" style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.7. Is it possible to modify my leaves?<i
+                                                class="fa fa-plus float-right pt-2"
+                                                style="color: #8A8A8A;"></i>
+
+
+                                        </a>
+                                    </div>
+                                    <div id="collapse7" class="collapse" data-parent="#accordion6">
+                                        <div class="card-body">
+                                            <p style="font-size:16px;line-height:27px;color:#514F4F"> Yes, it is
+                                                possible to modify the leaves by editing a saved leave.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-header collapsed border-bottom-0" data-toggle="collapse"
+                                         data-parent="#accordion6"
+                                         href="#collapse8" style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.8. Who can manage the leaves of other employees? <i
+                                                class="fa fa-plus float-right pt-2"
+                                                style="color: #8A8A8A;"></i>
+
+
+                                        </a>
+                                    </div>
+                                    <div id="collapse8" class="collapse" data-parent="#accordion6">
+                                        <div class="card-body">
+                                            <p style="font-size:16px;line-height:27px;color:#514F4F"> The admin/manager
+                                                can manage the leaves of other employees easily.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-header collapsed border-bottom-0" data-toggle="collapse"
+                                         data-parent="#accordion6"
+                                         href="#collapse9" style="background:none; cursor: pointer;">
+                                        <a style="font-size: 18px;line-height:30px;font-weight:600" class="card-title">
+                                            Q.9. In which formats can the Gantt View Time Off report be exported? <i
+                                                class="fa fa-plus float-right pt-2"
+                                                style="color: #8A8A8A;"></i>
+
+
+                                        </a>
+                                    </div>
+                                    <div id="collapse9" class="collapse" data-parent="#accordion6">
+                                        <div class="card-body">
+                                            <p style="font-size:16px;line-height:27px;color:#514F4F"> The Gantt View
+                                                Time Off report can be exported in many formats like Excel, PDF, PNG,
+                                                JSON, MS Project(XML), Primavera P6, and iCal.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4th Tab -->
+                <div class="tab-pane" id="tabs-63" role="tabpanel">
+                    <div class="row pt-5 m-0">
+                        <div class="col-md-3">
+                            <h4 style="font-size: 16px; color: #514F4F;margin: 0;line-height: 26px;"> Version
+                                14.0.1</h4>
+                            <span style="font-size: 14px; color: #7A7979;display: block; margin-bottom: 20px;">23 April 2021</span>
+                        </div>
+                        <div class="col-md-8">
+                            <div>
+                                <div style="margin: 0 0 10px;">
+                                    <div
+                                            style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                        New
+                                        Features
+                                    </div>
+                                </div>
+                                <p>
+                                <div style="display: inline-block; padding-right: 6px;">●</div>
+                                </p>
+                            </div>
+                            <div style="padding: 24px 0 40px; border-bottom: 1px solid #E3E3E3;">
+                                <div style="margin: 0 0 10px;">
+                                    <div
+                                            style="display: inline-block; padding: 0px 8px; color: #514F4F; background-color: #FFD8D8; border-radius: 20px;">
+                                        Feature
+                                        Enhancements
+                                    </div>
+                                </div>
+                                <p style="margin: 0;">
+                                <div style="display: inline-block; padding-right: 6px;">●</div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <!-- End Of New Tabs -->
+
+</section>
+<script src="https://code.jquery.com/jquery-1.8.0.min.js"
+        integrity="sha256-jFdOCgY5bfpwZLi0YODkqNXQdIxKpm6y5O/fy0baSzE=" crossorigin="anonymous"></script>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script>
+    $('.counter').each(function () {
+      var $this = $(this),
+        countTo = $this.attr('data-count');
+
+      $({ countNum: $this.text() }).animate({
+        countNum: countTo
+      },
+        {
+          duration: 8000,
+          easing: 'linear',
+          step: function () {
+            $this.text(Math.floor(this.countNum));
+          },
+          complete: function () {
+            $this.text(this.countNum);
+            //alert('finished');
+          }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+
+</html>

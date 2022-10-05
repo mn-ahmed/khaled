@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+        <record id="ks_view_mrp_gantt_settings_form" model="ir.ui.view">
+            <field name="name">Manufacturing Orders Gantt Settings</field>
+            <field name="model">mrp.gantt.settings</field>
+            <field name="arch" type="xml">
+                <form create="0" delete="0">
+                    <sheet>
+                        <notebook>
+                            <page string="Manufacturing Order" name="manufacturing_order">
+                                <group>
+                                    <group string="Gantt Chart Settings">
+                                        <field name="ks_enable_dynamic_text" widget="boolean_toggle"/>
+                                        <field name="ks_enable_quickinfo_extension" widget="boolean_toggle"/>
+                                    </group>
+                                    <group string="Tooltip Settings">
+                                        <field name="ks_tooltip_name_mo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_duration_mo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_start_date_mo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_end_date_mo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_stage_mo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_constraint_type_mo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_constraint_date_mo" widget="boolean_toggle"/>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page string="State color">
+                                        <field name="ks_mo_stage_color_ids" string="State color">
+                                            <tree editable="bottom">
+                                                <field name="ks_state"/>
+                                                <field name="ks_color" widget="ks_gantt_color_picker"/>
+                                            </tree>
+                                        </field>
+                                    </page>
+                                </notebook>
+                            </page>
+                            <page string="Work Order" name="work_order">
+                                <group>
+                                    <group string="Gantt Chart Settings">
+                                        <field name="ks_enable_dynamic_text_wo" widget="boolean_toggle"/>
+                                        <field name="ks_enable_quickinfo_extension_wo" widget="boolean_toggle"/>
+                                        <field name="ks_enable_dynamic_progress_wo" widget="boolean_toggle"/>
+                                    </group>
+                                    <group string="Tooltip Settings">
+                                        <field name="ks_tooltip_name_wo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_duration_wo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_start_date_wo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_end_date_wo" widget="boolean_toggle"/>
+                                        <field name="ks_tooltip_stage_wo" widget="boolean_toggle"/>
+                                    </group>
+                                </group>
+                                <!-- Notebook start here -->
+                                <notebook>
+                                    <page string="State color">
+                                        <field name="ks_stage_color_wo_ids" string="State color">
+                                            <tree editable="bottom">
+                                                <field name="ks_state"/>
+                                                <field name="ks_color" widget="ks_gantt_color_picker"/>
+                                            </tree>
+                                        </field>
+                                    </page>
+                                </notebook>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ks_gantt_view_mrp.action_mrp_gantt_setting" model="ir.actions.act_window">
+            <field name="name">Manufacturing Orders Gantt Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.gantt.settings</field>
+            <field name="res_id" ref="ks_gantt_view_mrp.ks_gantt_mrp_data_settings"/>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem id="ks_mrp_gantt_setting"
+                  name="Gantt Settings"
+                  parent="mrp.menu_mrp_configuration"
+                  action="ks_gantt_view_mrp.action_mrp_gantt_setting"
+                  groups="mrp.group_mrp_manager"
+        />
+    </data>
+</odoo>

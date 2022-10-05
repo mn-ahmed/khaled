@@ -1,0 +1,32 @@
+.gantt_task_content{
+    line-height: 20px !important;
+    color: #fff !important;
+}
+
+.overdue-indicator{
+    margin-top: 5px;
+}
+
+.overdue-indicator::before{
+    font-size: 14px;
+}
+
+div.gantt_task_line{
+   border-radius: 0px;
+}
+
+.constraint-marker.earliest-start{
+    margin-top: 0px;
+}
+
+.ks_task_left_text{
+    margin-top: 5px;
+}
+
+div.gantt_task_line.gantt_task_inline_color{
+    border-color: initial;
+}
+
+.gantt_tree_icon.gantt_file{
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0Ij48cGF0aCBkPSJNMCAwaDI0djI0SDBWMHoiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTQgMkg2Yy0xLjEgMC0xLjk5LjktMS45OSAyTDQgMjBjMCAxLjEuODkgMiAxLjk5IDJIMThjMS4xIDAgMi0uOSAyLTJWOGwtNi02ek02IDIwVjRoN3Y1aDV2MTFINnoiLz48L3N2Zz4=") !important;
+}

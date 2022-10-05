@@ -1,0 +1,153 @@
+<odoo>
+  <data>
+
+      <record id="resignation_request_reject_reason_form" model="ir.ui.view">
+            <field name="name">resignation.request.reject.reason.form</field>
+            <field name="model">reject.message.resignation</field>
+            <field name="arch" type="xml">
+                <form string="reject message">
+                    <group class="oe_title">
+                        <field name="reject_reason"/>
+                    </group>
+                    <footer>
+                        <button name="action_reject_reason" string="Reject" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+      <record id="resignation_request_reject_reason_wizard_action" model="ir.actions.act_window">
+            <field name="name">Resignation Request Reject Reason Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reject.message.resignation</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="resignation_request_reject_reason_form"/>
+            <field name="target">new</field>
+        </record>
+
+      <record id="resignation_request_form_view" model="ir.ui.view">
+            <field name="name">Resignation Request Form</field>
+            <field name="model">resignation.request</field>
+            <field name="arch" type="xml">
+                <form string="Resignation Request">
+                    <header>
+                        <button name="sent_request" type="object"
+                                string="Submit" class="oe_highlight"
+                                states="draft"/>
+
+                        <button name="dm_approve" type="object"
+                                string="Manager Approve" class="oe_highlight"
+                                states="sent"
+                                groups="offboarding.resignation_request_manager_group"/>
+
+                        <button name="hr_approve" type="object"
+                                string="HR Approve" class="oe_highlight"
+                                states="dm"
+                                groups="offboarding.resignation_request_hr_group"/>
+
+                        <button name="%(resignation_request_reject_reason_wizard_action)d" type="action"
+                                string="Reject"
+                                states="dm,sent"
+                                class="oe_highlight"
+                                groups="offboarding.resignation_request_hr_group,offboarding.resignation_request_manager_group"/>
+
+                        <button name="resubmit" type="object"
+                                string="Resibmit"
+                                states="rejected"
+                                class="oe_highlight"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" /></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_name"/>
+                                <field name="employee_full_name"/>
+                                <field name="employee_email"/>
+                            </group>
+                            <group>
+                                <field name="employee_direct_manager"/>
+                                <field name="employee_project" widget="many2many_tags" />
+                                <field name="employee_project_manager"/>
+                            </group>
+                             <group>
+                                <field name="last_date"/>
+                                <field name="reason" />
+                            </group>
+                            <group>
+                                <field name="d_comment" />
+                                <field name="hr_comment" />
+                                <field name="bbi_last_date" />
+                            </group>
+
+                            <group>
+                                <field name="reject_reason"  attrs="{'invisible': [('state', '!=', 'rejected')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+      <record id="resignation_request_tree_view" model="ir.ui.view">
+            <field name="name">Resignation Request Tree</field>
+            <field name="model">resignation.request</field>
+            <field name="arch" type="xml">
+                <tree string="Resignation Request">
+                    <field name="name"/>
+                    <field name="employee_name"/>
+                    <field name="employee_direct_manager"/>
+                    <field name="employee_project_manager"/>
+                    <field name="last_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+      <record id="resignation_request_action" model="ir.actions.act_window">
+            <field name="name">Resignation Request</field>
+            <field name="res_model">resignation.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+      <record id="dm_approve_resignation_request_action" model="ir.actions.act_window">
+            <field name="name">Resignation Request DM Approve</field>
+            <field name="res_model">resignation.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','sent')]</field>
+      </record>
+
+      <record id="hr_approve_resignation_request_action" model="ir.actions.act_window">
+            <field name="name">Resignation Request HR Approve</field>
+            <field name="res_model">resignation.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','dm')]</field>
+      </record>
+
+      <menuitem name="Resignation Request"
+                  id="resignation_request_menu"
+                  parent="employees_self_services.hr_request_ess_menu"
+                  action="resignation_request_action" sequence="3"/>
+
+      <menuitem name="Resignation DM Approve"
+                  id="resignation_dm_approve_menu"
+                  parent="employees_self_services.manager_approve_ess_menu"
+                  action="dm_approve_resignation_request_action" sequence="2"/>
+
+      <menuitem name="Resignation HR Approve"
+                  id="resignation_hr_approve_menu"
+                  parent="employees_self_services.sub_menu_for_hr_approve_requests"
+                  action="hr_approve_resignation_request_action" sequence="10"/>
+
+  </data>
+</odoo>

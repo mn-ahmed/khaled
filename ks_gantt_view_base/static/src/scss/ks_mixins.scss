@@ -1,0 +1,43 @@
+//variables
+$ks-gv-interval-bg-color: #f0fafc;
+$ks-gv-scroll-width: 8px;
+$gantt-highlight-today-border: #dca665;
+$gantt-highlight-today-bg: #fffaeb;
+$ks-gv-row-open-bg-color: $gray-100;
+$ks-gv-capsule-consolidated-height: 24px;
+$ks-gv-capsule-height: 31px;
+$ks-gv-border-color: $gray-400;
+
+@mixin ks_gv_over() {
+    &:hover,
+    &:focus,
+    &.ks_gv_ui_draggable_started,
+    &.ui-resizable-resize {
+        @at-root #{selector-replace(&, ".ks_gv_view", ".ks_gv_view:not(.ks_gv_grabbing):not(.ks_gv_copying):not(.ks_gv_stop_dragging)")} {
+            @content;
+        }
+    }
+}
+
+// Generate background and text for each color.
+@mixin ks_gv_hover_colors($color) {
+    $color-subdle: mix($color, white, 60%);
+    color: color-yiq($color-subdle);
+    background-color: $color-subdle;
+    cursor: pointer;
+
+    @include ks_gv_over() {
+        background-color: $color;
+        color: color-yiq($color);
+    }
+}
+
+@mixin ks_gv_strip_color($color) {
+    content: '';
+    @include size(20px, 16px);
+    @include o-position-absolute(-11px, $left: -13px);
+    box-shadow: 1px 1px 0 white;
+    background: $color;
+    transform: rotate(45deg);
+}
+

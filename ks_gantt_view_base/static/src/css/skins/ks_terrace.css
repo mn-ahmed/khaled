@@ -1,0 +1,7 @@
+.gantt_grid_head_cell, .gantt_grid_head_name{
+    font-weight: 600;
+}
+
+.gantt_grid_scale, .gantt_task_scale{
+    background: #F8F7F7 !important;
+}

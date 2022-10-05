@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <!-- Gantt view odoo control panel (Export buttons)-->
+    <t t-name="ks_gantt_view_base.control_panel_buttons">
+        <div class="o_list_buttons" role="toolbar" aria-label="Main actions">
+            <div class="ks_gantt_view_header">
+                <t t-if="values['create']">
+                    <button type="button" class="btn btn-primary ks_gantt_create_btn" accesskey="c">
+                        Create
+                    </button>
+                </t>
+                <button type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle"
+                        data-toggle="dropdown">Export
+                </button>
+                <ul role="menu" class="o_dropdown_menu dropdown-menu">
+                    <li role="menuitem" class="o_menu_item">
+                        <a aria-checked="false" role="menuitemcheckbox" report_type="excel"
+                           class="dropdown-item ks_gantt_export_list">Excel
+                        </a>
+                    </li>
+                    <li role="menuitem" class="o_menu_item">
+                        <a aria-checked="false" role="menuitemcheckbox" report_type="pdf"
+                           class="dropdown-item ks_gantt_export_list">PDF
+                        </a>
+                    </li>
+                    <li role="menuitem" class="o_menu_item">
+                        <a aria-checked="false" role="menuitemcheckbox" report_type="png"
+                           class="dropdown-item ks_gantt_export_list">PNG
+                        </a>
+                    </li>
+                    <li role="menuitem" class="o_menu_item">
+                        <a aria-checked="false" role="menuitemcheckbox" report_type="json"
+                           class="dropdown-item ks_gantt_export_list">JSON
+                        </a>
+                    </li>
+                    <li role="menuitem" class="o_menu_item">
+                        <a aria-checked="false" role="menuitemcheckbox" report_type="ms-project"
+                           class="dropdown-item ks_gantt_export_list">MS
+                            Project (XML)
+                        </a>
+                    </li>
+                    <li role="menuitem" class="o_menu_item">
+                        <a aria-checked="false" role="menuitemcheckbox" report_type="primaverap6"
+                           class="dropdown-item ks_gantt_export_list">PrimaveraP6
+                        </a>
+                    </li>
+                    <li role="menuitem" class="o_menu_item">
+                        <a aria-checked="false" role="menuitemcheckbox" report_type="ical"
+                           class="dropdown-item ks_gantt_export_list">iCal
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </t>
+
+    <!-- Main Gantt view structure -->
+    <t t-name="ks_gantt_view_base.ks_gantt_content">
+        <div class="d-flex h-100 flex-column ks-gantt-container-main" id="ks_main_gantt_container">
+            <div class="ks_gantt_control px-2">
+                <div class="row no-gutters">
+                    <div class="col-md-8">
+                        <div class="ks-menu-wrapper">
+                            <ul class="ks-menu">
+                                <t t-set="ks_gantt_config" t-value="widget.ks_gantt_config"/>
+                                <t t-if="!ks_gantt_config || !ks_gantt_config.ks_hide_graph_overlay">
+                                    <li class="ks-item">
+                                        <button class="btn btn-secondary" id="ks_toggle_overlay">
+                                            <img src="/ks_gantt_view_base/static/src/images//toggle_deadline.svg"
+                                                 alt="Graph overlay"/>
+                                            Graph Overlay
+                                        </button>
+                                    </li>
+                                </t>
+                                <t t-if="!ks_gantt_config || !ks_gantt_config.ks_hide_no_of_days">
+                                    <li class="ks-item">
+                                        <button class="btn btn-secondary" id="ks_toggle_no_of_days">
+                                            <img src="/ks_gantt_view_base/static/src/images/toggle_no_of_days.svg"
+                                                 alt="Duration"/>
+                                            Duration
+                                        </button>
+                                    </li>
+                                </t>
+                                <t t-if="!ks_gantt_config || !ks_gantt_config.ks_hide_grid">
+                                    <li class="ks-item">
+                                        <button class="btn btn-secondary" id="ks_toggle_grid">
+                                            <img src="/ks_gantt_view_base/static/src/images/toggle_grid.svg"
+                                                 alt="Grid"/>
+                                            Grid
+                                        </button>
+                                    </li>
+                                </t>
+                                <t t-if="!ks_gantt_config || !ks_gantt_config.ks_hide_resource_panel">
+                                    <li class="ks-item">
+                                        <button class="btn btn-secondary" id="ks_toggle_resource">
+                                            <img src="/ks_gantt_view_base/static/src/images/toggle_resource.svg"
+                                                 alt="Resource Panel"/>
+                                            Resource Panel
+                                        </button>
+                                    </li>
+                                </t>
+                                <t t-if="!ks_gantt_config || !ks_gantt_config.ks_hide_zoom_to_fit">
+                                    <li class="ks-item">
+                                        <button class="btn btn-secondary" id="ks_zoom_to_fit">
+                                            <img src="/ks_gantt_view_base/static/src/images/zoom_to_fit.svg"
+                                                 alt="Zoom to fit"/>
+                                            Zoom To Fit
+                                        </button>
+                                    </li>
+                                </t>
+                                <t t-if="!ks_gantt_config || !ks_gantt_config.ks_hide_critical_path">
+                                    <li class="ks-item">
+                                        <button class="btn btn-secondary" id="ks_critical_path">
+                                            <img src="/ks_gantt_view_base/static/src/images/critical_path.svg"
+                                                 alt="Critical Path"/>
+                                            Critical Path
+                                        </button>
+                                    </li>
+                                </t>
+                                <t t-if="!ks_gantt_config || !ks_gantt_config.ks_hide_deadline">
+                                    <li class="ks-item">
+                                        <button class="btn btn-secondary" id="ks_toggle_deadline">
+                                            <img src="/ks_gantt_view_base/static/src/images/toggle_deadline.svg"
+                                                 alt="Deadline"/>
+                                            Deadline
+                                        </button>
+                                    </li>
+                                </t>
+                                <t t-if="!ks_gantt_config || !ks_gantt_config.ks_hide_days_off">
+                                    <li class="ks-item">
+                                        <button class="btn btn-secondary" id="ks_toggle_days_off">
+                                            <img src="/ks_gantt_view_base/static/src/images/days_off.svg"
+                                                 alt="Days Off"/>
+                                            Days Off
+                                        </button>
+                                    </li>
+                                </t>
+                            </ul>
+                            <div class="ks-paddles">
+                                <button class="ks-left-paddle ks-paddle hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                                    </svg>
+                                </button>
+                                <button class="ks-right-paddle ks-paddle hidden">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+                                        <path d="M0 0h24v24H0z" fill="none"/>
+                                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- <button class="btn btn-secondary" id="ks_toggle_overlay"><img src="/ks_gantt_view_base/static/src/images//toggle_deadline.svg" alt="Graph overlay" /> Graph overlay</button>-->
+                            <!-- <button class="btn btn-secondary" id="ks_toggle_no_of_days"><img src="/ks_gantt_view_base/static/src/images/toggle_no_of_days.svg" alt="Toggle no of days" /> No of days</button>-->
+                            <!-- <button class="btn btn-secondary" id="ks_toggle_grid"><img src="/ks_gantt_view_base/static/src/images/toggle_grid.svg" alt="Toggle grid" /> Grid</button>-->
+                            <!-- <button class="btn btn-secondary" id="ks_toggle_resource"><img src="/ks_gantt_view_base/static/src/images/toggle_resource.svg" alt="Resource Panel" /> Resource Panel</button>-->
+                            <!-- <button class="btn btn-secondary" id="ks_zoom_to_fit"><img src="/ks_gantt_view_base/static/src/images/zoom_to_fit.svg" alt="Zoom to fit" /> Zoom to fit</button>-->
+                            <!-- <button class="btn btn-secondary" id="ks_critical_path"><img src="/ks_gantt_view_base/static/src/images/critical_path.svg" alt="Critical Path" /> Critical Path</button>-->
+                            <!-- <button class="btn btn-secondary" id="ks_toggle_deadline"><img src="/ks_gantt_view_base/static/src/images/toggle_deadline.svg" alt="Toggle Deadline" /> Deadline</button>-->
+                            <!-- <button class="btn btn-secondary" id="ks_toggle_days_off"><img src="/ks_gantt_view_base/static/src/images/days_off.svg" alt="Days Off" /> Days Off</button>-->
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-center justify-content-end ks_gantt_right_control">
+                        <div class="ks_refresh_gantt_main">
+                            <i class="ks_refresh_gantt fa fa-refresh"/>
+                        </div>
+                        <div class="border-right border-left text-center">
+                            <button class="btn btn-secondary ks_current_time" type="button">Today</button>
+                        </div>
+                        <div class="border-right pr-2 text-center">
+                            <select class="form-control border-0" name="ks_gantt_zoom" id="ks_gantt_view_zoom">
+                                <option value="15 minutes">15 Min</option>
+                                <option value="30 minutes">30 Min</option>
+                                <option value="2 hour">2 Hr</option>
+                                <option value="4 hour">4 Hr</option>
+                                <option value="8 hour">8 Hr</option>
+                                <option value="day" selected="selected">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                                <option value="quarter">Quarter</option>
+                                <option value="year">Year</option>
+                            </select>
+                        </div>
+                        <div class="border-right pr-2 align-items-center d-flex text-center">
+                            <strong class="ml-2 mb-0">Sort:</strong>
+                            <select class="form-control border-0" name="ks_gantt_sort" id="ks_gantt_view_sort">
+                                <option value="default_sort">Default</option>
+                                <option value="name_sort_asc">Name Asc</option>
+                                <option value="name_sort_desc">Name Desc</option>
+                                <option value="create_sort_asc">Old To New</option>
+                                <option value="create_sort_desc">New To Old</option>
+                                <option value="create_duration_asc">Duration Asc</option>
+                                <option value="create_duration_desc">Duration Desc</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-secondary px-3 fa fa-expand " id="ks_toggle_fullscreen">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ks_gantt_container h-100" id="ks_gantt_content">
+                <div class="ks_gantt_view_content">
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <!-- Gantt view add icon on left grid -->
+    <t t-name="ks_gantt_view_base.ks_col_header">
+        <div class="gantt_grid_head_cell gantt_grid_head_add ks_gantt_grid_add"/>
+    </t>
+
+    <!-- Return edit, delete, add new task buttons -->
+    <t t-name="ks_gantt_view_base.ks_col_content_buttons">
+        <i class="fa ks_action_button gantt_button_grid ks_gantt_grid_edit fa-pencil" t-att-task_id="task.id"/>
+        <t t-if="create">
+            <i class="fa ks_action_button gantt_button_grid ks_gantt_grid_add fa-plus" t-att-task_id="task.id"/>
+        </t>
+        <i class="fa ks_action_button gantt_button_grid ks_gantt_grid_delete fa-times" t-att-task_id="task.id"/>
+    </t>
+</templates>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ks_gantt_view_mrp_production_import_wizard" model="ir.ui.view">
+        <field name="name">ks.gantt.view.base.import.wizard</field>
+        <field name="model">ks.gantt.base.import.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="ks_file_type"/>
+                    <field name="ks_file"/>
+                </group>
+                <footer>
+                    <button name="ks_action_import" string="Confirm" type="object" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_gantt_view_mrp_production_import_id" model="ir.actions.act_window">
+        <field name="name">Import Manufacturing</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ks.gantt.base.import.wizard</field>
+        <field name="context">{'ks_current_model': 'mrp.production'}</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ks_gantt_view_mrp.ks_gantt_view_mrp_production_import_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="ks_gantt_view_mrp_production_import_menuitem" name="Import Manufacturing"
+              parent="mrp.menu_mrp_configuration"
+              groups="mrp.group_mrp_manager"
+              sequence="100" action="action_gantt_view_mrp_production_import_id"/>
+</odoo>

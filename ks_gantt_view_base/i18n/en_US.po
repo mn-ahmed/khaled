@@ -1,0 +1,602 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ks_gantt_view_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-23 04:51+0000\n"
+"PO-Revision-Date: 2021-04-23 04:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "15 Min"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "2 Hr"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "30 Min"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "4 Hr"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "8 Hr"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model,name:ks_gantt_view_base.model_ir_actions_act_window_view
+msgid "Action Window View"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_controller.js:0
+#, python-format
+msgid "Are you sure to delete this record?"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__res_config_settings__ks_gantt_theme__dhtmlxgantt_broadway_css
+msgid "Broadway"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model,name:ks_gantt_view_base.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "Constraint Date : "
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "Constraint Type : "
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__res_config_settings__ks_gantt_theme__dhtmlxgantt_contrast_black_css
+msgid "Contrast Black"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__res_config_settings__ks_gantt_theme__dhtmlxgantt_contrast_white_css
+msgid "Contrast White"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_controller.js:0
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Create"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_task_link__create_uid
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_task_link__create_date
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Critical Path"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days__ks_day_name
+#, python-format
+msgid "Day"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Days Off"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Deadline"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "Deadline : "
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__res_config_settings__ks_gantt_theme__dhtmlxgantt_terrace_css
+#, python-format
+msgid "Default"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ir_actions_act_window_view__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ir_ui_view__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_task_link__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days__display_name
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Duration"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "Duration :"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Duration Asc"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Duration Desc"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_controller.js:0
+#, python-format
+msgid "Edit"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_res_config_settings__ks_gantt_rtl
+msgid "Enable RTL"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "End Date : "
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Excel"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Export"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__ks_task_link__ks_task_link_type__2
+msgid "Finish to finish"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__ks_task_link__ks_task_link_type__0
+msgid "Finish to start"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_controller.js:0
+#, python-format
+msgid "Format not available"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__ir_actions_act_window_view__view_mode__ks_gantt
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__ir_ui_view__type__ks_gantt
+msgid "Gantt"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_view.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_view.js:0
+#, python-format
+msgid "Gantt View"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_res_config_settings__ks_gantt_theme
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_base.ks_res_config_settings_view_form
+msgid "Gantt View Theme"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Graph Overlay"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Graph overlay"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Grid"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ir_actions_act_window_view__id
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ir_ui_view__id
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_task_link__id
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days__id
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "JSON"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days__ks_day_no
+msgid "Ks Day No"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model,name:ks_gantt_view_base.model_ks_task_link
+msgid "Ks Gantt Task Linking"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model_terms:ir.ui.view,arch_db:ks_gantt_view_base.ks_res_config_settings_view_form
+msgid "Ksolves Gantt View Settings"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ir_actions_act_window_view____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ir_ui_view____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_task_link____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days____last_update
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_res_config_settings____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_task_link__write_uid
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_task_link__write_date
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_week_days__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid ""
+"MS\n"
+"                            Project (XML)"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Main actions"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__res_config_settings__ks_gantt_theme__dhtmlxgantt_material_css
+msgid "Material"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__res_config_settings__ks_gantt_theme__dhtmlxgantt_meadow_css
+msgid "Meadow"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Month"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Name Asc"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Name Desc"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "New To Old"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Old To New"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "PDF"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "PNG"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "PrimaveraP6"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "Progress : "
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Quarter"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_recommend_color_picker.xml:0
+#, python-format
+msgid "Recommended Colors"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Resource Panel"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__res_config_settings__ks_gantt_theme__dhtmlxgantt_skyblue_css
+msgid "Sky Blue"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Sort:"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "Stage : "
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "Start Date : "
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__ks_task_link__ks_task_link_type__3
+msgid "Start to finish"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields.selection,name:ks_gantt_view_base.selection__ks_task_link__ks_task_link_type__1
+msgid "Start to start"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid "Task : "
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ks_task_link__ks_task_link_type
+msgid "Task Link Type"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Today"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model,name:ks_gantt_view_base.model_ir_ui_view
+msgid "View"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ir_actions_act_window_view__view_mode
+#: model:ir.model.fields,field_description:ks_gantt_view_base.field_ir_ui_view__type
+msgid "View Type"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_renderer.js:0
+#, python-format
+msgid ""
+"We are not able to show graph for large duration, please change the view "
+"scale"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Week"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#: model:ir.model,name:ks_gantt_view_base.model_ks_week_days
+msgid "Week Days"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Year"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_controller.js:0
+#, python-format
+msgid "You can't create link task with group"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_controller.js:0
+#, python-format
+msgid "You can't create link with other project"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/js/ks_gantt_controller.js:0
+#, python-format
+msgid "You can't create link with project and group"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Zoom To Fit"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "Zoom to fit"
+msgstr ""
+
+#. module: ks_gantt_view_base
+#. openerp-web
+#: code:addons/ks_gantt_view_base/static/src/xml/ks_gantt_view.xml:0
+#, python-format
+msgid "iCal"
+msgstr ""

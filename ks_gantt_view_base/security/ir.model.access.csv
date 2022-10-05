@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ks_task_link,ks.task.link,ks_gantt_view_base.model_ks_task_link,base.group_user,1,1,1,1
+access_ks_week_days,ks.week.days,ks_gantt_view_base.model_ks_week_days,base.group_user,1,1,1,1
+access_ks_gantt_base_import_wizard,ks.gantt.base.import.wizard,ks_gantt_view_base.model_ks_gantt_base_import_wizard,base.group_user,1,1,1,1

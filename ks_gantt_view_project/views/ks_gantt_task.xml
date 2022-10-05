@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- Project Task Gantt View -->
+        <record id="ks_task_view_gantt" model="ir.ui.view">
+            <field name="name">Project Task Gantt View</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <ks_gantt
+                        ks_task_start_date="ks_start_datetime"
+                        ks_task_end_date="ks_end_datetime"
+                        ks_task_id="id"
+                        ks_task_name="name"
+                        ks_task_color="ks_color"
+                        ks_task_link="ks_task_link_json"
+                        ks_task_link_info='{
+                        "ks_link_source": "ks_source_task_id",
+                        "ks_link_target": "ks_target_task_id"
+                    }'
+                        ks_task_parent="parent_id"
+                        ks_mark_as_important="priority"
+                        ks_work_duration="ks_work_duration"
+                        ks_task_deadline="date_deadline"
+                        ks_task_progress="progress"
+                        ks_parent_task="parent_id"
+                        ks_allow_subtask="ks_allow_subtask"
+                        ks_schedule_mode="ks_schedule_mode"
+                        ks_task_stage_id="stage_id"
+                        ks_unschedule="ks_task_unschedule"
+                        ks_constraint_task_type="ks_constraint_task_type"
+                        ks_constraint_task_date="ks_constraint_task_date"
+                        ks_owner_task="user_ids"
+                        ks_resource_hours_per_day="ks_resource_hours_per_day"
+                        ks_resource_hours_available="ks_resource_hours_available"
+                        ks_task_type="ks_task_type"
+                        sequence="sequence"
+                        project_id="project_id"
+                        partner_id="partner_id"
+                        company_id="company_id"
+                        ks_enable_task_duration="ks_enable_task_duration"
+                        ks_user_id = 'ks_user_ids'
+                >
+                </ks_gantt>
+            </field>
+        </record>
+
+        <!-- All Project Task Act Window -->
+        <record id="project.act_project_project_2_project_task_all" model="ir.actions.act_window">
+            <field name="view_mode">kanban,tree,form,calendar,pivot,graph,activity,ks_gantt</field>
+        </record>
+
+    </data>
+</odoo>

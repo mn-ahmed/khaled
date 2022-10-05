@@ -1,0 +1,125 @@
+<odoo>
+  <data>
+
+      <record id="medical_addition_reject_reason_form" model="ir.ui.view">
+            <field name="name">reject.message.medical.addition.form</field>
+            <field name="model">reject.message.medical.addition</field>
+            <field name="arch" type="xml">
+                <form string="reject message">
+                    <group class="oe_title">
+                        <field name="reject_reason"/>
+                    </group>
+                    <footer>
+                        <button name="action_reject_reason" string="Reject" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+      <record id="medical_addition_reject_reason_wizard_action" model="ir.actions.act_window">
+            <field name="name">Medical Addition Reject Reason Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reject.message.medical.addition</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="medical_addition.medical_addition_reject_reason_form"/>
+            <field name="target">new</field>
+        </record>
+
+      <record id="medical_addition_form_view" model="ir.ui.view">
+            <field name="name">Medical Addition Request</field>
+            <field name="model">medical.addition</field>
+            <field name="arch" type="xml">
+                <form string="Medical Addition Request">
+                    <header>
+                        <button name="hr_department" type="object"
+                                string="Approve" class="oe_highlight"
+                                groups="medical_addition.medical_addition_approve_group"
+                                states="wfa" />
+                        <button name="%(medical_addition_reject_reason_wizard_action)d" type="action"
+                                string="Reject"
+                                states="wfa"
+                                groups="medical_addition.medical_addition_approve_group"
+                                class="oe_highlight"/>
+                        <button name="done" type="object"
+                                string="Done"
+                                states="hr"
+                                groups="medical_addition.medical_addition_approve_group"
+                                class="oe_highlight" />
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" /></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee"/>
+                                <field name="employee_full_name"/>
+                                <field name="add_wife"/>
+                                <field name="birthday"/>
+                            </group>
+                            <group>
+                                <field name="personal_image" />
+                                <field name="marriage_contract" attrs="{'invisible': [('add_wife', '!=', True)]
+                                                                        ,'required' : [('add_wife', '=', True)]}"/>
+                            </group>
+                            <group>
+                                <field name="reject_reason"  attrs="{'invisible': [('state', '!=', 'rejected')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+      <record id="medical_addition_request_tree_view" model="ir.ui.view">
+            <field name="name">Medical Addition Request</field>
+            <field name="model">medical.addition</field>
+            <field name="arch" type="xml">
+                <tree string="Medical Addition Request">
+                    <field name="name"/>
+                    <field name="employee"/>
+                    <field name="employee_full_name"/>
+                    <field name="add_wife"/>
+
+                </tree>
+            </field>
+        </record>
+
+      <record id="request_medical_addition_action" model="ir.actions.act_window">
+            <field name="name">Medical Addition Request</field>
+            <field name="res_model">medical.addition</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+      <record id="approve_medical_addition_action" model="ir.actions.act_window">
+            <field name="name">Medical Addition Approve</field>
+            <field name="res_model">medical.addition</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','in',('wfa','hr'))]</field>
+      </record>
+
+      <menuitem name="Medical Addition Request "
+                  id="request_medical_addition_menu"
+                  parent="employees_self_services.medical_request_ess_menu"
+                  groups="medical_addition.medical_addition_user_group"
+                  action="request_medical_addition_action" sequence="8"/>
+
+      <menuitem name="Medical Addition"
+                id="approve_medical_addition_menu"
+                action="approve_medical_addition_action"
+                groups="medical_addition.medical_addition_approve_group"
+                parent="employees_self_services.sub_menu_for_hr_approve_requests"
+                sequence="2"/>
+
+  </data>
+</odoo>

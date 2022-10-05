@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="medical_replacement_module_category">
+            <field name="name">Medical Card Replacement</field>
+            <field name="description">User access level for this module</field>
+        </record>
+
+         <record id="medical_replacement_user_group" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="medical_replacement.medical_replacement_module_category"/>
+<!--              <field name="sequence">1</field>-->
+        </record>
+
+        <record id="medical_replacement_approve_group" model="res.groups">
+            <field name="name">HR</field>
+            <field name="category_id" ref="medical_replacement.medical_replacement_module_category"/>
+<!--              <field name="sequence">2</field>-->
+        </record>
+
+        <record id="medical_replacement_user_rule" model="ir.rule">
+            <field name="name">owner records assignment Rule</field>
+            <field name="model_id" ref="model_medical_replacement"/>
+            <field name="groups" eval="[(4, ref('medical_replacement.medical_replacement_user_group'))]"/>
+            <field name="domain_force">
+                [('employee.user_id','=',user.id)]
+            </field>
+        </record>
+
+        <record id="medical_replacement_approve_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_medical_replacement"/>
+            <field name="groups" eval="[(4, ref('medical_replacement.medical_replacement_approve_group'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+    </data>
+</odoo>

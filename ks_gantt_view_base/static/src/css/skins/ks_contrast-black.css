@@ -1,0 +1,34 @@
+.weekend {
+    background: #515151 !important;
+}
+.constraint-marker{
+   filter: invert(1);
+}
+.gantt_grid_scale div.gantt_grid_head_cell,
+.gantt_task .gantt_task_scale div.gantt_scale_cell {
+    color:  #fff;
+}
+.gantt_container{
+    color: #fff;
+}
+.red .gantt_cell, .odd.red .gantt_cell,
+.red .gantt_task_cell, .odd.red .gantt_task_cell {
+    background-color: transparent;
+    color: #dc3545 !important;
+}
+
+.green .gantt_cell, .odd.green .gantt_cell,
+.green .gantt_task_cell, .odd.green .gantt_task_cell {
+    background-color: transparent;
+    color: #28a745!important;
+}
+
+.yellow .gantt_cell, .odd.yellow .gantt_cell,
+.yellow .gantt_task_cell, .odd.yellow .gantt_task_cell {
+    background-color: transparent;
+    color: #ffc107!important;
+}
+
+.ks_deadline{
+    filter: invert(1);
+}

@@ -1,0 +1,7 @@
+div.gantt_task_line{
+   border-radius: 4px;
+}
+
+.gantt_grid .gantt_grid_scale div.gantt_grid_head_cell{
+        color: #fff!important;
+}
