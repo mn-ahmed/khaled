@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+
+        <record id="mail_template_access_card" model="mail.template">
+            <field name="name">Access Card Replacement Request</field>
+            <field name="model_id" ref="access_card.model_replace_access_card"/>
+            <field name="email_to">${object.get_email_to() |safe}</field>
+            <field name="subject">Access Card Replacement Request for ${object.employee_name.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR,
+                        <br></br>
+                        ${object.employee_name.name} is kindly requesting an Access Card Replacement .
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+
+
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_done_access_card" model="mail.template">
+            <field name="name">Access Card Replacement Done</field>
+            <field name="model_id" ref="access_card.model_replace_access_card"/>
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject"> Access Card Replacement is done </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear ${object.employee_name.name} ,
+                        <br></br>
+                        Congratulation your Access Card Replacement request is Done
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_reject_access_card" model="mail.template">
+            <field name="name">Access Card Replacement Rejected</field>
+            <field name="model_id" ref="access_card.model_replace_access_card"/>
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject">Access Card Replacement request is Rejected </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee_name.name}) ,
+                        <br></br>
+                        Sorry, Your Access Card Replacement request is rejected
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

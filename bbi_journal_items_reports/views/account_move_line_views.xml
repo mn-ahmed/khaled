@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="view_account_move_line_filter" model="ir.ui.view">
+            <field name="name">account.move.line.inherit</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='journal']" position="after">
+
+                    <filter string="Month" name="group_by_entry_month" domain="[]"
+                            groups="account.group_account_manager"
+                            context="{'group_by': 'entry_month'}"/>
+
+                    <filter string="Quarter" name="group_by_entry_quarter" domain="[]"
+                            groups="account.group_account_manager"
+                            context="{'group_by': 'entry_quarter'}"/>
+
+                    <filter string="Year" name="group_by_entry_year" domain="[]"
+                            groups="account.group_account_manager"
+                            context="{'group_by': 'entry_year:'}"/>
+
+                    <filter string="Customer" name="group_by_customer_id" domain="[]"
+                            groups="account.group_account_manager"
+                            context="{'group_by': 'customer_id'}"/>
+
+                    <filter string="Vendor" name="group_by_supplier_id" domain="[]"
+                            groups="account.group_account_manager"
+                            context="{'group_by': 'supplier_id'}"/>
+
+                    <filter string="Customer Contact" name="group_by_contact_customer_id" domain="[]"
+                            groups="account.group_account_manager"
+                            context="{'group_by': 'contact_customer_id'}"/>
+                    <filter string="Supplier Contact" name="group_by_contact_supplier_id" domain="[]"
+                            groups="account.group_account_manager"
+                            context="{'group_by': 'contact_supplier_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+
+    <t t-name="coa_foldable">
+        <span t-att-class="'o_coa_foldable ' + lineId + ' o_coa_caret_icon'"><i class="fa fa-fw fa-caret-down"></i></span>
+    </t>
+
+    <t t-name="coa_unfoldable">
+        <span t-att-class="'o_coa_unfoldable ' + lineId + ' o_coa_caret_icon'"><i class="fa fa-fw fa-caret-right"></i></span>
+    </t>
+
+    <t t-name="report_coa_lines">
+        <t t-set="trclass" t-value="'o_coa_default_style'"/>
+        <t t-if="l.type == 'view'"><t t-set="trclass" t-value="'o_coa_level'"/></t>
+        <t t-set="space_td" t-value="'background-position: ' + 19*(l.level-1) + 'px; padding-left: ' + (4 + 19*(l.level-1)) + 'px;'"/>
+<!--         <t t-set="space_td" t-value="'margin-left: '+ l.level + 'px;'"/> -->
+        <t t-set="domainClass" t-value="'o_coa_domain_line_0'"/>
+        <t t-if="l.unfoldable == false">
+            <t t-set="domainClass" t-value="'o_coa_domain_line_1'"/>
+        </t>
+
+        <tr t-att-data-type="l.type" 
+            t-att-data-unfold="l.unfoldable" 
+            t-att-data-parent_id="l.parent_id" 
+            t-att-data-id="l.id"  
+            t-att-data-model_id="l.model_id" 
+            t-att-data-wiz_id="l.wiz_id" 
+            t-att-data-name="l.name" 
+            t-att-class="trclass">
+            <t t-set="tdclass" t-value="'treeview-td'" />
+            <td style="white-space: nowrap;" 
+                t-att-data-id="l.id" 
+                t-att-data-name="l.name"
+                t-att-data-model_id="l.model_id" 
+                t-attf-class="#{tdclass}" 
+                t-att-data-level="l.level"  
+                t-att-data-wiz_id="l.wiz_id">
+                <span t-att-style="space_td" t-att-class="domainClass"></span>
+                <t t-if="l.unfoldable">
+                    <span class="o_coa_unfoldable o_coa_caret_icon"><i class="fa fa-fw fa-caret-right"></i></span>
+                </t>
+                    <t t-raw="l['code']" />
+            </td>
+            <td class="o_coa_action" 
+                t-att-data-id="l['id']" 
+                t-att-data-name="l['name']" 
+                t-att-data-wiz_id="l['wiz_id']">
+                    <t t-raw="l['name']" />
+                </td>
+                <td class="o_coa_action" 
+                    t-att-data-id="l['id']" 
+                    t-att-data-name="l['name']" 
+                    t-att-data-wiz_id="l['wiz_id']">
+                        <t t-raw="l['ac_type']" />
+                </td>
+                <t t-if="l['show_initial_balance']">
+                    <td class="o_coa_action" 
+                        t-att-data-id="l['id']" 
+                        t-att-data-name="l['name']" 
+                        t-att-data-wiz_id="l['wiz_id']"
+                        style="text-align: right;">
+                            <t t-raw="l['initial_balance']" />
+                    </td>
+                </t>
+                <td class="o_coa_action" 
+                    t-att-data-id="l['id']" 
+                    t-att-data-name="l['name']" 
+                    t-att-data-wiz_id="l['wiz_id']"
+                    style="text-align: right;">
+                    <t t-raw="l['debit']" />
+                </td>
+                <td class="o_coa_action" 
+                    t-att-data-id="l['id']" 
+                    t-att-data-name="l['name']" 
+                    t-att-data-wiz_id="l['wiz_id']"
+                    style="text-align: right;">
+                        <t t-raw="l['credit']" />
+                </td>
+                <t t-if="l['show_initial_balance']">
+                    <td class="o_coa_action" 
+                        t-att-data-id="l['id']" 
+                        t-att-data-name="l['name']" 
+                        t-att-data-wiz_id="l['wiz_id']"
+                        style="text-align: right;">
+                             <t t-raw="l['ending_balance']" />
+                    </td>
+                </t>
+                <t t-else="">
+                    <td class="o_coa_action" 
+                        t-att-data-id="l['id']" 
+                        t-att-data-name="l['name']" 
+                        t-att-data-wiz_id="l['wiz_id']"
+                        style="text-align: right;">
+                            <t t-raw="l['balance']" />
+                    </td>
+                </t>
+
+        </tr>
+    </t>
+
+</templates>

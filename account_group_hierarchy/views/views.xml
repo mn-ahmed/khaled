@@ -1,0 +1,104 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="addson/account_parent.list">
+      <field name="name">addson/account_parent list</field>
+      <field name="model">addson/account_parent.addson/account_parent</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="addson/account_parent.action_window">
+      <field name="name">addson/account_parent window</field>
+      <field name="res_model">addson/account_parent.addson/account_parent</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="addson/account_parent.action_server">
+      <field name="name">addson/account_parent server</field>
+      <field name="model_id" ref="model_addson/account_parent_addson/account_parent"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="addson/account_parent" id="addson/account_parent.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="addson/account_parent.menu_1" parent="addson/account_parent.menu_root"/>
+    <menuitem name="Menu 2" id="addson/account_parent.menu_2" parent="addson/account_parent.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="addson/account_parent.menu_1_list" parent="addson/account_parent.menu_1"
+              action="addson/account_parent.action_window"/>
+    <menuitem name="Server to list" id="addson/account_parent" parent="addson/account_parent.menu_2"
+              action="addson/account_parent.action_server"/>
+-->
+
+      <record id="view_account_group_inherit_form" model="ir.ui.view">
+            <field name="name">account.group.form.inherit</field>
+            <field name="model">account.group</field>
+          <field name="inherit_id" ref="account.view_account_group_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//field[@name='name']" position="after">
+                   <field name="parent_id" readonly="0"/>
+               </xpath>
+            </field>
+        </record>
+
+       <record id="view_account_list_inherit" model="ir.ui.view">
+            <field name="name">account.account.list.inherit</field>
+            <field name="model">account.account</field>
+           <field name="inherit_id" ref="account.view_account_list"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//field[@name='user_type_id']" position="after">
+                   <field name="group_id"/>
+               </xpath>
+            </field>
+         </record>
+
+    <menuitem id="account_Type" name="Account Type"
+                  parent="account.account_account_menu"
+                  action="account.action_account_type_form"/>
+
+
+
+    <record id="action_account_group_form" model="ir.actions.act_window">
+            <field name="name">Account Groups</field>
+            <field name="res_model">account.group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="account.view_account_group_search"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Define a new account group
+              </p>
+            </field>
+        </record>
+
+    <menuitem id="account_Group" name="Account Groups"
+                  parent="account.account_account_menu"
+                  action="action_account_group_form"/>
+  </data>
+</odoo>

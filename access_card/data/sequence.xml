@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="0">
+        <record id="sequence_request_access_card" model="ir.sequence">
+           <field name="name">Request Access Card</field>
+           <field name="code">replace.access.card</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">REQ-NO-</field>
+           <field name="padding">5</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

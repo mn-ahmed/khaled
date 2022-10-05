@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="pricing_calculations_view_form" model="ir.ui.view">
+            <field name="name">pricing.calc.tree</field>
+            <field name="model">pricing.calc</field>
+            <field name="arch" type="xml">
+                <form string="pricing Calculations Form">
+                    <header>
+
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,technical_team,pm,presales,salesperson,approved,quotation"/>
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="request_date"/>
+                                <field name="lead_id"/>
+                                <field name="partner_id"/>
+                                <field name="project_name"/>
+                                <field name="sale_order_number"/>
+                                <field name="currency_id"/>
+                                <field name="currency_rate"/>
+                                <!--                    <field name="project_country"/>-->
+                            </group>
+                            <group>
+                                <field name="proposed_complexity"/>
+                                <field name="deadline"/>
+                                <field name="presales_id"/>
+                                <field name="salesperson_id"/>
+                                <field name="project_manager_id"/>
+                                <field name="assigned_team_id" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="pricing_calculations_view_tree" model="ir.ui.view">
+            <field name="name">pricing.calc.tree</field>
+            <field name="model">pricing.calc</field>
+            <field name="arch" type="xml">
+                <tree string="Pricing Tree">
+
+                    <field name="request_date"/>
+                    <field name="lead_id"/>
+                    <field name="partner_id"/>
+                    <field name="project_name"/>
+                    <field name="sale_order_number"/>
+                    <field name="currency_id"/>
+                    <field name="currency_rate"/>
+                    <!--                    <field name="project_country"/>-->
+                    <field name="proposed_complexity"/>
+                    <field name="deadline"/>
+                    <field name="presales_id"/>
+                    <field name="salesperson_id"/>
+                    <field name="project_manager_id"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_pricing_calculations" model="ir.actions.act_window">
+            <field name="name">Pricing Calculations</field>
+            <field name="res_model">pricing.calc</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_pricing_calculations_root"
+                  name="Pricing"
+                  sequence="25"
+        />
+
+        <menuitem action="bbi_pricing_calculations.action_pricing_calculations"
+                  id="menu_pricing_calculations"
+                  parent="bbi_pricing_calculations.menu_pricing_calculations_root"
+                  sequence="1"
+        />
+        <menuitem
+                id="menu_pricing_calculations_configurations"
+                parent="bbi_pricing_calculations.menu_pricing_calculations_root"
+                name="Configuration"
+                sequence="100"
+        />
+
+
+    </data>
+</odoo>

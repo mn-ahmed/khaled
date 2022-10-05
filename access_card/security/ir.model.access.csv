@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+replace_access_card_id,replace.access.card.name,model_replace_access_card,,1,1,1,1

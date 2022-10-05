@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_source_num_sale_source_num_sale,source_num_sale.source_num_sale,model_source_num_sale_source_num_sale,,1,0,0,0

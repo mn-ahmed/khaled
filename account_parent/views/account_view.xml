@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_account_template_form_wp" model="ir.ui.view">
+		<field name="name">account.account.template.wp.form</field>
+		<field name="model">account.account.template</field>
+		<field name="inherit_id"
+			ref="account.view_account_template_form" />
+		<field name="arch" type="xml">
+			<field name="code" position="after">
+				<field name="parent_id"
+					domain="[('user_type_id.type','=','view')]"
+					groups="account_parent.group_coas_user"
+					context="{'show_parent_account':True}" />
+			</field>
+		</field>
+	</record>
+	
+	<record id="view_account_template_tree_wp" model="ir.ui.view">
+		<field name="name">account.account.template.wp.tree</field>
+		<field name="model">account.account.template</field>
+		<field name="inherit_id"
+			ref="account.view_account_template_tree" />
+		<field name="arch" type="xml">
+			<field name="user_type_id" position="after">
+				<field name="parent_id" />
+			</field>
+		</field>
+	</record>
+
+	<record id="view_account_withparent_form" model="ir.ui.view">
+		<field name="name">account.account.form</field>
+		<field name="model">account.account</field>
+		<field name="inherit_id" ref="account.view_account_form" />
+		<field name="arch" type="xml">
+			<field name="user_type_id" position="before">
+				<field name="parent_id"
+					domain="[('internal_type','=','view')]"
+					groups="account_parent.group_coas_user"
+					context="{'show_parent_account':True}" />
+			</field>
+			<field name="user_type_id" position="attributes">
+				<attribute name="context">{'show_parent_account':True}</attribute>
+			</field>
+		</field>
+	</record>
+
+	<record id="view_account_list_parent" model="ir.ui.view">
+		<field name="name">account.account.list parent</field>
+		<field name="model">account.account</field>
+		<field name="inherit_id" ref="account.view_account_list"/>
+		<field name="arch" type="xml">
+			<field name="user_type_id" position="after">
+				<field name="parent_id" domain="[('user_type_id.type','=','view')]"
+					groups="account_parent.group_coas_user"
+					context="{'show_parent_account':True}" />
+			</field>
+		</field>
+	</record>
+
+	<record id="account.action_account_form"
+		model="ir.actions.act_window">
+		<field name="context">{'show_parent_account':True}</field>
+	</record>
+	
+	<menuitem action="account.action_account_type_form"
+		id="menu_action_account_type_form"
+		parent="account.account_account_menu" sequence="1"
+		groups="account_parent.group_coas_user" />
+
+	<!-- do we need this-->
+	<record id="open_view_account_tree" model="ir.actions.client">
+		<field name="name">Chart of Account Hierarchy</field>
+		<field name="tag">coa_hierarchy</field>
+		<field name="context"
+			eval="{'url': '/account_parent/output_format/account_parent/active_id', 'model': 'account.open.chart','active_model': 'account.open.chart'}" />
+	</record>
+
+</odoo>

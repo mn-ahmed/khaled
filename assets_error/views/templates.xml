@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_account_source_num" inherit_id="account.report_invoice_document">
+            <xpath expr="//div[@id='informations']" position="inside">
+                <div class="col-auto mw-100 mb-2" t-if="o.source_num" name="source_num">
+                    <strong>PO Number:</strong>
+                    <p class="m-0" t-field="o.source_num"/>
+                </div>
+            </xpath>
+            <xpath expr="//table[@class='table table-sm o_main_table']//th[6]" position="replace">
+                <th t-attf-class="text-left {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>VAT</span></th>
+            </xpath>
+            <xpath expr="//div[@class='clearfix']/div[@id='total']" position="replace">
+                <div id="total" class="row">
+                    <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                        <table class="table table-sm;page-break-inside: avoid;">
+                            <tr class="border-black o_subtotal" style="">
+                                <td><strong>Subtotal</strong></td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_untaxed"/>
+                                </td>
+                            </tr>
+                            <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                                <tr style="">
+                                    <t t-if="len(o.tax_line_ids) == 1 and o.amount_untaxed == amount_by_group[2]">
+                                        <td><strong>VAT</strong></td>
+                                        <td class="text-right o_price_total">
+                                            <span t-esc="amount_by_group[3]" />
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <td>
+                                            <span t-esc="amount_by_group[0]"/>
+                                            <span>&amp;nbsp;<span>on</span>
+                                                <t t-esc="amount_by_group[4]"/>
+                                            </span>
+                                        </td>
+                                        <td class="text-right o_price_total">
+                                            <span t-esc="amount_by_group[3]"/>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                            <tr class="border-black o_total">
+                                <td><strong>Total</strong></td>
+                                <td class="text-right">
+                                    <span t-field="o.amount_total"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//div[@class='page']//p[@name='payment_term']" position="after">
+                    <p t-if="o.partner_id.comment" name="comment">
+                        <span t-field="o.partner_id.comment"/>
+                    </p>
+            </xpath>
+
+            <xpath expr="//t/t[2]" position="replace">
+                <t t-set="address">
+
+                    <strong>Bill To:</strong>
+                    <address t-field="o.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                    <div t-if="o.partner_id.vat" class="mt16"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="o.partner_id.vat"/></div>
+                </t>
+            </xpath>
+
+
+        </template>
+
+<!--        <template id="external_layout_standard" inherit_id="web.external_layout_standard">-->
+<!--            <xpath expr="//div[@class='header']/div[3]/div[@name='company_address']" position="replace">-->
+<!--                <div class="col-6" name="company_address">-->
+<!--                    <div t-field="company.partner_id"-->
+<!--                        t-options='{"widget": "contact", "fields": ["address", "name", "vat"], "no_marker": true}'/>-->
+<!--                </div>-->
+<!--            </xpath>-->
+
+<!--        </template>-->
+
+    </data>
+</odoo>

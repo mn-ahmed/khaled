@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="crm_case_form_view_oppor_inherited22">
+            <field name="name">crm.lead.form.opportunity.inherited</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm_opportunity.crm_case_form_view_oppor_inherited22"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//sheet/div[@class='oe_title']/h2/div[8]" position="replace">
+
+                    <div class="col">
+                        <label for="custom_gp_value"/>
+                        <div class="o_row d-flex">
+                            <field name="company_currency" invisible="1"/>
+                            <field name="custom_gp_value" class="oe_inline" widget='monetary'
+                                   options="{'currency_field': 'USD'}"/>
+                            <span class="oe_topbar_name">$,</span>
+                        </div>
+                    </div>
+
+
+                </xpath>
+
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

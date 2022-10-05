@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+    <record id="sale_order_source_num_form" model="ir.ui.view">
+      <field name="name">sale.order.source.num.form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='payment_term_id']" position="after">
+              <field name="source_num"/>
+          </xpath>
+      </field>
+    </record>
+
+
+    <record id="invoice_source_num_form" model="ir.ui.view">
+      <field name="name">invoice.source.num.form</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='payment_term_id']" position="after">
+              <field name="source_num"/>
+          </xpath>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="source_num_sale.action_window">
+      <field name="name">source_num_sale window</field>
+      <field name="res_model">source_num_sale.source_num_sale</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="source_num_sale.action_server">
+      <field name="name">source_num_sale server</field>
+      <field name="model_id" ref="model_source_num_sale_source_num_sale"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="source_num_sale" id="source_num_sale.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="source_num_sale.menu_1" parent="source_num_sale.menu_root"/>
+    <menuitem name="Menu 2" id="source_num_sale.menu_2" parent="source_num_sale.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="source_num_sale.menu_1_list" parent="source_num_sale.menu_1"
+              action="source_num_sale.action_window"/>
+    <menuitem name="Server to list" id="source_num_sale" parent="source_num_sale.menu_2"
+              action="source_num_sale.action_server"/>
+    -->
+  </data>
+</odoo>

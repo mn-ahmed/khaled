@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- account.account.type -->
+        <record model="account.account.type" id="data_account_type_view">
+            <field name="name">View</field>
+            <field name="type">view</field>
+            <field name="internal_group">off_balance</field>
+            <field name="note">Used only for parent accounts</field>
+            <field name="include_initial_balance" eval="False" />
+        </record>
+    </data>
+</odoo>

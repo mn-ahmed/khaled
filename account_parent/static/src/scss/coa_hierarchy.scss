@@ -1,0 +1,43 @@
+@mixin o_coa_lines($border-width: 5px, $color: inherit, $font-weight: inherit, $border-top-style: initial, $border-bottom-style: initial){
+    border-width: $border-width;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    color: $color;
+    font-weight: $font-weight;
+    border-top-style: $border-top-style;
+    border-bottom-style: $border-bottom-style;
+}
+
+.o_coa_level {
+    @include o_coa_lines($border-width: 1px, $color: $o-brand-odoo, $font-weight: bold, $border-top-style: solid, $border-bottom-style: groove);
+}
+.o_report_line_header {
+    padding-left: 10px;
+}
+.o_report_header {
+    border-top-style: solid;
+    border-top-style: groove;
+    border-bottom-style: groove;
+    border-width: 2px;
+}
+
+.o_coa_unfolded {
+    display: inline-block;
+}
+table > tbody > tr > td ~ td > span {
+    margin-left: 10px;
+}
+.o_coa_unfolded td + td {
+    visibility: hidden;
+}
+
+.o_coa_caret_icon {
+    margin-left: -3px;
+}
+
+.o_coa_default_style {
+    @include o_coa_lines($border-width: 0px, $border-top-style: solid, $border-bottom-style: solid);
+    > td > span:last-child {
+       // margin-left: 50px;
+    }
+}
