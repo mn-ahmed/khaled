@@ -1,0 +1,49 @@
+<odoo>
+    <data noupdate="0">
+
+<!--        <record model="res.groups" id="group_user_hide_menu_item" >-->
+<!--            <field name="name">Hide</field>-->
+<!--        </record>-->
+
+        <record id="timesheet_technical_manager_id" model="res.groups">
+            <field name="name">Technical Manager Approve</field>
+            <field name="category_id" ref="base.module_category_services_timesheets"/>
+        </record>
+        <record id="timesheet_project_manager_id" model="res.groups">
+            <field name="name">Project Manager Validate</field>
+            <field name="category_id" ref="base.module_category_services_timesheets"/>
+        </record>
+        <record id="owner_timesheet_project_manager_id" model="res.groups">
+            <field name="name">Project Manager Owner </field>
+            <field name="category_id" ref="base.module_category_services_timesheets"/>
+        </record>
+<!--        <record id="manager_approve_timesheet_rule" model="ir.rule">-->
+<!--            <field name="name">approve timesheet Rule</field>-->
+<!--            <field name="model_id" ref="hr_timesheet.model_account_analytic_line"/>-->
+<!--            <field name="groups" eval="[(4, ref('custom_bbi_timesheet.timesheet_technical_manager_id'))]"/>-->
+<!--            <field name="domain_force">[('employee_id.timesheet_manager_id.user_id','=',user.id)]</field>-->
+<!--        </record>-->
+<!--        -->
+<!--        <record id="manager_validate_timesheet_rule" model="ir.rule">-->
+<!--            <field name="name">approve timesheet Rule</field>-->
+<!--            <field name="model_id" ref="hr_timesheet.model_account_analytic_line"/>-->
+<!--            <field name="groups" eval="[(4, ref('custom_bbi_timesheet.timesheet_technical_manager_id'))]"/>-->
+<!--            <field name="domain_force">[('employee_id.timesheet_manager_id.user_id','=',user.id)]</field>-->
+<!--        </record>-->
+
+
+        <record id="new_id_for_project_manager" model="ir.rule">
+            <field name="name">Project: project manager: owner</field>
+            <field name="groups" eval="[(4, ref('custom_bbi_timesheet.owner_timesheet_project_manager_id'))]"/>
+            <field name="model_id" ref="project.model_project_project"/>
+            <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        </record>
+<!--        <record id="group_for_admin_timesheet_all" model="res.groups">-->
+<!--            <field name="name">Admin</field>-->
+<!--            <field name="category_id" ref="base.module_category_hr_timesheet"/>-->
+<!--            <field name="implied_ids" eval="[(4, ref('hr_timesheet.group_timesheet_manager'))]"/>-->
+<!--        </record>-->
+
+    </data>
+
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <menuitem name="Travel"
+                  id="aspl_hr_emp_travel_request"
+                  parent="employees_self_services.travel_request_ess_menu"
+                  action="flexi_hr.aspl_hr_emp_travel_request_action"
+                  sequence="50"/>
+
+        <menuitem
+                name="Travel Expenses"
+                id="aspl_travel_expense_config"
+                parent="hr.menu_human_resources_configuration"/>
+
+        <menuitem
+                name="Expense Types"
+                parent="flexi_hr.aspl_travel_expense_config"
+                id="menu_employee_expense"
+                action="flexi_hr.aspl_hr_emp_expenses_action"
+                sequence="1"/>
+
+        <menuitem
+                name="Grade"
+                parent="flexi_hr.aspl_travel_expense_config"
+                id="menu_hr_employee_grade"
+                action="flexi_hr.aspl_hr_emp_grade_action"
+                sequence="2"/>
+
+        <menuitem
+                name="Expenses(Grade)"
+                parent="flexi_hr.aspl_travel_expense_config"
+                id="menu_hr_employee"
+                action="flexi_hr.aspl_hr_emp_grade_config_action"
+                sequence="3"/>
+
+    </data>
+</odoo>

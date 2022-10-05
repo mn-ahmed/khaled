@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		<record model="ir.ui.view" id="invoice_due_reminder_view">
+			<field name="name">invoice.due.reminder.view</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_move_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='invoice_date']" position="after"> 
+					    <field name="skip_reminder" />
+				</xpath>
+			</field>
+		</record>
+
+</odoo>

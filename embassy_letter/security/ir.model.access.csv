@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_embassy_letter,embassy.letter.name,model_embassy_letter,,1,1,1,1
+access_visa_type,travel.visa.type,model_visa_type,,1,1,1,1
+access_travel_nature,travel.nature.name,model_travel_nature,,1,1,1,1

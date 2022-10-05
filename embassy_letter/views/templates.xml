@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <record id="mail_template_wfa_embassy_letter" model="mail.template">
+            <field name="name">Waiting for Approve Embassy letter</field>
+            <field name="model_id" ref="embassy_letter.model_embassy_letter"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.get_email_to() |safe}</field>
+            <field name="subject">Embassy Request for ${object.employee_name.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.hr_man.name}) ,
+                        <br></br>
+                        (${object.employee_name.name})  is requested Embassy Letter and he needs your approval
+
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_done_embassy_letter" model="mail.template">
+            <field name="name">Embassy letter Done</field>
+            <field name="model_id" ref="embassy_letter.model_embassy_letter"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject"> Embassy request is done </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee_name.name}) ,
+                        <br></br>
+                        Congratulation your request is Done now you can download your letter and print it now
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_reject_embassy_letter" model="mail.template">
+            <field name="name">Embassy letter Rejected</field>
+            <field name="model_id" ref="embassy_letter.model_embassy_letter"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject"> Embassy request is Rejected </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee_name.name}) ,
+                        <br></br>
+                        Your request is rejected
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

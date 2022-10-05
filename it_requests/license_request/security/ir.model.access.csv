@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_domain_license,domain.license.name,model_domain_license,,1,1,1,1
+access_license_request,license.request.name,model_license_request,,1,1,1,1

@@ -1,0 +1,92 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="ess_request_view_form">
+      <field name="name">ESS Form</field>
+      <field name="model">employee.self.services</field>
+      <field name="arch" type="xml">
+        <form string="ESS Form">
+          <header>
+            <button name="approved" string="Approve" type="object" states="not_approved" class="oe_highlight" groups="employees_self_services.ess_group_manager"/>
+            <button name="rejected" string="Refuse" type="object" states="not_approved" class="oe_highlight" groups="employees_self_services.ess_group_manager"/>
+            <button name="rest_to_wait" string="Rest To Waiting" type="object" states="rejected"  groups="employees_self_services.ess_group_manager"/>
+            <field name="state" widget="statusbar" statusbar_visible="not_approved,approved,rejected" statusbar_colors='{"not_approved":"red","approved":"blue"}'/>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="project_id"/>
+                <field name="task_id"/>
+                <field name="employee_id"/>
+              </group>
+              <group>
+                <field name="date"/>
+                <field name="timespent" widget="float_time"/>
+                <field name="work_id"/>
+
+              </group>
+            </group>
+            <group>
+              <field name="description"/>
+            </group>
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="ESS_request_view_tree">
+      <field name="name">ESS Tree</field>
+      <field name="model">employee.self.services</field>
+      <field name="arch" type="xml">
+        <tree string="Grade list">
+          <field name="employee_id"/>
+          <field name="project_id"/>
+          <field name="task_id"/>
+          <field name="date"/>
+          <field name="work_id"/>
+          <field name="timespent" widget="float_time"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="request_act_action">
+      <field name="name">Requests</field>
+      <field name="res_model">employee.self.services</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="overtime_approve_action_server" model="ir.actions.server">
+        <field name="name">Approve</field>
+        <field name="type">ir.actions.server</field>
+        <field name="groups_id" eval="[(4, ref('employees_self_services.ess_group_manager'))]"/>
+        <field name="model_id" ref="model_employee_self_services"/>
+        <field name="binding_model_id" ref="model_employee_self_services"/>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+            action = records.approved()
+        </field>
+    </record>
+
+    <record id="overtime_reject_action_server" model="ir.actions.server">
+        <field name="name">Reject</field>
+        <field name="type">ir.actions.server</field>
+        <field name="groups_id" eval="[(4, ref('employees_self_services.ess_group_manager'))]"/>
+        <field name="model_id" ref="model_employee_self_services"/>
+        <field name="binding_model_id" ref="model_employee_self_services"/>
+        <field name="state">code</field>
+        <field name="code">
+            if records:
+            action = records.rejected()
+        </field>
+    </record>
+
+
+  </data>
+</odoo>

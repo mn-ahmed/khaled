@@ -1,0 +1,141 @@
+<odoo>
+    <data>
+
+        <record id="mail_template_vm_request_employee_mail" model="mail.template">
+            <field name="name">VM Request in progress</field>
+            <field name="model_id" ref="model_vm_request"/>
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject">The VM Request in progress </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear ${object.employee_name.name} ,
+                        <br></br>
+                        Your VM request for project ${object.vm_name} in progress
+                        <br></br>
+                        and we will replay within 24 working Hours
+                        <br></br>
+                        <br></br>
+
+
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_request_vm" model="mail.template">
+            <field name="name">VM Request</field>
+            <field name="model_id" ref="model_vm_request"/>
+            <field name="email_to">${object.get_approve_email_to() |safe}</field>
+            <field name="subject">VM Request for ${object.employee_name.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear Manager,
+                        <br></br>
+                        ${object.employee_name.name} is kindly requesting an VM for ${object.vm_name} project.
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+
+
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_request_vm_approved" model="mail.template">
+            <field name="name">VM Request Approved</field>
+            <field name="model_id" ref="model_vm_request"/>
+            <field name="email_to">${object.get_email_to() |safe}</field>
+            <field name="subject">VM Request for ${object.employee_name.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear,
+                        <br></br>
+                        ${object.employee_name.name} is kindly requesting an VM for ${object.vm_name} project
+                        <br></br>
+                         The request number is ${object.name}.
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_vm_request_done" model="mail.template">
+            <field name="name">VM Request Done</field>
+            <field name="model_id" ref="model_vm_request"/>
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject">The VM is done </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear ${object.employee_name.name} ,
+                        <br></br>
+                        Congratulation your VM request for project ${object.vm_name} is Done
+                        <br></br>
+                        <br></br>
+                        IP is :(${object.vm_ip})
+                        <br></br>
+                        Username:(${object.vm_username})
+                        <br></br>
+                        Password :(${object.vm_password})
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_reject_vm_request" model="mail.template">
+            <field name="name">VM Rejected</field>
+            <field name="model_id" ref="model_vm_request"/>
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject">VM request is Rejected </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear ${object.employee_name.name} ,
+                        <br></br>
+                        Sorry, Your VM request is rejected
+                        <br></br>
+                        <br></br>
+                       
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

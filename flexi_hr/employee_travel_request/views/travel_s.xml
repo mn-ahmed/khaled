@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <template id="aspl_hr_travel_button" name="aspl_hr_travel_security" inherit_id="web.assets_backend">
+           <xpath expr="." position="inside">
+               <script type="text/javascript" src="/flexi_hr/employee_travel_request/static/src/js/web.js"></script>
+<!--                 <link rel="stylesheet" href="/pos_invoice_thermal_print/static/src/css/pos.css" id="pos-stylesheet" /> -->
+           </xpath>
+       </template>
+    </data>
+</odoo>

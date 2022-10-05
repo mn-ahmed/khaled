@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="sale_order_profit_loss_view_form" model="ir.ui.view">
+        <field name="name">sale.order.profit.loss.wizard.form</field>
+        <field name="model">sale.order.profit.loss.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Vendor Account Statement">
+                <group>
+                    <group>
+                        <field name="fiscal_year" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <group>
+                        <field name="company_ids" widget="many2many_tags"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="order_id" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="partner_id" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+
+                </group>
+                <footer>
+                    <button name="action_download_sale_order_profit_loss" string="Download"
+                            type="object" class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_order_profit_loss_action" model="ir.actions.act_window">
+        <field name="name">Order Profit And Loss</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order.profit.loss.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="sale_order_profit_loss_view_form"/>
+        <field name="target">new</field>
+    </record>
+    <menuitem
+            parent="sale.menu_sale_report"
+            id="menu_sale_order_profit_loss"
+            action="sale_order_profit_loss_action"
+            name="Order Profit And Loss"
+            sequence="3"
+    />
+
+</odoo>

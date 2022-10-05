@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!--proposed Expenses view-->
+        <record id="aspl_hr_expense_amount_form" model="ir.ui.view">
+            <field name="name">hr.expense.amount.form</field>
+            <field name="model">hr.expense.amount</field>
+            <field name="arch" type="xml">
+                <form string="Proposed Expenses">
+                    <field name="status" invisible="1"/>
+                    <header attrs="{'invisible':[('status','=',True)]}">
+                        <button name="hr_expense_action" id="hr_expense_action" string="Add to Expenses"
+                                class="btn-primary" type="object" groups="hr.group_hr_manager"/>
+                    </header>
+                    <group attrs="{'readonly': [('status','=',True)]}">
+                        <group style="width:50%">
+                            <field name="expense_id" string="Expense" required="1" attrs="{'readonly': [('status','=',True)]}"
+                                options="{'no_create_edit': True, 'no_create':True, 'no_open':True}" readonly="1"/>
+                            <field name="product_id" readonly="1" required="1"
+                                options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                        <group style="width:50%">
+                            <field name="exp_type" string="Type" readonly="1"/>
+                            <field name="payment_mode" widget="radio" required="1"
+                                   attrs="{'readonly': [('status','=',True)]}"/>
+                        </group>
+                        <group style="width:100%" attrs="{'readonly': [('status','=',True)]}">
+                            <field name="reason" string="Comment" attrs="{'readonly': [('status','=',True)]}"/>
+                        </group>
+                        <group style="width:50%" attrs="{'readonly': [('status','=',True)]}">
+                            <field name="amount" widget="Monetary" readonly="1" required="1"/>
+                        </group>
+                        <group style="width:50%" attrs="{'readonly': [('status','=',True)]}">
+                            <group>
+                                <field name="approved_amount" widget="Monetary" groups="hr.group_hr_manager"
+                                       attrs="{'readonly': [('status','=',True)]}"/>
+                                <field name="total" widget="Monetary"/>
+                            </group>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,128 @@
+<odoo>
+  <data>
+
+      <record id="hr_reject_reason_form" model="ir.ui.view">
+            <field name="name">hr.reject.reason.form</field>
+            <field name="model">reject.message.hr</field>
+            <field name="arch" type="xml">
+                <form string="reject message">
+                    <group class="oe_title">
+                        <field name="reject_reason"/>
+                    </group>
+                    <footer>
+                        <button name="action_reject_reason" string="Reject" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="hr_reject_reason_wizard_action" model="ir.actions.act_window">
+            <field name="name">HR Reject Reason Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reject.message.hr</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_reject_reason_form"/>
+            <field name="target">new</field>
+        </record>
+
+      <record id="hr_request_form_view" model="ir.ui.view">
+            <field name="name">HR Letter Request</field>
+            <field name="model">hr.letter</field>
+            <field name="arch" type="xml">
+                <form string="HR Letter Request">
+                    <header>
+                        <button name="hr_department" type="object"
+                                string="Approve" class="oe_highlight"
+                                groups="hr_letter.hr_letter_approve_group"
+                                states="wfa" />
+                        <button name="%(hr_reject_reason_wizard_action)d" type="action"
+                                string="Reject"
+                                states="wfa"
+                                groups="hr_letter.hr_letter_approve_group"
+                                class="oe_highlight"/>
+                        <button name="done" type="object"
+                                string="Done"
+                                states="hr"
+                                groups="hr_letter.hr_letter_approve_group"
+                                class="oe_highlight" />
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" /></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_name"/>
+                                <field name="direction_of_letter"/>
+                                <field name="reason"/>
+<!--                                <field name="hr_man"/>-->
+
+
+                            </group>
+                            <group>
+                                <field name="create_date"/>
+                            </group>
+
+                            <group>
+                                <field name="note"/>
+                                <field name="reject_reason"  attrs="{'invisible': [('state', '!=', 'rejected')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+      <record id="hr_request_tree_view" model="ir.ui.view">
+            <field name="name">HR Letter Request</field>
+            <field name="model">hr.letter</field>
+            <field name="arch" type="xml">
+                <tree string="HR Request">
+                    <field name="name"/>
+                    <field name="create_date"/>
+                    <field name="employee_name"/>
+                    <field name="direction_of_letter"/>
+                    <field name="reason"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+      <record id="request_hr_letter_action" model="ir.actions.act_window">
+            <field name="name">Hr Letter Request</field>
+            <field name="res_model">hr.letter</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+      <record id="approve_hr_letter_action" model="ir.actions.act_window">
+            <field name="name">HR Letter Approve</field>
+            <field name="res_model">hr.letter</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','in',('wfa','hr'))]</field>
+      </record>
+
+      <menuitem name="HR Letter Request "
+                  id="request_hr_letter_menu"
+                  parent="employees_self_services.hr_request_ess_menu"
+                  groups="hr_letter.hr_letter_user_group"
+                  action="request_hr_letter_action" sequence="6"/>
+
+      <menuitem name="HR Letter"
+                id="approve_hr_letter_menu"
+                action="approve_hr_letter_action"
+                groups="hr_letter.hr_letter_approve_group"
+                parent="employees_self_services.sub_menu_for_hr_approve_requests"
+                sequence="2"/>
+
+  </data>
+</odoo>

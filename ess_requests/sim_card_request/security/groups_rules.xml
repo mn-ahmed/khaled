@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+<!--                    request SIM Card                   -->
+        <record id="sim_card_request_hr_group" model="res.groups">
+            <field name="name">Mobile SIM Card</field>
+            <field name="category_id" ref="ess_requests.hr_ess_requests_module_category"/>
+        </record>
+
+        <record id="sim_card_request_user_rule" model="ir.rule">
+            <field name="name">owner records assignment Rule</field>
+            <field name="model_id" ref="model_sim_card"/>
+            <field name="domain_force">
+                [('employee_name.user_id','=',user.id)]
+            </field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <record id="sim_card_request_approve_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_sim_card"/>
+            <field name="groups" eval="[(4, ref('ess_requests.sim_card_request_hr_group'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+  <!--                    request SIM Card                   -->
+
+        <record id="sim_card_request_finance_group" model="res.groups">
+            <field name="name">Finance SIM Card</field>
+            <field name="category_id" ref="ess_requests.hr_ess_requests_module_category"/>
+        </record>
+
+        <record id="sim_card_change_request_user_rule" model="ir.rule">
+            <field name="name">owner records assignment Rule</field>
+            <field name="model_id" ref="model_sim_card_change"/>
+            <field name="domain_force">
+                [('employee_name.user_id','=',user.id)]
+            </field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="sim_card_request_approve_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_sim_card_change"/>
+            <field name="groups" eval="[(4, ref('ess_requests.sim_card_request_hr_group')), (4, ref('ess_requests.sim_card_request_finance_group'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+    </data>
+</odoo>

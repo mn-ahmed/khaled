@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+            <menuitem id="ess_main_menu" name="ESS" />
+
+            <menuitem name="HR Requests" id="hr_request_ess_menu"
+                      sequence="1"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="Education Requests" id="education_request_ess_menu"
+                      sequence="2"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="IT Requests" id="it_request_ess_menu"
+                      sequence="3"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="Finance Requests" id="finance_request_ess_menu"
+                      sequence="4"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="Medical Requests" id="medical_request_ess_menu"
+                      sequence="5"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="Organization Requests" id="organization_request_ess_menu"
+                      sequence="6"
+                      parent="ess_main_menu"
+                      groups="employees_self_services.ess_organization_requests_user"/>
+
+            <menuitem name="Card Requests" id="card_request_ess_menu"
+                      sequence="7"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="Leave Requests" id="leave_request_ess_menu"
+                      sequence="8"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="Travel Requests" id="travel_request_ess_menu"
+                      sequence="9"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="Requests" id="request_ess_menu"
+                      sequence="1"
+                      parent="ess_main_menu"/>
+
+            <menuitem name="Leaves" id="leave_request_sub_menu"
+                      parent="leave_request_ess_menu" sequence="0" action="hr_holidays.hr_leave_action_my"/>
+
+            <menuitem name="Overtime Request " id="sub_menu_for_time_sheet"
+                      parent="finance_request_ess_menu" sequence="0" action="request_act_action"/>
+
+            <menuitem name="Manager To Approve" id="manager_approve_ess_menu"
+                      sequence="2"
+                      parent="ess_main_menu"
+                      groups="employees_self_services.ess_group_manager"/>
+
+            <menuitem name="Approve Timesheet Request " id="sub_menu_for_approve_time_sheet"
+                      parent="manager_approve_ess_menu" action="request_act_action"/>
+
+            <menuitem name="HR Approve " id="sub_menu_for_hr_approve_requests"
+                      parent="manager_approve_ess_menu" />
+
+    </data>
+</odoo>

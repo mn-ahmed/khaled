@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="onboarding_request_form_view" model="ir.ui.view">
+            <field name="name">Onboarding Request</field>
+            <field name="model">onboarding.proccess</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="pass_to_erp_admin" type="object"
+                                string="Pass To ERP Admin" class="oe_highlight"
+                                states="m"
+                                groups="employees_self_services.onboarding_cycle_direct_manager"
+                        />
+
+                        <button name="pass_to_finance" type="object"
+                                string="Pass To Finance" states="b"
+                                class="oe_highlight"
+                                groups="employees_self_services.onboarding_cycle_erp_admin"
+                        />
+
+                        <button name="pass_to_d_manager" type="object"
+                                string="Pass To Direct Manager" states="a"
+                                groups="employees_self_services.onboarding_cycle_it_lead"
+                                class="oe_highlight"/>
+
+
+                        <button name="pass_to_hr_admin" type="object"
+                                string="Pass To HR admin" states="c"
+                                groups="employees_self_services.onboarding_cycle_finance"
+                                class="oe_highlight"/>
+
+                        <button name="pass_to_done" type="object"
+                                string="Update Employee information"
+                                states="e"
+                                class="oe_highlight"
+                                groups="employees_self_services.onboarding_cycle_hr_admin"/>
+
+                         <button name="laptop_delivered" type="object"
+                                string="Laptop Delivered" states="b,c,f,e,m"
+                                groups="employees_self_services.onboarding_cycle_it_lead"
+                                class="oe_highlight"/>
+
+                        <field name="state" widget="statusbar"/>
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="email" widget="email"/>
+                                <field name="lap_needed" type="checkbox"/>
+                                <field name="laptop" attrs="{'invisible': [('lap_needed','=',True)]}"/>
+                                <field name="lap_deadline" attrs="{'invisible': [('lap_needed','=',True)]}"/>
+                                <field name="sim_card"/>
+                                <field name="user_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="title"/>
+                                <field name="date"/>
+                                <field name="id_type"/>
+                                <field name="company_id_no" />
+<!--                                 attrs="{'required': [('state', 'in', ['c','e','f'])]}"-->
+<!--                                <field name="upload_file"/>-->
+                            </group>
+                            <group>
+                                <field name="description"/>
+                                <field name="gender" widget='radio' options="{'horizontal': true}"/>
+
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="leave_opening_balance" />
+                            </group>
+
+                        </group>
+                        <group>
+                            <group>
+                                <label for="hr_tasks_completed" string="HR Tasks Completed"  style="font-weight: bold;"/>
+                                    <group>
+                                        <field name="hr_tasks_completed" invisible="1"/>
+                                        <field name="welcome_email"/>
+                                        <field name="handbook"/>
+                                        <field name="contact_assignment" />
+                                        <field name="hiring_documents"/>
+                                        <field name="medical_insurance"/>
+                                        <field name="social_insurance" />
+                                    </group>
+
+                            </group>
+                        </group>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="onboarding_request_tree_view" model="ir.ui.view">
+            <field name="name">onboarding.proccess</field>
+            <field name="model">onboarding.proccess</field>
+            <field name="arch" type="xml">
+                <tree string="Onboarding Request">
+                    <field name="company_id_no"/>
+                    <field name="date"/>
+                    <field name="employee_id"/>
+                    <field name="title"/>
+                    <field name="email"/>
+                    <field name="state"/>
+<!--                    <field name="model_number"/>-->
+                    <field name="sim_card"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="request_onboarding_action" model="ir.actions.act_window">
+            <field name="name">Onboarding Request</field>
+            <field name="res_model">onboarding.proccess</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Onboarding Request" id="sub_menu_for_onboarding_poccess"
+                  parent="employees_self_services.organization_request_ess_menu" action="request_onboarding_action" sequence="2"/>
+
+    </data>
+
+</odoo>

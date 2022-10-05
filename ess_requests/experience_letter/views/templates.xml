@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+
+        <record id="mail_template_experience_letter" model="mail.template">
+            <field name="name">Experience Letter Request</field>
+            <field name="model_id" ref="ess_requests.model_experience_letter"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.get_email_to() |safe}</field>
+            <field name="subject">Experience Letter Request for ${object.employee_name.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR,
+                        <br></br>
+                        ${object.employee_name.name} is kindly requesting an <p> Experience Letter </p> with number ${object.name} .
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+
+
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_done_experience_letter" model="mail.template">
+            <field name="name">Experience letter Done</field>
+            <field name="model_id" ref="ess_requests.model_experience_letter"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject"> Experience request is done </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee_name.name}) ,
+                        <br></br>
+                        Congratulation your experience letter request is Done. you can download it and print it now
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_reject_experience_letter" model="mail.template">
+            <field name="name">Experience letter Rejected</field>
+            <field name="model_id" ref="ess_requests.model_experience_letter"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject"> Experience Letter request is Rejected </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee_name.name}) ,
+                        <br></br>
+                        Sorry, Your  Experience Letter request is rejected
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

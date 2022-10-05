@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="button_render_js" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script src="custom_bbi_timesheet/static/src/js/custom_grid.js" type="text/javascript"/>
+        </xpath>
+    </template>
+
+</odoo>

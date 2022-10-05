@@ -1,0 +1,270 @@
+<odoo>
+    <data>
+        <record id="hr_employee_view_form_inherit_timesheet_validation_managers"  model="ir.ui.view">
+            <field name="name">hr.employee.timesheet.manger.validations</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="timesheet_grid.hr_employee_view_form_inherit_timesheet_validation"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='timesheet_manager_id']" position="after">
+                    <field name="timesheet_validate_manager"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_project_view_form_setting_inh" model="ir.ui.view">
+            <field name="name">project.project.setting.view</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="before">
+                    <field name="one_approve" />
+                    <field name="two_approve" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="timesheet_view_grid_submit_all" model="ir.ui.view">
+            <field name="name">account.analytic.line.grid.submit.all</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="timesheet_grid.timesheet_view_grid"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='unit_amount']" position="after">
+                    <button name="submit_your_timesheet" type="object" string="Submit All"  />
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="tm_view_inherited_timesheet_tree2">
+            <field name="name">account.analytic.line</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                </xpath>
+<!--                <xpath expr="//field[@name='work_id']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='unit_amount']" position="before">-->
+<!--                    <field name="validated_statu" />-->
+<!--                </xpath>-->
+                <xpath expr="//field[@name='unit_amount']" position="after">
+                    <field name="name"/>
+                    <field name="validated_statu"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tm_view_inherited_timesheet_tryyyee2">
+            <field name="name">account.analytic.line</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="timesheet_grid.timesheet_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="replace">
+<!--                    <header invisible="context.get('view_grid_add_line', False)">-->
+<!--                        <button string="Validate" name="action_validate_timesheet" type="object" class="btn btn-primary"-->
+<!--                            attrs="{'invisible': ['|', ('validated', '=', True), ('user_can_validate', '=', False)]}" context="{'use_notification': False}"/>-->
+<!--                        <button string="Reset to draft" name="action_invalidate_timesheet" type="object" class="btn btn-secondary"-->
+<!--                            attrs="{'invisible': ['|', ('validated', '=', False), ('user_can_validate', '=', False)]}" context="{'use_notification': False}"/>-->
+<!--                        <field name="validated_statu" widget="statusbar"/>-->
+<!--                    </header>-->
+                    <header invisible="context.get('view_grid_add_line', False)">
+                         <field name="one_approve_tm" invisible="1"  />
+                        <field name="two_approve_tm"  invisible="1" />
+                        <button name="action_draft" type="object" string="REST TO DRAFT" attrs="{'invisible':[('validated_statu','!=','rejected')]}" class="btn btn-primary"/>
+                        <button name="action_submit" type="object" string="Submit" attrs="{'invisible':[('validated_statu','!=','draft')]}" class="btn btn-primary"/>
+                        <button name="action_approve" type="object" string="Approve" attrs="{'invisible':[('validated_statu','!=','submit')]}"
+                                groups="custom_bbi_timesheet.timesheet_technical_manager_id" class="btn btn-primary"/>
+                        <button name="action_validate" type="object" string="Validate" attrs="{'invisible':[('validated_statu','!=','approved')]}"
+                                groups="custom_bbi_timesheet.timesheet_project_manager_id" class="oe_highlight"/>
+                        <button name="action_canccel" type="object" string="Reject" attrs="{'invisible':[('validated_statu', 'not in', ['submit', 'approved'])]}"
+                                groups="custom_bbi_timesheet.timesheet_technical_manager_id"/>
+<!--                        <button name="action_reset_rejected" type="object" string="REST" class="btn btn-primary"/>-->
+                        <field name="validated_statu" widget="statusbar" />
+
+                    </header>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="my_view_inherited_timesheet_form3">
+            <field name="name">account.analytic.line</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="timesheet_grid.my_timesheet_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='task_id']" position="after">
+                    <field name="name"/>
+                </xpath>
+                <xpath expr="//field[@name='task_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/group" position="after">
+                    <group>
+                        <group>
+                            <field name="reject_reason" readonly="1"/>
+                        </group>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='reject_reason']" position="attributes">
+                    <attribute name="attrs">{'readonly': 1}</attribute>
+
+                </xpath>
+
+                <xpath expr="//field[@name='project_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('validated_statu','!=','draft')]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('validated_statu','!=','draft')]}</attribute>
+                </xpath>
+
+
+
+                <xpath expr="//field[@name='task_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('validated_statu','!=','draft')]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': 1}</attribute>
+
+                </xpath>
+
+                <xpath expr="//field[@name='date']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('validated_statu','!=','draft')]}</attribute>
+
+                </xpath>
+                <xpath expr="//field[@name='unit_amount']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('validated_statu','!=','draft')]}</attribute>
+                </xpath>
+                <xpath expr="//sheet" position="after">
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_timesheet.act_hr_timesheet_line" model="ir.actions.act_window">
+            <field name="name">My Menu</field>
+            <field name="res_model">account.analytic.line</field>
+            <field name="context">{'default_name':"/"}</field>
+        </record>
+
+
+
+        <record id="timesheet_approve_submit_action_server" model="ir.actions.server">
+            <field name="name">Approve</field>
+            <field name="type">ir.actions.server</field>
+            <field name="groups_id" eval="[(4, ref('custom_bbi_timesheet.timesheet_technical_manager_id'))]"/>
+            <field name="model_id" ref="model_account_analytic_line"/>
+            <field name="binding_model_id" ref="model_account_analytic_line"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.approve_timesheet()
+            </field>
+        </record>
+
+        <record id="timesheet_validate_approve_action_server" model="ir.actions.server">
+            <field name="name">Validate</field>
+            <field name="type">ir.actions.server</field>
+            <field name="groups_id" eval="[(4, ref('custom_bbi_timesheet.timesheet_technical_manager_id'))]"/>
+            <field name="model_id" ref="model_account_analytic_line"/>
+            <field name="binding_model_id" ref="model_account_analytic_line"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.action_validate()
+            </field>
+        </record>
+
+        <record id="timesheet_refuse_submit_action_server" model="ir.actions.server">
+            <field name="name">Reject</field>
+            <field name="type">ir.actions.server</field>
+            <field name="binding_view_types">list,form</field>
+            <field name="groups_id" eval="[(4, ref('custom_bbi_timesheet.timesheet_technical_manager_id'))]"/>
+            <field name="model_id" ref="model_account_analytic_line"/>
+            <field name="binding_model_id" ref="model_account_analytic_line"/>
+            <field name="state">code</field>
+            <field name="code">
+                if records:
+                action = records.reject_timesheet()
+            </field>
+
+        </record>
+
+        <record id="convert_from_submit_to_approve_action" model="ir.actions.act_window">
+            <field name="name">Approve Timesheet</field>
+            <field name="res_model">account.analytic.line</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="context">{'group_by':['main_parent_id','parent_id']}</field>-->
+            <field name="search_view_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+<!--            <field name="search_view_id" ref="hr_timesheet.hr_timesheet_line_my_timesheet_search"/>-->
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_timesheet.hr_timesheet_line_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('timesheet_grid.timesheet_view_form')})]"/>
+        </record>
+
+        <record id="convert_from_approved_to_validate_menu" model="ir.actions.act_window">
+            <field name="name">Validate Timesheet</field>
+            <field name="res_model">account.analytic.line</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="context">{'group_by':['main_parent_id','parent_id']}</field>-->
+<!--            <field name="domain">[('validated_statu','=','approved'),('employee_id.timesheet_validate_manager.user_id','=',uid)]</field>-->
+            <field name="domain">[('validated_statu','=','approved'),('validate_user_id','=',uid)]</field>
+            <field name="search_view_id" ref="hr_timesheet.hr_timesheet_line_search"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('hr_timesheet.hr_timesheet_line_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('timesheet_grid.timesheet_view_form')}),
+                ]"/>
+<!--(0, 0, {'view_mode': 'kanban', 'view_id': ref('timesheet_grid.timesheet_kanban_view')}),-->
+<!--                (0, 0, {'view_mode': 'graph', 'view_id': ref('hr_timesheet.view_hr_timesheet_line_graph_my')})-->
+        </record>
+
+        <record id="convert_from_approved_to_validate" model="ir.actions.server">
+            <field name="name">Validate</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="custom_bbi_timesheet.model_account_analytic_line"/>
+            <field name="state">code</field>
+            <field name="code">action = model.project_manger_validate()</field>
+        </record>
+
+        <record id="convert_from_submit_to_approve" model="ir.actions.server">
+            <field name="name">approve</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="custom_bbi_timesheet.model_account_analytic_line"/>
+            <field name="state">code</field>
+            <field name="code">action = model.manager_approve()</field>
+        </record>
+
+
+<!--        <menuitem id="timesheet_grid.menu_timesheet_grid_validate_previous_week"-->
+<!--                  name="Last Week"-->
+<!--                  parent="timesheet_grid.menu_timesheet_grid_validate"-->
+<!--                  groups="custom_bbi_timesheet.group_user_hide_menu_item"/>-->
+
+<!--        <menuitem id="timesheet_grid.menu_timesheet_grid_validate_previous_month"-->
+<!--                  name="Last Month"-->
+<!--                  parent="timesheet_grid.menu_timesheet_grid_validate"-->
+<!--                  groups="custom_bbi_timesheet.group_user_hide_menu_item"/>-->
+
+        <menuitem name="To Approve"
+                  id="approve_from_submit_to_approve"
+                  parent="timesheet_grid.menu_timesheet_grid_validate"
+                  action="convert_from_submit_to_approve"
+                  groups="custom_bbi_timesheet.timesheet_technical_manager_id"
+                  sequence="0"/>
+
+        <menuitem name="To Validate"
+                  id="validate_from_approve"
+                  parent="timesheet_grid.menu_timesheet_grid_validate"
+                  action="convert_from_approved_to_validate"
+                  groups="custom_bbi_timesheet.timesheet_project_manager_id"
+                  sequence="1"/>
+
+
+    </data>
+</odoo>

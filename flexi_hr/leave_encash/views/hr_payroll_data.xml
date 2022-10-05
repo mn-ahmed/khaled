@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="leave_encash_salary_rule" model="hr.salary.rule">
+            <field name="name">Leave Encash</field>
+            <field name="sequence" eval="20" />
+            <field name="code">LEAVE-ENCASH</field>
+            <field name="category_id" ref="hr_payroll.BASIC" />
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+if payslip.encash_leave:
+    result = categories.wage + payslip.encash_amt
+else:
+    result = 0.0
+            </field>
+            <field name="register_id" ref="hr_payroll.contrib_register_employees" />
+        </record>
+
+    </data>
+</odoo>

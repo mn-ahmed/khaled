@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+
+        <record id="mail_template_sim_card_request" model="mail.template">
+            <field name="name">SIM Card Request</field>
+            <field name="model_id" ref="ess_requests.model_sim_card"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.get_email_to() |safe}</field>
+            <field name="subject">SIM Card Request for ${object.employee_name.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear HR,
+                        <br></br>
+                        (${object.employee_name.name})  is kindly requesting <p>a mobile SIM card  </p>
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+
+
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_done_sim_card" model="mail.template">
+            <field name="name">SIM Card Done</field>
+            <field name="model_id" ref="ess_requests.model_sim_card"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject"> SIM Card is done </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee_name.name}) ,
+                        <br></br>
+                        Congratulation your SIM Card request is Done
+                        <br></br>
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_reject_sim_card" model="mail.template">
+            <field name="name">SIM Card Rejected</field>
+            <field name="model_id" ref="ess_requests.model_sim_card"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.employee_name.work_email |safe}</field>
+            <field name="subject">  SIM Card request is Rejected </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dear (${object.employee_name.name}) ,
+                        <br></br>
+                        Sorry, Your   SIM Card request is rejected
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

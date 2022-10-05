@@ -1,0 +1,538 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="crm_case_form_view_oppor_inherited22">
+          <field name="name">crm.lead.form.opportunity.inherited</field>
+          <field name="model">crm.lead</field>
+          <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+          <field name="arch" type="xml">
+
+                <xpath expr="//sheet/div[@class='oe_title']" position="replace">
+                    <div class="oe_title">
+                            <label for="name" string="Lead" attrs="{'invisible': [('type', '=', 'opportunity')]}"/>
+                            <label for="name" attrs="{'invisible': [('type', '=', 'lead')]}"/>
+                            <h1><field class="o_text_overflow" name="name" placeholder="e.g. Product Pricing"/></h1>
+                            <h2 class="o_row no-gutters align-items-end">
+                                <div class="col" attrs="{'invisible': [('type', '=', 'lead')]}">
+                                    <label for="expected_revenue" class="oe_edit_only" />
+                                    <div class="o_row">
+                                        <field name="company_currency" invisible="1"/>
+                                        <field name="expected_revenue" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                                        <span class="oe_grey p-2" groups="crm.group_use_recurring_revenues">$, + </span>
+                                        <span class="oe_grey p-2" groups="!crm.group_use_recurring_revenues">$, at </span>
+                                    </div>
+                                </div>
+                                <div class="col" attrs="{'invisible': [('type', '=', 'lead')]}" groups="crm.group_use_recurring_revenues">
+                                    <div class="o_row">
+                                        <field name="recurring_revenue" class="pr-2 oe_inline" widget="monetary" options="{'currency_field': 'USD'}"/>
+                                    </div>
+                                </div>
+                                <div class="col" attrs="{'invisible': [('type', '=', 'lead')]}" groups="crm.group_use_recurring_revenues">
+                                    <div class="o_row">
+                                        <field name="recurring_plan" class="oe_inline" placeholder="E.g. Monthly"
+                                               attrs="{'required': [('recurring_revenue', '!=', 0)]}" options="{'no_create': True, 'no_open': True}"/>
+                                        <span class="oe_grey p-2">$,  at </span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="oe_edit_only d-flex align-items-center">
+                                        <label for="probability"/>
+                                        <button class="btn btn-link" name="action_set_automated_probability" type="object"
+                                                attrs="{'invisible': [('is_automated_probability', '=', True)]}">
+                                            <i class="fa fa-gear" role="img" title="Switch to automatic probability" aria-label="Switch to automatic probability"></i>
+                                        </button>
+                                        <small class="oe_grey h6 mb0" attrs="{'invisible': [('is_automated_probability', '=', True)]}">
+                                            <field class="mb0" name="automated_probability" force_save="1"/> %%
+                                        </small>
+                                    </div>
+                                    <div id="probability" class="o_row d-flex">
+                                        <field name="is_automated_probability" invisible="1"/>
+                                        <field name="probability" widget="float" class="oe_inline"/>
+                                        <span class="oe_grey"> %%</span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="value_odd"  />
+                                    <div class="o_row d-flex">
+                                        <field name="company_currency" invisible="1"/>
+                                        <field name="value_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                                        <span class="oe_topbar_name">$, </span>
+
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="gp_percentage" />
+                                    <div class="o_row d-flex">
+                                        <span class="oe_grey">   </span>
+                                        <field name="gp_percentage" class="oe_inline"/>
+                                        <span class="oe_grey">  %%  </span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="cost"  />
+                                    <div class="o_row d-flex">
+                                        <field name="company_currency" invisible="1"/>
+                                        <field name="cost" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                                        <span class="oe_topbar_name">$, </span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="gp_value"  />
+                                    <div class="o_row d-flex">
+                                        <field name="company_currency" invisible="1"/>
+                                        <field name="gp_value" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                                        <span class="oe_topbar_name">$, </span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label for="gp_odd"/>
+                                    <div class="o_row d-flex">
+                                        <field name="company_currency" invisible="1"/>
+                                        <field name="gp_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                                        <span class="oe_grey p-2">$ </span>
+                                    </div>
+                                </div>
+                            </h2>
+                        </div>
+
+
+                </xpath>
+
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                  <field name="products_ids" widget="many2many_tags" />
+                  <field name="services_ids" widget="many2many_tags" />
+                  <field name="expected_competitors_ids" widget="many2many_tags" />
+                  <field name="sector_ids" widget="many2many_tags" />
+                  <field name="outsourcing_ids" widget="many2many_tags" />
+                </xpath>
+                <xpath expr="//field[@name='team_id']" position="after">
+                  <field name="license"/>
+                  <field name="service"/>
+                  <field name="territory_id"/>
+                  <field name="area_id"/>
+                </xpath>
+                <xpath expr="//field[@name='date_deadline']" position="after">
+                  <field name="date_submittal"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Business/Technical Requirements(SOW)">
+                        <field name="business_text"/>
+                    </page>
+                    <page string="Vendor(s)/Prim Contactor">
+                        <group>
+                            <group string="Vendor(s)/Prim Contactor Information">
+<!--                                domain="[('supplier', '=', True)]"-->
+                                <field name="vendor_id_new" />
+                                <label for="vendor_street" string="Vendor(s)/Prim Address"/>
+                                <div class="o_address_format">
+                                    <field name="vendor_street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="vendor_street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="vendor_city" placeholder="City" class="o_address_city"/>
+                                    <field name="vendor_zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <field name="vendor_country_id" placeholder="Country" class="o_address_country" />
+                                    <field name="vendor_state_id" class="o_address_state" placeholder="State" />
+                                </div>
+                                <field name="vendor_website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+                            </group>
+                            <group class="mt48">
+                                <label for="vendor_contact_name"/>
+                                <div class="o_row">
+                                    <field name="vendor_contact_name"/>
+                                </div>
+                                <field name="vendor_function"/>
+                                <field name="vendor_mobile"
+                                   widget="phone"
+                                   string="Vendor/Prim Mobile"/>
+                                <field name="vendor_phone"
+                                    widget="phone"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page string="Customer(Partner/Reseller)">
+                        <group>
+                            <group string="Customer(Partner/Reseller) Information">
+                                <field name="customer_id_new"/>
+<!--                                 domain="[('customer', '=', True)]"-->
+                                <label for="customer_street" string="Address"/>
+                                <div class="o_address_format">
+                                    <field name="customer_street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="customer_street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="customer_city" placeholder="City" class="o_address_city"/>
+                                    <field name="customer_zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <field name="customer_country_id" placeholder="Country" class="o_address_country" />
+                                    <field name="customer_state_id" class="o_address_state" placeholder="State" />
+                                </div>
+                                <field name="vendor_website" widget="url" placeholder="e.g. https://www.odoo.com"/>
+                            </group>
+                            <group class="mt48">
+                                <label for="customer_contact_name"/>
+                                <div class="o_row">
+                                    <field name="customer_contact_name"/>
+                                </div>
+                                <field name="customer_function"/>
+                                <field name="customer_mobile"
+                                   widget="phone"
+                                   string="Reseller Mobile"/>
+                                <field name="customer_phone"
+                                    widget="phone"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page string="Pipeline Analysis">
+
+                        <group string="Outsourcing">
+                            <group>
+<!--                                <field name="is_outsourcing"/>-->
+                                <field name="outsourcing_planned_revenue"/>
+                                <field name="outsourcing_cost"/>
+                                <field name="outsourcing_probability"/>
+                                <field name="outsourcing_value_odd"/>
+                            </group>
+                            <group>
+                                <field name="outsourcing_gp_percentage"/>
+                                <field name="outsourcing_gp_value"/>
+                                <field name="outsourcing_gp_odd"/>
+                            </group>
+                        </group>
+
+                        <group string="Services">
+                            <group>
+<!--                                <field name="is_services"/>-->
+                                <field name="services_planned_revenue"/>
+                                <field name="services_cost"/>
+                                <field name="services_probability"/>
+                                <field name="services_value_odd"/>
+                            </group>
+                            <group>
+                                <field name="services_gp_percentage"/>
+                                <field name="services_gp_value"/>
+                                <field name="services_gp_odd"/>
+                            </group>
+                        </group>
+
+                        <group string="License">
+                            <group>
+<!--                                <field name="is_license"/>-->
+                                <field name="license_planned_revenue" />
+                                <field name="license_cost" />
+                                <field name="license_probability"/>
+                                <field name="license_value_odd" />
+                            </group>
+                            <group>
+                                <field name="license_gp_percentage"/>
+                                <field name="license_gp_value"/>
+                                <field name="license_gp_odd"/>
+                            </group>
+                        </group>
+
+                    </page>
+                </xpath>
+          </field>
+        </record>
+
+<!--      <record model="ir.ui.view" id="crm_case_form_view_oppor_inherited_gp_value">-->
+<!--          <field name="name">crm.lead.form.opportunity.inherited.gp.value</field>-->
+<!--          <field name="model">crm.lead</field>-->
+<!--          <field name="inherit_id" ref="change_currency_crm.crm_case_form_view_oppor_inherited"/>-->
+<!--          <field name="arch" type="xml">-->
+<!--                <xpath expr="//sheet/div[@class='oe_title']" position="replace">-->
+<!--&lt;!&ndash;                    <div class="oe_title">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label for="name" class="oe_edit_only"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <h1><field name="name" placeholder="e.g. Product Pricing"/></h1>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <h4 class="o_row row no-gutters d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <label for="planned_revenue"  />&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="o_row d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="company_currency" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="planned_revenue" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class="oe_topbar_name">$, </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <label for="probability" />&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="o_row d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <span class="oe_grey"> at </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <field name="probability" class="oe_inline"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <span class="oe_grey"> %%</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <label for="value_odd"  />&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="o_row d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="company_currency" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="value_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class="oe_topbar_name">$, </span>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <label for="gp_percentage" />&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="o_row d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class="oe_grey">   </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="gp_percentage" class="oe_inline"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class="oe_grey">  %%  </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <label for="cost"  />&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="o_row d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="company_currency" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="cost" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class="oe_topbar_name">$, </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <label for="gp_value"  />&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="o_row d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="company_currency" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="gp_value" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class="oe_topbar_name">$, </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <div class="col">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <label for="gp_odd"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="o_row d-flex">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="company_currency" invisible="1"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <field name="gp_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                <span class="oe_topbar_name">$ </span>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </h4>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+
+<!--                    <div class="oe_title">-->
+<!--                            <label for="name" string="Lead" attrs="{'invisible': [('type', '=', 'opportunity')]}"/>-->
+<!--                            <label for="name" attrs="{'invisible': [('type', '=', 'lead')]}"/>-->
+<!--                            <h1><field class="o_text_overflow" name="name" placeholder="e.g. Product Pricing"/></h1>-->
+<!--                            <h2 class="o_row no-gutters align-items-end">-->
+<!--                                <div class="col" attrs="{'invisible': [('type', '=', 'lead')]}">-->
+<!--                                    <label for="expected_revenue" class="oe_edit_only" />-->
+<!--                                    <div class="o_row">-->
+<!--                                        <field name="company_currency" invisible="1"/>-->
+<!--                                        <field name="expected_revenue" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>-->
+<!--                                        <span class="oe_grey p-2" groups="crm.group_use_recurring_revenues">$, + </span>-->
+<!--                                        <span class="oe_grey p-2" groups="!crm.group_use_recurring_revenues">$, at </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col" attrs="{'invisible': [('type', '=', 'lead')]}" groups="crm.group_use_recurring_revenues">-->
+<!--                                    <div class="o_row">-->
+<!--                                        <field name="recurring_revenue" class="pr-2 oe_inline" widget="monetary" options="{'currency_field': 'USD'}"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col" attrs="{'invisible': [('type', '=', 'lead')]}" groups="crm.group_use_recurring_revenues">-->
+<!--                                    <div class="o_row">-->
+<!--                                        <field name="recurring_plan" class="oe_inline" placeholder="E.g. Monthly"-->
+<!--                                               attrs="{'required': [('recurring_revenue', '!=', 0)]}" options="{'no_create': True, 'no_open': True}"/>-->
+<!--                                        <span class="oe_grey p-2">$,  at </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <div class="oe_edit_only d-flex align-items-center">-->
+<!--                                        <label for="probability"/>-->
+<!--                                        <button class="btn btn-link" name="action_set_automated_probability" type="object"-->
+<!--                                                attrs="{'invisible': [('is_automated_probability', '=', True)]}">-->
+<!--                                            <i class="fa fa-gear" role="img" title="Switch to automatic probability" aria-label="Switch to automatic probability"></i>-->
+<!--                                        </button>-->
+<!--                                        <small class="oe_grey h6 mb0" attrs="{'invisible': [('is_automated_probability', '=', True)]}">-->
+<!--                                            <field class="mb0" name="automated_probability" force_save="1"/> %%-->
+<!--                                        </small>-->
+<!--                                    </div>-->
+<!--                                    <div id="probability" class="o_row d-flex">-->
+<!--                                        <field name="is_automated_probability" invisible="1"/>-->
+<!--                                        <field name="probability" widget="float" class="oe_inline"/>-->
+<!--                                        <span class="oe_grey"> %%</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="value_odd"  />-->
+<!--                                    <div class="o_row d-flex">-->
+<!--                                        <field name="company_currency" invisible="1"/>-->
+<!--                                        <field name="value_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>-->
+<!--                                        <span class="oe_topbar_name">$, </span>-->
+
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="gp_percentage" />-->
+<!--                                    <div class="o_row d-flex">-->
+<!--                                        <span class="oe_grey">   </span>-->
+<!--                                        <field name="gp_percentage" class="oe_inline"/>-->
+<!--                                        <span class="oe_grey">  %%  </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="cost"  />-->
+<!--                                    <div class="o_row d-flex">-->
+<!--                                        <field name="company_currency" invisible="1"/>-->
+<!--                                        <field name="cost" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>-->
+<!--                                        <span class="oe_topbar_name">$, </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="gp_value"  />-->
+<!--                                    <div class="o_row d-flex">-->
+<!--                                        <field name="company_currency" invisible="1"/>-->
+<!--                                        <field name="gp_value" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>-->
+<!--                                        <span class="oe_topbar_name">$, </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="gp_odd"/>-->
+<!--                                    <div class="o_row d-flex">-->
+<!--                                        <field name="company_currency" invisible="1"/>-->
+<!--                                        <field name="gp_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>-->
+<!--                                        <span class="oe_topbar_name">$ </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </h2>-->
+<!--                        </div>-->
+
+
+<!--                </xpath>-->
+<!--          </field>-->
+<!--      </record>-->
+
+<!--                #########  Trees ############                  -->
+
+    <record id="crm_sector_tree" model="ir.ui.view">
+        <field name="name">crm.sector.tree</field>
+        <field name="model">crm.sector</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Sector"  editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_products_technologies_tree" model="ir.ui.view">
+        <field name="name">crm.products.technologies.tree</field>
+        <field name="model">crm.products.technologies</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Products Technologies"  editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_expected_competitors_tree" model="ir.ui.view">
+        <field name="name">crm.expected.competitors.tree</field>
+        <field name="model">crm.expected.competitors</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Expected Competitors"  editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_services_tree" model="ir.ui.view">
+        <field name="name">crm.services.tree</field>
+        <field name="model">crm.services</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Services"  editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_outsourcing_tree" model="ir.ui.view">
+        <field name="name">crm.outsourcing.tree</field>
+        <field name="model">crm.outsourcing</field>
+        <field name="arch" type="xml">
+            <tree string="CRM Outsourcing"  editable="bottom">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+<!--                #########  Actions ############                  -->
+
+    <record id="crm_sector_action_window" model="ir.actions.act_window">
+        <field name="name">Sector / Segment</field>
+        <field name="res_model">crm.sector</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Define a new Sector / Segment
+          </p>
+        </field>
+     </record>
+
+    <record id="crm_products_technologies_action_window" model="ir.actions.act_window">
+        <field name="name">Products / Technologies</field>
+        <field name="res_model">crm.products.technologies</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Define a new Products / Technologies
+          </p>
+        </field>
+     </record>
+
+    <record id="crm_expected_competitors_action_window" model="ir.actions.act_window">
+        <field name="name">Competitors</field>
+        <field name="res_model">crm.expected.competitors</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Define a new Competitors
+          </p>
+        </field>
+     </record>
+
+    <record id="crm_services_action_window" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="res_model">crm.services</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Define a new Service
+          </p>
+        </field>
+     </record>
+
+    <record id="crm_outsourcing_action_window" model="ir.actions.act_window">
+        <field name="name">Outsourcing</field>
+        <field name="res_model">crm.outsourcing</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Define a new Outsourcing
+          </p>
+        </field>
+     </record>
+
+
+    <!--                #########  Menus ############                  -->
+
+    <menuitem name="Sector/Segment" id="crm_sector_menu"
+              parent="crm.menu_crm_config_lead"
+              action="crm_sector_action_window"
+              sequence="2"/>
+
+    <menuitem name="Products/Technologies" id="crm_products_technologies_menu"
+              parent="crm.menu_crm_config_lead"
+              action="crm_products_technologies_action_window"
+              sequence="3"/>
+
+    <menuitem name="Competitors" id="crm_expected_competitors_menu"
+              parent="crm.menu_crm_config_lead"
+              action="crm_expected_competitors_action_window"
+              sequence="4"/>
+
+    <menuitem name="Servers" id="crm_services_menu"
+              parent="crm.menu_crm_config_lead"
+              action="crm_services_action_window"
+              sequence="5"/>
+
+    <menuitem name="Outsourcing" id="crm_outsourcing_menu"
+              parent="crm.menu_crm_config_lead"
+              action="crm_outsourcing_action_window"
+              sequence="6"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="mail_template_onboarding_process" model="mail.template">
+            <field name="name">Onboarding Process: Send by email</field>
+            <field name="model_id" ref="employees_self_services.model_onboarding_proccess"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.compute_user_on() |safe}</field>
+            <field name="subject">Onboarding Process for ${object.employee_id.name}</field>
+            <!--            <field name="lang">${object.partner_id.lang}</field>-->
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dears,
+                        <br></br>
+                        as a IT Lead There's a new onboarding request opened in odoo.
+                        <br></br>
+                        Please create an email and prepare a laptop to the following employee (${object.employee_id.name})
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_onboarding_process_for_erp_admin" model="mail.template">
+            <field name="name">Onboarding Process: ERP Admin</field>
+            <field name="model_id" ref="employees_self_services.model_onboarding_proccess"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.compute_user_on() |safe}</field>
+            <field name="subject">Onboarding Process for ${object.employee_id.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+
+                    <p>Dears,
+                        <br></br>
+                        as an ERP Admin ,There's a new onboarding request opened in odoo.
+                        <br></br>
+                         Please create a user to the following employee (${object.employee_id.name})
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_onboarding_process_for_finance" model="mail.template">
+            <field name="name">Onboarding Process: Finance Admin</field>
+            <field name="model_id" ref="employees_self_services.model_onboarding_proccess"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.compute_user_on() |safe}</field>
+            <field name="subject">Onboarding Process for ${object.employee_id.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+                    <p>Dears ,
+                        <br></br>
+                        as an finance Admin ,There's a new onboarding request opened in odoo.
+                        <br></br>
+                        Please create a Company ID access card to the following employee (${object.employee_id.name})
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_onboarding_process_for_manager" model="mail.template">
+            <field name="name">Onboarding Process: Direct Manager</field>
+            <field name="model_id" ref="employees_self_services.model_onboarding_proccess"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.employee_manager.work_email |safe}</field>
+            <field name="subject">Onboarding Process for ${object.employee_id.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+                    <p>Dear ${object.employee_manager.name} ,
+                        <br></br>
+                        as a Direct Manager ,There's a new onboarding request opened in odoo.
+                        <br></br>
+                        Please check ${object.employee_id.name} with ${object.title.name}
+                        <br></br>
+                        Thank you
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+
+                </div>
+            </field>
+        </record>
+
+        <record id="mail_template_onboarding_process_for_hr_admin" model="mail.template">
+            <field name="name">Onboarding Process: HR  Admin</field>
+            <field name="model_id" ref="employees_self_services.model_onboarding_proccess"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.compute_user_on() |safe}</field>
+            <field name="subject">Onboarding Process for ${object.employee_id.name}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+                    <p>Dear HR ,
+                        <br></br>
+                        as a HR Admin ,There's a new onboarding request opened in odoo.
+                        <br></br>
+                         Please make sure the whole cycle is completed and correct
+                        <br></br>
+                        and update the Employee information.
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <p class="text-center"> Odoo Support Team</p>
+
+                    </p>
+
+                </div>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>
+

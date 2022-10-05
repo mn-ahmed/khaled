@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="it_ess_request_module_category">
+            <field name="name">IT ESS Requests</field>
+            <field name="description">User access level for this module</field>
+        </record>
+
+         <record id="it_request_hr_group" model="res.groups">
+            <field name="name">VM Requests</field>
+            <field name="category_id" ref="it_requests.it_ess_request_module_category"/>
+         </record>
+
+        <record id="it_request_manager_hr_group" model="res.groups">
+            <field name="name">VM Requests Manager</field>
+            <field name="category_id" ref="it_requests.it_ess_request_module_category"/>
+        </record>
+
+        <record id="employee_it_request_rule" model="ir.rule">
+            <field name="name">owner records assignment Rule</field>
+            <field name="model_id" ref="model_vm_request"/>
+            <field name="domain_force">
+                [('employee_name.user_id','=',user.id)]
+            </field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="it_request_approve_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_vm_request"/>
+            <field name="groups" eval="[(4, ref('it_requests.it_request_hr_group')),(4, ref('it_requests.it_request_manager_hr_group'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_hr_payslip_leave_encash_form" model="ir.ui.view">
+            <field name="name">hr.payslip.form</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+            <field name="arch" type="xml">
+                <field name="credit_note" position="after">
+                    <field name="encash_leave" />
+                    <field name="encash_amt" invisible='1' />
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

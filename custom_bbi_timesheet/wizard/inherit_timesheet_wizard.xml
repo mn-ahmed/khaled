@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+
+        <record id="view_inherit_timesheet_rejected" model="ir.ui.view">
+            <field name="name">reject.timesheet.wizard.form</field>
+            <field name="model">reject.timesheet.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Reject Timesheet">
+                    <group>
+                         <field name="reject_reason" required="1"/>
+                    </group>
+                    <footer>
+                        <button string='Reject/Reset Draft' name="reject_reset_draft"
+                                confirm="Do you want to Reject and Rest draft timesheet line/s ?" type="object" class="btn-primary"/>
+                        <button string='Reject' name="reject_timesheets"
+                                confirm="Do you want to Reject this/these timesheet line/s ?" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,126 @@
+<odoo>
+    <data>
+        <record id="resign_hiring_form_view_inherit" model="ir.ui.view">
+            <field name="name">Hiring Resigning</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='work_phone']" position="after">
+                    <field name="hiring"/>
+                    <field name="resign"/>
+                </xpath>
+                <xpath expr="//field[@name='work_email']" position="attributes">
+                    <attribute name="attrs">{'required':1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="attrs">{'required':1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='marital']" position="after">
+                    <field name="children_bool" type="checkbox"/>
+
+                </xpath>
+
+                <xpath expr="//field[@name='children']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('children_bool','!=',True)],'required':True}</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!--visa_expire-->
+
+        <record id="mandatory_fields_form_view_inherit_one" model="ir.ui.view">
+            <field name="name">Mandatory</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information']/group" position="inside">
+                    <group name="military_status" string="Military Status">
+                        <field name="military_stat"/>
+                        <field name="military_cer"/>
+                        <field name="military_exp"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="overtime" type="checkbox"/>
+                    <field name="contract_type"/>
+                    <field name="payment_type"/>
+
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+        <record id="visa_fields_form_view_inherit" model="ir.ui.view">
+            <field name="name">Mandatory</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='visa_expire']" position="before">
+                    <field name="visa_date" />
+
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="employee_id_form_view_inherit" model="ir.ui.view">
+            <field name="name">Employee Id</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_ids']" position="after">
+                    <br></br>
+                    <group >
+                        <group>
+                          <field name="emp_id" class="oe_edit_only" placeholder="e.g. ID#"/>
+                        </group>
+
+                    </group>
+
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <record model="ir.actions.act_window" id="hr_military_status_action_window">
+            <field name="name">Military Status</field>
+            <field name="res_model">military.status</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="hr_Payment_Type_action_window">
+            <field name="name">Payment Type</field>
+            <field name="res_model">hr.payment.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Military Status" id="hr_military_status"
+                  parent="hr.menu_human_resources_configuration"
+                  sequence="5" action="hr_military_status_action_window"/>
+
+        <menuitem name="Payment Type" id="hr_Payment_Type"
+                  parent="hr.menu_human_resources_configuration"
+                  sequence="4" action="hr_Payment_Type_action_window"/>
+
+
+    </data>
+</odoo>

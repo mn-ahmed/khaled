@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_timesheet_work_location_timesheet_work_location,timesheet_work_location.timesheet_work_location,model_timesheet_work_location,,1,1,1,1
+access_employee_self_services_users,employee.services.user,model_employee_self_services,employees_self_services.ess_group_user,1,1,1,0
+access_employee_self_services_manager,employee.self.manger,model_employee_self_services,employees_self_services.ess_group_manager,1,1,1,1
+
+access_employee_onboarding_request,employee.onboarding.process,model_onboarding_proccess,,1,1,1,1
+

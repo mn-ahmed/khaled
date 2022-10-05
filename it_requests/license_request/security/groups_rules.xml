@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+         <record id="domain_license_group" model="res.groups">
+            <field name="name">IT License</field>
+            <field name="category_id" ref="it_requests.it_ess_request_module_category"/>
+        </record>
+
+    </data>
+</odoo>

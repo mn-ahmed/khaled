@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mobile_sim_card,mobile.sim.card.name,model_sim_card,,1,1,1,1
+access_mobile_sim_card_rate,mobile.sim.card.rate.name,model_sim_card_change,,1,1,1,1
+access_mobile_sim_card_rate_plan,mobile.sim.card.rate.plan.name,model_sim_card_rate_plan,,1,1,1,1

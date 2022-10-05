@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_res_config_settings_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.hr</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="70" />
+            <field name="inherit_id" ref="hr.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]/div[hasclass('app_settings_block')][@data-string='Employees']" position="inside">
+                    <h2>HR Settings</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="encash_leave" />
+                                <group>
+                                    <field name="encash_leave" nolabel="1" style="width:50%" />
+                                </group>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="direct_manager_crm_group" model="res.groups">
+            <field name="name">Direct Manager</field>
+        </record>
+        <record id="indirect_manager_crm_group" model="res.groups">
+            <field name="name">Indirect Manager</field>
+        </record>
+        <record id="outsource_manager_crm_group" model="res.groups">
+            <field name="name">Outsource Manager</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="crm.crm_lead_action_pipeline">
+            <field name="name">Pipeline</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">kanban,tree,graph,pivot,form,calendar,activity</field>
+            <field name="domain">[('type','=','opportunity')]</field>
+            <field name="context">{
+                    'default_type': 'opportunity',
+                    'search_default_assigned_to_me': 1
+            }</field>
+            <field name="search_view_id" ref="crm.view_crm_case_opportunities_filter"/>
+        </record>
+
+<!--        <record id="server_action_crm_lead_oppo_types" model="ir.actions.server">-->
+<!--          <field name="name">Oppo type</field>-->
+<!--          <field name="type">ir.actions.server</field>-->
+<!--          <field name="model_id" ref="model_crm_lead" />-->
+<!--          <field name="binding_model_id" ref="crm.model_crm_lead"/>-->
+<!--          <field name="state">code</field>-->
+<!--          <field name="code">action=model.get_filtered_record()</field>-->
+<!--        </record>-->
+
+
+        <record id="crm_direct_manager_rule" model="ir.rule">
+            <field name="name">CRM - Direct Manager rule</field>
+            <field name="model_id" ref="model_crm_lead"/>
+            <field name="global" eval="True"/>
+<!--            <field name="domain_force">['|',('user_ids','!=',False),('user_ids.ids','in',user.id)]</field>-->
+<!--            <field name="domain_force">['&amp;',('opportunity_type','=','direct'),(user_ids,'child of',['user.ids'])]</field>-->
+            <field name="domain_force">['&amp;',('opportunity_type','=','direct'),('opportunity_type','!=',False)]</field>
+            <field name="groups" eval="[(4, ref('crm_lead_code.direct_manager_crm_group'))]"/>
+
+        </record>
+
+
+        <record id="crm_indirect_manager_rule" model="ir.rule">
+            <field name="name">CRM - Indirect Manager rule</field>
+            <field name="model_id" ref="model_crm_lead"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['&amp;',('opportunity_type','=','indirect'),('opportunity_type','!=',False)]</field>
+<!--            <field name="domain_force">['|',('user_ids','!=',False),('user_ids.ids','in',user.id)]</field>-->
+            <field name="groups" eval="[(4, ref('crm_lead_code.indirect_manager_crm_group'))]"/>
+        </record>
+        <record id="crm_oursource_manager_rule" model="ir.rule">
+            <field name="name">CRM - Outsource Manager rule</field>
+            <field name="model_id" ref="model_crm_lead"/>
+            <field name="global" eval="True"/>
+<!--            <field name="domain_force">['&amp;',('opportunity_type','!=',False),(user.id,'in',['user_ids.ids'])]</field>-->
+            <field name="domain_force">['&amp;',('opportunity_type','=','outsource'),('opportunity_type','!=',False)]</field>
+            <field name="groups" eval="[(4, ref('crm_lead_code.outsource_manager_crm_group'))]"/>
+<!--            <field name="perm_read" eval="True"/>-->
+<!--            <field name="perm_write" eval="False"/>-->
+<!--            <field name="perm_create" eval="False"/>-->
+<!--            <field name="perm_unlink" eval="False"/>-->
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="aspl_hr_emp_grade_config_form" model="ir.ui.view">
+            <field name="name">hr.emp.grade.config.form</field>
+            <field name="model">hr.emp.grade.config</field>
+            <field name="arch" type="xml">
+                <form string="Grade Configuration">
+                    <sheet>
+                        <group style="width:50%">
+                            <field name="grade_id" required="1"
+                                   options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                        </group>
+                        <group style="width:50%">
+                            <field name="currency_id" invisible="1"
+                                   options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                        </group>
+                        <field name="expense_line_ids">
+                            <tree editable="1">
+                                <field name="expense_id" required="1"
+                                       options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                                <field name="product_id"
+                                       options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                                <field name="exp_type"/>
+                                <field name="amount" required="1" widget="Monetary"/>
+                                <field name="currency_id" invisible="1"/>
+                            </tree>
+                        </field>
+                        <group class="oe_right">
+                            <field name="total" type="number" readonly="1" widget="Monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--employee grade configuration tree-->
+        <record id="aspl_hr_emp_grade_config_tree" model="ir.ui.view">
+            <field name="name">hr.emp.grade.config.tree</field>
+            <field name="model">hr.emp.grade.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="grade_id" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                    <field name="expense_line_ids" widget="many2many_tags"/>
+                    <field name="total" widget="Monetary"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--employee grade configuration action-->
+        <record id="aspl_hr_emp_grade_config_action" model="ir.actions.act_window">
+            <field name="name">Grade Configuration</field>
+            <field name="res_model">hr.emp.grade.config</field>
+<!--                    <field name="view_type">form</field> -->
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!--Expences form-->
+        <record id="aspl_hr_emp_expenses_form" model="ir.ui.view">
+            <field name="name">hr.emp.expense.form</field>
+            <field name="model">hr.emp.expense</field>
+            <field name="arch" type="xml">
+                <form string="Expenses">
+                    <sheet>
+                        <group>
+                            <field name="product_id" required="1" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                            <field name="name" required="1"/>
+                            <field name="exp_type" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Expenses Action-->
+        <record id="aspl_hr_emp_expenses_action" model="ir.actions.act_window">
+            <field name="name">Expenses Details</field>
+            <field name="res_model">hr.emp.expense</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+    </data>
+</odoo>

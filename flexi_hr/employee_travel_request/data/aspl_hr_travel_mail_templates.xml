@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="draft_employee_request_template" model="mail.template">
+            <field name="name">Employee Travel Request</field>
+            <field name="subject">Travel Request : ${object.travel_request_id}</field>
+            <field name="email_to">${object.employee_id.work_email|safe}</field>
+            <field name="model_id" ref="model_hr_emp_travel_request"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+            Hello ${object.employee_id.name}
+            <br/>
+            <p>
+            Your Travel Request for
+            % for each in object.travel_location_ids :
+                ${each.dest_city}
+            %endfor
+            on Date ${object.from_date} to ${object.to_date} is </p>
+            <b>
+            ${object.state}
+            </b><br/>
+            Thank you.]]>
+            </field>
+        </record>
+
+        <record id="send_to_manager_request_template" model="mail.template">
+            <field name="name">Send to Manager Travel Request</field>
+            <field name="subject">Travel Request : ${object.travel_request_id}</field>
+            <field name="email_to">${object.parent_id.work_email|safe}</field>
+            <field name="model_id" ref="model_hr_emp_travel_request"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+            <p>
+            Hello Sir, ${object.employee_id.name}
+            <br></p><p>
+            </p><p>
+            is Requested Travel Expense for
+            % for each in object.travel_location_ids :
+                ${each.dest_city}
+            %endfor
+            on Date ${object.from_date} to ${object.to_date} Thank you. </p>]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,131 @@
+<odoo>
+  <data>
+
+      <record id="business_card_reject_reason_form" model="ir.ui.view">
+            <field name="name">business.card.reject.reason.form</field>
+            <field name="model">reject.message.business.card</field>
+            <field name="arch" type="xml">
+                <form string="reject message">
+                    <group class="oe_title">
+                        <field name="reject_reason"/>
+                    </group>
+                    <footer>
+                        <button name="action_reject_reason" string="Reject" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+      <record id="business_card_reject_reason_wizard_action" model="ir.actions.act_window">
+            <field name="name">Business Card Reject Reason Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">reject.message.business.card</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="business_card_reject_reason_form"/>
+            <field name="target">new</field>
+        </record>
+
+      <record id="business_card_form_view" model="ir.ui.view">
+            <field name="name">Business Card Request</field>
+            <field name="model">business.card</field>
+            <field name="arch" type="xml">
+                <form string="Business Card Request">
+                    <header>
+                        <button name="hr_department" type="object"
+                                string="Approve" class="oe_highlight"
+                                states="wfa"
+                                groups="business_card.business_card_hr_group"/>
+
+
+                        <button name="%(business_card_reject_reason_wizard_action)d" type="action"
+                                string="Reject"
+                                states="wfa"
+                                class="oe_highlight"
+                                groups="business_card.business_card_hr_group"/>
+
+                        <button name="done" type="object"
+                                string="Done"
+                                states="hr"
+                                class="oe_highlight"
+                                groups="business_card.business_card_hr_group"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" /></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="employee_name"/>
+                                <field name="employee_full_name"/>
+                                <field name="employee_email"/>
+
+                            </group>
+                            <group>
+                                <field name="department_name"/>
+                                <field name="job_name"/>
+                                <field name="employee_phone"/>
+                            </group>
+
+                            <group>
+                                <field name="reject_reason"  attrs="{'invisible': [('state', '!=', 'rejected')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+      <record id="business_card_tree_view" model="ir.ui.view">
+            <field name="name">Business Card Replacement Request</field>
+            <field name="model">business.card</field>
+            <field name="arch" type="xml">
+                <tree string="business Card Request">
+                    <field name="name"/>
+                    <field name="employee_name"/>
+                    <field name="department_name"/>
+                    <field name="job_name"/>
+                    <field name="create_date"/>
+                    <field name="reject_reason"  attrs="{'invisible': [('state', '!=', 'rejected')]}"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+      <record id="request_business_card_action" model="ir.actions.act_window">
+            <field name="name">Business Card Request</field>
+            <field name="res_model">business.card</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+      <record id="approve_business_card_action" model="ir.actions.act_window">
+            <field name="name">Business Card Approve</field>
+            <field name="res_model">business.card</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','in',('wfa','hr'))]</field>
+      </record>
+
+      <menuitem name="Business Card"
+                  id="request_business_card_menu"
+                  parent="employees_self_services.card_request_ess_menu"
+                  action="request_business_card_action"/>
+
+      <menuitem name="Business Card"
+                id="approve_business_card_menu"
+                action="approve_business_card_action"
+                groups="business_card.business_card_hr_group"
+                parent="employees_self_services.sub_menu_for_hr_approve_requests"/>
+
+
+
+
+  </data>
+</odoo>

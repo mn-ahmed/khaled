@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="seq_emp_travel_request_id" model="ir.sequence">
+            <field name="name">Travel ID</field>
+            <field name="code">emp.travel.request.id</field>
+            <field name="prefix">TR/</field>
+            <field name="padding">4</field>
+        </record>
+
+    </data>
+</odoo>

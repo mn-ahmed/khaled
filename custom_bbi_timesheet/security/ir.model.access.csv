@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_timesheet_edit_record,timesheet.edit.policy,model_account_analytic_line,hr_timesheet.group_timesheet_manager,1,1,1,1
+access_reject_timesheet_wizard,name.reject.timesheet.wizard,model_reject_timesheet_wizard,,1,1,1,1
+

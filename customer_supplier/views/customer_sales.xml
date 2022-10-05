@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="sale_order_sales_customer_form_inherit" model="ir.ui.view">
+        <field name="name">sales.order.sales.customer.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="replace">
+                <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" options="{&quot;always_reload&quot;: True}" domain="[('contact_type','!=','supplier')]"/>
+            </field>
+        </field>
+    </record>
+</odoo>

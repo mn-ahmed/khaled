@@ -1,0 +1,79 @@
+<odoo>
+  <data>
+    <record id="hr_employee_info_view_form" model="ir.ui.view">
+            <field name="name">hr.hr.employee.info.view.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page[@name='hr_settings']" position="after">
+                        <page name="social_insurance" string="Social Insurance">
+                              <group>
+                                  <group name="salary">
+                                      <field name="basic_salary" />
+                                      <field name="Variable_salary"/>
+                                  </group>
+                                  <group name="insurance">
+                                      <field name="insurance_status" />
+                                      <field name="insurance_number"/>
+                                  </group>
+                                  <group>
+                                      <field name="insurance_bureau" />
+                                  </group>
+                                  <group>
+                                      <field name="institution_number"/>
+                                      <field name="insurance_date" />
+                                  </group>
+                              </group>
+                        </page>
+                        <page name="medical_insurance" string="Medical Insurance">
+                          <group>
+                              <group name="medical_insurance">
+                                  <field name="employee_status" />
+                                  <field name="family_status"/>
+                              </group>
+                              <group>
+                                  <field name="number_of_dependants_company" />
+                                  <field name="number_of_dependants_employee"/>
+                              </group>
+                          </group>
+                        </page>
+                        <page name="additional_info" string="Additional Info">
+                          <group>
+                              <group>
+                                  <field name="latest_employer" />
+                                  <field name="previous_employer"/>
+                                  <field name="previous_employers" />
+                              </group>
+                              <group>
+                                  <field name="employee_level" />
+                                  <field name="employee_percentile"/>
+                                  <field name="experience" />
+                              </group>
+                          </group>
+                        </page>
+
+                    </xpath>
+
+                    <xpath expr="//field[@name='study_school']" position="after">
+                        <field name="graduation_year"/>
+                    </xpath>
+                    <xpath expr="//field[@name='category_ids']" position="after">
+                        <div class="oe_title">
+                            <label for="employee_full_name" />
+                            <h4>
+                                <field name="employee_full_name" placeholder="Employee's Full Name" />
+                            </h4>
+                        </div>
+                        <div>
+                            <label for="employment_type" />
+                            <field name="employment_type"/>
+                        </div>
+
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+  </data>
+</odoo>

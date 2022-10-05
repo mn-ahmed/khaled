@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.module.category" id="ess_module_security_category">
+            <field name="name">Ess</field>
+            <field name="description">User access level for this module</field>
+            <field name="sequence">7</field>
+        </record>
+
+        <record id="ess_organization_requests_user" model="res.groups">
+            <field name="name"> Organization Requests </field>
+            <field name="category_id" ref="ess_module_security_category"/>
+        </record>
+
+        <record id="ess_group_user" model="res.groups">
+            <field name="name"> User Request over timesheet </field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+            <field name="category_id" ref="ess_module_security_category"/>
+        </record>
+
+        <record id="ess_group_manager" model="res.groups">
+            <field name="name">Manager Request over timesheet</field>
+            <field name="implied_ids" eval="[(4, ref('ess_group_user'))]"/>
+            <field name="category_id" ref="ess_module_security_category"/>
+        </record>
+
+
+    </data>
+    <data>
+        <record id="ess_group_admin" model="res.groups">
+            <field name="name">Admin Request over timesheet</field>
+            <field name="implied_ids" eval="[(4, ref('ess_group_user'))]"/>
+            <field name="category_id" ref="ess_module_security_category"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="action_leave_encash_report"
+                string="Leave Encash Report"
+                model="leave.encash.report.wizard"
+                report_type="qweb-pdf"
+                file="flexi_hr.leave_encash_report"
+                name="flexi_hr.leave_encash_report" />
+    </data>
+</odoo>

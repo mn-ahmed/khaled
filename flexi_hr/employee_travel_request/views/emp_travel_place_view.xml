@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!--Form of Locations-->
+        <record id="aspl_hr_emp_travel_location_form" model="ir.ui.view">
+            <field name="name">hr.emp.travel.location.form</field>
+            <field name="model">hr.emp.travel.location</field>
+            <field name="arch" type="xml">
+                <form string="Travel Locations">
+                    <sheet>
+                        <group style="width:45%">
+                            <label for="source_city" string="Source"/>
+                            <div class="o_address_format">
+                                <field name="source_street1" placeholder="Street..."
+                                       class="o_address_street"/>
+                                <field name="source_street2" placeholder="Street 2..."
+                                       class="o_address_street"/>
+                                <field name="source_city" placeholder="City" class="o_address_city"/>
+                                <field name="source_state_id" class="o_address_state" placeholder="State"
+                                       required="1" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                                <field name="source_zip" placeholder="ZIP" class="o_address_zip"/>
+                                <field name="source_country_id" placeholder="Country" class="o_address_country"
+                                       required="1" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                            </div>
+                        </group>
+                        <group style="width:45%">
+                            <label for="dest_city" string="Destination"/>
+                            <div class="o_address_format">
+                                <field name="dest_street1" placeholder="Street..." class="o_address_street"/>
+                                <field name="dest_street2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="dest_city" placeholder="City" class="o_address_city"/>
+                                <field name="dest_state_id" class="o_address_state" placeholder="State"
+                                       required="1" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                                <field name="dest_zip" placeholder="ZIP" class="o_address_zip"/>
+                                <field name="dest_country_id" placeholder="Country" class="o_address_country"
+                                       required="1" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                            </div>
+                        </group>
+                        <group style="width:45%">
+                            <field name="start_date" required="1" string="From Date"/>
+                            <field name="travel_days" required="1"/>
+                        </group>
+                        <group style="width:45%">
+                            <field name="end_date" required="1" string="To Date"/>
+                        </group>
+                        <group style="width:45%">
+                            <field name="customer_id" string="Customer" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                            <field name="comment" string="Comment"/>
+                        </group>
+                        <group style="width:45%">
+                            <field name="project_id" string="Project" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                            <field name="reason" string="Reason" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree Locations-->
+        <record id="aspl_hr_emp_travel_location_tree_view" model="ir.ui.view">
+            <field name="name">hr.emp.travel.location.tree</field>
+            <field name="model">hr.emp.travel.location</field>
+            <field name="arch" type="xml">
+                <tree string="Travel Location">
+                    <field name="source_state_id" string="Source"/>
+                    <field name="dest_state_id" string="Destination"/>
+                    <field name="start_date" string="From Date"/>
+                    <field name="end_date" string="To Date"/>
+                    <field name="reason"/>
+                    <field name="travel_days"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Location Action-->
+        <record id="aspl_hr_emp_travel_location_action" model="ir.actions.act_window">
+            <field name="name">HR Employee Travel Locations</field>
+            <field name="res_model">hr.emp.travel.location</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_sector_segment,crm.sector.segment,model_crm_sector,,1,1,1,1
+access_crm_products_technologies,access.crm.products.technologies,model_crm_products_technologies,,1,1,1,1
+access_crm_expected_competitors,access.crm.expected.competitors,model_crm_expected_competitors,,1,1,1,1
+access_crm_services,access.crm.services,model_crm_services,,1,1,1,1
+access_crm_outsourcing,access.crm.outsourcing,model_crm_outsourcing,,1,1,1,1

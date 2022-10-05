@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!--Grade form-->
+        <record id="aspl_hr_emp_grade_view_form" model="ir.ui.view">
+            <field name="name">hr.emp.grade.form</field>
+            <field name="model">hr.emp.grade</field>
+            <field name="arch" type="xml">
+                <form string="Employee Grade">
+                    <sheet>
+                        <group>
+                            <field name="name" type="string" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--grade action-->
+        <record id="aspl_hr_emp_grade_action" model="ir.actions.act_window">
+            <field name="name">Employee Grade</field>
+            <field name="res_model">hr.emp.grade</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!--expense form-->
+        <record id="aspl_hr_emp_expense_amount_tree" model="ir.ui.view">
+            <field name="name">hr.emp.expense.amount.tree</field>
+            <field name="model">hr.emp.expense.amount</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="expense_id"/>
+                    <field name="exp_type"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--expense tree-->
+        <record id="aspl_hr_expense_amount_tree1" model="ir.ui.view">
+            <field name="name">hr.expense.amount.tree</field>
+            <field name="model">hr.expense.amount</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="expense_id" readonly="1"/>
+                    <field name="exp_type" readonly="1"/>
+                    <field name="amount"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

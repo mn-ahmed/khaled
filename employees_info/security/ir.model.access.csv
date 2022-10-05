@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_status,employees.info.employee.status,model_employee_status,,1,1,1,1
+access_family_status,family.info.family.status,model_family_status,,1,1,1,1
+access_employment_type,access.employment.type,model_employment_type,,1,1,1,1
+access_employee_level,employees_info.employee_level,model_employee_level,,1,1,1,1
+access_employee_percentile,employees_info.employee.percentile,model_employee_percentile,,1,1,1,1
+access_insurance_status,employees_info.insurance_status,model_insurance_status,,1,1,1,1
+access_insurance_bureau,employees_info.insurance_bureau,model_insurance_bureau,,1,1,1,1

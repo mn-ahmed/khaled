@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_emp_grade,access_hr_emp_grade,model_hr_emp_grade,base.group_user,1,1,1,0
+access_hr_emp_expense,access_hr_emp_expense,model_hr_emp_expense,base.group_user,1,1,1,0
+access_hr_emp_travel_mode,access_hr_emp_travel_mode,model_hr_emp_travel_mode,base.group_user,1,0,0,0
+access_hr_emp_expense_amount,access_hr_emp_expense_amount,model_hr_emp_expense_amount,base.group_user,1,1,1,0
+access_hr_emp_grade_config,access_hr_emp_grade_config,model_hr_emp_grade_config,base.group_user,1,1,1,0
+access_hr_emp_travel_location,access_hr_emp_travel_location,model_hr_emp_travel_location,base.group_user,1,1,1,1
+access_hr_expense_amount,access_hr_expense_amount,model_hr_expense_amount,base.group_user,1,1,1,1
+access_hr_travel_currency,access_hr_travel_currency,model_hr_travel_currency,base.group_user,1,0,1,0
+access_account_multi_currency,access_account_multi_currency,model_hr_travel_currency,account.group_account_manager,1,1,1,1
+access_hr_emp_travel_request_employee,access_hr_emp_travel_request_employee,model_hr_emp_travel_request,base.group_user,1,1,1,0
+access_hr_job,access_hr_job,hr.model_hr_job,base.group_user,1,1,0,0
+access_hr_emp_travel_request_manager,access_hr_emp_travel_request_manager,model_hr_emp_travel_request,hr.group_hr_manager,1,1,1,1
+access_hr_travel_request_reject,access_hr_travel_request_reject,model_hr_travel_request_reject,base.group_user,1,1,1,1

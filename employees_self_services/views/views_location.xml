@@ -1,0 +1,33 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="work_location_view_tree">
+      <field name="name">Location Tree</field>
+      <field name="model">timesheet.work_location</field>
+      <field name="arch" type="xml">
+        <tree string="location list">
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="location_work_view_tree">
+      <field name="name">Location Form</field>
+      <field name="model">timesheet.work_location</field>
+      <field name="arch" type="xml">
+        <form string="location form">
+          <field name="name" required="True"/>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="timesheet_work_location_action_window">
+      <field name="name">timesheet work locations </field>
+      <field name="res_model">timesheet.work_location</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Work Location" id="timesheet_work_location"
+              parent="hr_timesheet.hr_timesheet_menu_configuration"
+              sequence="0" action="timesheet_work_location_action_window"/>
+
+  </data>
+</odoo>

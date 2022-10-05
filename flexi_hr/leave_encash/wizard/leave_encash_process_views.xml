@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="wizard_leave_encash_process" model="ir.ui.view">
+            <field name="name">wizard.leave.encash.process</field>
+            <field name="model">leave.encash.process</field>
+            <field name="arch" type="xml">
+                <form string="Leave Encash Process">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                        <group col="2">
+                            <group>
+                                <field name="department_ids" widget="many2many_tags" options="{'no_create_edit': True}" />
+                            </group>
+                            <group>
+                                <field name="job_position_ids" widget="many2many_tags" options="{'no_create_edit': True}" />
+                            </group>
+                            <group>
+                                <field name="leave_type_id" options="{'no_create_edit': True}" />
+                            </group>
+                        </group>
+                        <div style="margin-left : 2%;">
+                            <button name='search_leave' string="Search Leave" type="object" style="color : white;background-color : #7c7bad;" />
+                            <button name='create_encashment' string="Create Encashment" type="object"
+                                style="margin-left : 5%;color : white;background-color : #7c7bad;" />
+                        </div>
+                        <notebook>
+                            <page string="Leave Encashment">
+                                <group>
+                                    <field name="leave_encash_lines_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="employee_id" />
+                                            <field name="leave_type_id" />
+                                            <field name="pending_leave" />
+                                            <field name="encash_leave" />
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Encashment Policy">
+                                <group col="4">
+                                    <field name="encashment_type" />
+                                    <field name="amount" attrs="{'invisible':[('encashment_type','!=','day_fixed')]}" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_leave_encash_process" model="ir.actions.act_window">
+            <field name="name">Leave Encash Process</field>
+            <field name="res_model">leave.encash.process</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem id="menu_leave_encashment" name="Leave Encashment" parent="hr_holidays.menu_hr_holidays_root" sequence="4"
+            groups="hr.group_hr_manager" />
+
+        <menuitem id="menu_leave_encash_process" name="Leave Encash Process" parent="menu_leave_encashment" sequence="1"
+            action="action_wizard_leave_encash_process" groups="hr.group_hr_manager" />
+
+    </data>
+</odoo>

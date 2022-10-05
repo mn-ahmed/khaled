@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+
+        <record id="remove_edit_from_timesheet_tree"  model="ir.ui.view">
+            <field name="name">edit.button.timesheet.tree</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="attributes">
+                    <attribute name="edit">0</attribute>
+<!--                    <attribute name="decoration-primary">validated_statu == 'b'</attribute>-->
+<!--                    <attribute name="decoration-info">validated_statu=='c'</attribute>-->
+<!--                    <attribute name="decoration-success">validated_statu=='e'</attribute>-->
+<!--                    <attribute name="decoration-danger">validated_statu == 'd'</attribute>-->
+<!--                    <attribute name="decoration-warning">validated_statu == 'a'</attribute>-->
+                </xpath>
+            </field>
+        </record>
+
+        <delete model="ir.actions.server" id="timesheet_grid.invalidate_timesheet_action" />
+        <delete model="ir.actions.server" id="timesheet_grid.timesheet_validate_action" />
+
+    </data>
+</odoo>

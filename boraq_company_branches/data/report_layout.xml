@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_layout_background_branch" model="report.layout">
+            <field name="view_id" ref="boraq_company_branches.external_layout_background_custom"/>
+            <field name="image">/boraq_company_branches/static/img/preview_background.png</field>
+            <field name="pdf">/boraq_company_branches/static/pdf/preview_background.pdf</field>
+            <field name="is_branch" eval="True"></field>
+        </record>
+        <record id="report_layout_boxed_branch" model="report.layout">
+            <field name="view_id" ref="boraq_company_branches.external_layout_boxed_custom"/>
+            <field name="image">/boraq_company_branches/static/img/preview_boxed.png</field>
+            <field name="pdf">/boraq_company_branches/static/pdf/preview_boxed.pdf</field>
+            <field name="is_branch" eval="True"></field>
+        </record>
+        <record id="report_layout_clean_branch" model="report.layout">
+            <field name="view_id" ref="boraq_company_branches.external_layout_clean_custom"/>
+            <field name="image">/boraq_company_branches/static/img/preview_clean.png</field>
+            <field name="pdf">/boraq_company_branches/static/pdf/preview_clean.pdf</field>
+            <field name="is_branch" eval="True"></field>
+        </record>
+        <record id="report_layout_standard_branch" model="report.layout">
+            <field name="view_id" ref="boraq_company_branches.external_layout_standard_custom"/>
+            <field name="image">/boraq_company_branches/static/img/preview_standard.png</field>
+            <field name="pdf">/boraq_company_branches/static/pdf/preview_standard.pdf</field>
+            <field name="is_branch" eval="True"></field>
+        </record>
+    </data>
+</odoo>

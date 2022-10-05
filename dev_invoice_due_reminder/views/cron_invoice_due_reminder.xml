@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <data>
+        <record id="ir_cron_scheduler_invoice_due_reminder_action" model="ir.cron">
+            <field name="name">Account Invoice Due Date Reminder</field>
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_account_move"/>
+            <field name="code">model.invoice_due_date_reminder()</field>
+            <field name="state">code</field>
+        </record>
+    </data>
+</odoo>

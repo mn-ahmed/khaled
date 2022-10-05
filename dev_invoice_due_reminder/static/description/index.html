@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Invoice Due Date Reminder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+
+<!-- odoo description page css -->
+<style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 400;
+        line-height: 1.1;
+        color: #21272b;
+    }
+
+    ul {
+        color: #222020;
+    }
+
+    * {
+        font-family: "Montserrat", sans-serif;
+    }
+</style>
+
+<body>
+<div class="pt-4">
+    <div class="container">
+        <!--Module Name-->
+        <div class="mt32 mb32">
+            <h2 class="text-center" style="font-size: 36px;color: #4BB0A2;">
+                Invoice Due Date Reminder
+            </h2>
+        </div>
+        <!-- Module Description  -->
+        <div class="text-center py-4">
+            <p style="font-size: 18px;border-width: 3px;border-style: solid;border-image: linear-gradient( to bottom, #49AD9F, rgba(0, 0, 0, 0) ) 1 100%;"
+               class="px-sm-4 p-2 pt-4">
+                odoo application will automatically send notification emails to the followers of the Invoice if Due Date of invoice is near. It will automatically send reminder via
+                email to the followers before 2 days from the due date and on the same day of the due date of Invoice
+            </p>
+            <div class="border mx-5 col-7 mx-auto"></div>
+        </div>
+
+        <!--  Video Demo Button-->
+        <div class="row">
+            <div class="col-12">
+                <center>
+                    <a class="btn btn-primary"
+                       style="width: 290px;font-weight: bold;font-size: 21px;background: linear-gradient(to right, #49AD9F, #8DD3CD);box-shadow: 0px 0px 6px 3px #d7e5f1;padding-top: 12px;padding-bottom: 12px;padding-left: 60px;padding-right: 60px;border-radius: 28px; color: white; border: none;"
+                       href="https://www.youtube.com/channel/UCrmu-T0c8rhMXGuB44bH7gA" target="_blank">    Watch Video    </a>
+                    <a class="btn btn-primary"
+                       style="width: 290px;font-weight: bold;font-size: 21px;background: linear-gradient(to right, #49AD9F, #8DD3CD);box-shadow: 0px 0px 6px 3px #d7e5f1;padding-top: 12px;padding-bottom: 12px;padding-left: 60px;padding-right: 60px;border-radius: 28px; color: white; border: none;"
+                       href="https://www.devintellecs.com/contact-us-2/" target="_blank">Ask for Demo
+                    </a>
+                </center>
+            </div>
+        </div>
+        <div class="row py-4 px-3">
+            <div class="w-100" style="padding-top:30px;padding-bottom:45px;border-radius: 10px;">
+                <ul role="tablist" class="nav nav-pills justify-content-center" data-tabs="tabs" id="pills-tab"
+                    role="tablist" style="border: none;background: unset;">
+                    <li class="nav-item mr-1 mb-3"
+                        style="border: 1px solid #a1c4fd;border-radius: 7px;border-bottom: 3px solid #a1c4fd;background: linear-gradient(to top, #8DD3CD, #49AD9F);">
+                        <a id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" class="nav-link active"
+                           aria-controls="pills-home" aria-selected="true"
+                           style="font-family: 'Montserrat', sans-serif;text-transform: uppercase;font-weight: 600;font-size: 15px;letter-spacing: 1px;padding: 10px 20px;border-top-left-radius: 5px;border-top-right-radius: 5px;color: #2b2b2b;">Features
+                        </a>
+                    </li>
+                    <li class="nav-item mr-1 mb-3"
+                        style="border: 1px solid #a1c4fd;border-radius: 7px;border-bottom: 3px solid #a1c4fd;background: linear-gradient(to top, #8DD3CD, #49AD9F);">
+                        <a id="pills-releases-tab" data-toggle="pill" href="#pills-releases" role="tab"
+                           aria-controls="pills-releases" aria-selected="true" class="nav-link"
+                           style="font-family: 'Montserrat', sans-serif;text-transform: uppercase;font-weight: 600;font-size: 15px;letter-spacing: 1px;padding: 10px 20px;border-top-left-radius: 5px;border-top-right-radius: 5px;color: #2b2b2b;">Releases
+                        </a>
+                    </li>
+                    <li class="nav-item mr-1 mb-3"
+                        style="border: 1px solid #a1c4fd;border-radius: 7px;border-bottom: 3px solid #a1c4fd;background: linear-gradient(to top, #8DD3CD, #49AD9F);">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                           aria-controls="pills-profile" aria-selected="false"
+                           style="font-family: 'Montserrat', sans-serif;text-transform: uppercase;font-weight: 600;font-size: 15px;letter-spacing: 1px;padding: 10px 20px;border-top-left-radius: 5px;border-top-right-radius: 5px;color: #2b2b2b;">User
+                            Guide
+                        </a>
+                    </li>
+                    <li class="nav-item mb-3"
+                        style="border: 1px solid #a1c4fd;border-radius: 7px;border-bottom: 3px solid #a1c4fd;background: linear-gradient(to top, #8DD3CD, #49AD9F);">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                           aria-controls="pills-contact" aria-selected="false"
+                           style="font-family: 'Montserrat', sans-serif;text-transform: uppercase;font-weight: 600;font-size: 15px;letter-spacing: 1px;padding: 10px 20px;border-top-left-radius: 5px;border-top-right-radius: 5px;color: #2b2b2b;">FAQs
+                        </a>
+                    </li>
+                </ul>
+
+                <!--Features-->
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="px-3 pt-1 tab-pane fade show active" id="pills-home" role="tabpanel"
+                         aria-labelledby="pills-home-tab">
+
+                        <div class="p-1 pl-4 bg-white"
+                             style="border-radius: 10px;margin-bottom: 20px;border-left: 11px solid #4BB0A2;border-right: 11px solid #4BB0A2;box-shadow: 0px 0px 7px 1px #8DD3CD;">
+                            <h5 class="mb-4 mt-3" style="margin: 0; font-weight: bold;font-size:20px;">Key Features</h5>
+                            <ul class="list-unstyled" style="font-size:15px;border-radius: 10px;">
+                                <li class="d-flex align-items-baseline mb-2">
+                                    <img src="images/arrow.png" alt="arrow"
+                                         style="width:15px;margin-right:10px"/>
+                                    <span>
+                                        Automatically send Invoice due date reminder emails to the followers of the Invoice document
+                                    </span>
+                                </li>
+
+                                <li class="d-flex align-items-baseline mb-2">
+                                    <img src="images/arrow.png" alt="arrow"
+                                         style="width:15px;margin-right:10px"/>
+                                    <span>
+                                        Automatically send notification to the followers <b>before 2 days</b> from the due date of the Invoice
+                                    </span>
+                                </li>
+
+                                <li class="d-flex align-items-baseline mb-2">
+                                    <img src="images/arrow.png" alt="arrow"
+                                         style="width:15px;margin-right:10px"/>
+                                    <span>
+                                        Automatically send notification to the followers <b>on the same day</b> of the due date of the Invoice
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!--Screen Shots-->
+                        <div class="tab-pane">
+                            <div>
+                                <ul class="list-unstyled pl-0  bg-white" style="font-size:15px;">
+                                    <li class="d-flex align-items-baseline mb-2 p-3 font-weight-bold" style="border-radius: 10px;font-size: 16px;">
+                                        <span class="text-center " style="font-size: 40px;font-weight: 300;color: #49AD9F;">Before 2 days : Email Sample
+                                        <img src="screens/01_before_2_days.png" alt="arrow" style="max-width:100%;" class="my-4">
+                                    </span>
+                                    </li>
+                                </ul>
+
+                                <ul class="list-unstyled pl-0  bg-white" style="font-size:15px;">
+                                    <li class="d-flex align-items-baseline mb-2 p-3 font-weight-bold" style="border-radius: 10px;font-size: 16px;">
+                                        <span class="text-center " style="font-size: 40px;font-weight: 300;color: #49AD9F;">On the Same day : Email Sample
+                                        <img src="screens/02_on_the_same_day.png" alt="arrow" style="max-width:100%;" class="my-4">
+                                    </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="px-3 pt-1 tab-pane fade" id="pills-releases" role="tabpanel"
+                         aria-labelledby="pills-releases-tab">
+                        <div class="p-1 pl-4 bg-white"
+                             style="border-radius: 10px;margin-bottom: 20px;border-left: 11px solid #4BB0A2;border-right: 11px solid #4BB0A2;box-shadow: 0px 0px 7px 1px #8DD3CD;">
+                            <h5 class="mb-4 mt-3" style="margin: 0; font-weight: bold;">
+                                Latest Release 0.1- <span style="font-size:12px;vertical-align: middle;"> 2nd January 2022</span>
+                            </h5>
+                            <ul class="list-unstyled" style="font-size:15px;border-radius: 10px;">
+                                <li class="d-flex align-items-baseline mb-2">
+                                    <img src="images/arrow.png" alt="arrow"
+                                         style="width:15px;margin-right:10px">
+                                    <span>Invoice due Reminder</span>
+                                </li>
+                                <li class="d-flex align-items-baseline mb-2">
+                                    <img src="images/arrow.png" alt="arrow"
+                                         style="width:15px;margin-right:10px">
+                                    <span>Due date reminder on customer invoice</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- setup tab-->
+                    <div class="px-3 pt-3 tab-pane fade" id="pills-profile" role="tabpanel"
+                         aria-labelledby="pills-profile-tab">
+                        <div class="tab-pane">
+                            <div class="p-1 pl-4 bg-white"
+                                 style="border-radius: 10px;margin-bottom: 20px;border-left: 11px solid #4BB0A2;border-right: 11px solid #4BB0A2;box-shadow: 0px 0px 7px 1px #8DD3CD;">
+                                <h5 class="mb-4 mt-3" style="margin: 0; font-weight: bold;">
+                                    <a href="https://www.devintellecs.com" target="_blank"
+                                       class="d-flex flex-wrap flex-md-nowrap align-items-center"
+                                       style="text-decoration: none !important">
+                                        <h5 class="mb-0"> Read User Guide<span style="font-weight:bold; color:blue;"/></h5>
+                                        <img src="images/Redirect.png" style="width: 40px;margin-left: 15px;"/>
+                                    </a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- faq tab-->
+                    <div class="px-3 pt-3 tab-pane fade" id="pills-contact" role="tabpanel"
+                         aria-labelledby="pills-contact-tab">
+                        <ul class="list-unstyled">
+                            <li class="mb-3 d-flex align-items-baseline bg-white"
+                                style="border-radius: 10px; padding: 15px;border-left: 11px solid #4BB0A2;border-right: 11px solid #4BB0A2;box-shadow: 0px 0px 7px 1px #8DD3CD;">
+                                <img src="images/arrow.png" alt="arrow" style="width:15px;margin-right:10px">
+                                <div class="">
+                                    <h6 style="font-weight: bold;">Is this app compatible with Odoo Enterprise?</h6>
+                                    <span style="font-size:13px;">Yes, our app works with Odoo Enterprise as well as Community.</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="p-1 pl-4 bg-white"
+                         style="margin-top: 20px;height:150px;border-radius: 10px;margin-bottom: 20px;border-left: 11px solid #4BB0A2;border-right: 11px solid #4BB0A2;box-shadow: 0px 0px 7px 1px #8DD3CD;">
+                        <table width="100%">
+                            <tr>
+                                <td colspan="4" class="text-center" style="padding-top:5px;font-weight: bold;font-size:24px;color: #4BB0A2;">
+                                    Support
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="15%" style="margin-left: 20px;">
+                                    <center>
+                                        <img src="images/tube.png" alt="Not found" width="95" height="95"/>
+                                    </center>
+                                </td>
+                                <td width="5%">
+                                </td>
+                                <td width="70%" style="text-align: justify;font-size:16px;">
+                                    DevIntelle will provide FREE 90 days support for any doubt, queries, and bug fixing (excluding data recovery) or any type of issues related to this app. This is
+                                    applicable from the date of purchase
+                                </td>
+                                <td width="10%">
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Apps -->
+    <div class="row  py-sm-5 px-1" style="margin-top: 0px;padding-top: 0px;">
+        <span class="w-100 text-center mb-3" style="font-weight:bold;font-size:30px;">
+            <a href="https://www.odoo.com/apps/modules/browse?search=devintelle" class="d-block" target="_blank" style="text-decoration: none;color: #4BB0A2;">
+                Our More Apps
+            </a>
+        </span>
+        <div class="col-md-4 mt-4">
+            <a href="https://www.odoo.com/apps/modules/13.0/dev_hr_loan/" class="d-block" target="_blank" style="text-decoration: none;">
+                <div class="card" style="box-shadow: 1px 2px 6px 3px #8DD3CD; border-radius: 10px;border: none;">
+                    <img class="card-img-top" src="banners/dev_hr_loan.png" alt="devintelle" style="border-top-left-radius: 10px;    border-top-right-radius: 10px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-text m-0 p-o" style="font-weight:bold;color:black;font-size:16px;text-align:center;">Employee Loan Management</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mt-4">
+            <a href="https://www.odoo.com/apps/modules/11.0/dev_public_holiday/" class="d-block" target="_blank" style="text-decoration: none;">
+                <div class="card" style="box-shadow: 1px 2px 6px 3px #8DD3CD; border-radius: 10px;border: none;">
+                    <img class="card-img-top" src="banners/dev_public_holiday.png" alt="devintelle" style="border-top-left-radius: 10px;    border-top-right-radius: 10px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-text m-0 p-o" style="font-weight:bold;color:black;font-size:16px;text-align:center;">HR Public Holiday</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mt-4">
+            <a href="https://www.odoo.com/apps/modules/13.0/dev_rma/" class="d-block" target="_blank" style="text-decoration: none;">
+                <div class="card" style="box-shadow: 1px 2px 6px 3px #8DD3CD; border-radius: 10px;border: none;">
+                    <img class="card-img-top" src="banners/dev_rma.png" alt="devintelle" style="border-top-left-radius: 10px;    border-top-right-radius: 10px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-text m-0 p-o" style="font-weight:bold;color:black;font-size:16px;text-align:center;">Return Merchandise Authorization</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mt-4">
+            <a href="https://www.odoo.com/apps/modules/12.0/dev_purchase_down_payment/" class="d-block" target="_blank" style="text-decoration: none;">
+                <div class="card" style="box-shadow: 1px 2px 6px 3px #8DD3CD; border-radius: 10px;border: none;">
+                    <img class="card-img-top" src="banners/dev_purchase_down_payment.png" alt="devintelle" style="border-top-left-radius: 10px;    border-top-right-radius: 10px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-text m-0 p-o" style="font-weight:bold;color:black;font-size:16px;text-align:center;">Purchase Advance Payment</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mt-4">
+            <a href="https://apps.odoo.com/apps/modules/13.0/dev_account_cancel_rights/" class="d-block" target="_blank" style="text-decoration: none;">
+                <div class="card" style="box-shadow: 1px 2px 6px 3px #8DD3CD; border-radius: 10px;border: none;">
+                    <img class="card-img-top" src="banners/dev_account_cancel_rights.png" alt="devintelle" style="border-top-left-radius: 10px;    border-top-right-radius: 10px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-text m-0 p-o" style="font-weight:bold;color:black;font-size:16px;text-align:center;">Account Cancel Invoice/Journal Entries</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mt-4">
+            <a href="https://www.odoo.com/apps/modules/12.0/dev_user_quick_setup/" class="d-block" target="_blank" style="text-decoration: none;">
+                <div class="card" style="box-shadow: 1px 2px 6px 3px #8DD3CD; border-radius: 10px;border: none;">
+                    <img class="card-img-top" src="banners/dev_user_quick_setup.png" alt="devintelle" style="border-top-left-radius: 10px;    border-top-right-radius: 10px;">
+                    <div class="card-body text-center">
+                        <h5 class="card-text m-0 p-o" style="font-weight:bold;color:black;font-size:16px;text-align:center;">User Quick Setup</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- container End -->
+
+    <!--Footer Start-->
+    <div class="p-1 pl-4 bg-white"
+         style="margin-top: 20px;height:235px;border-radius: 10px;margin-bottom: 20px;border-left: 11px solid #4BB0A2;border-right: 11px solid #4BB0A2;box-shadow: 0px 0px 7px 1px #8DD3CD;">
+
+        <div class="row">
+            <div class="col-4" style="padding-top: 20px;">
+                <img src="images/logo.png" style="width:60%;height:40%"/>
+                <br/><br/><br/><br/>
+                <a href="https://www.facebook.com/Odoodevintellecs/" target="_blank">
+                    <img src="images/fb.png" style="margin-right:10px"/>
+                </a>
+                <a href="https://www.youtube.com/channel/UCrmu-T0c8rhMXGuB44bH7gA" target="_blank">
+                    <img src="images/youtube.png" style="margin-right:10px"/>
+                </a>
+                <a href="https://twitter.com/devintelle" target="_blank">
+                    <img src="images/twitter.png" style="margin-right:10px"/>
+                </a>
+                <a href="https://www.linkedin.com/in/devintelle-odoo-service-provide-34785b144/" target="_blank">
+                    <img src="images/in.png" style="margin-right:10px"/>
+                </a>
+                <a href="https://in.pinterest.com/devintellecs_odoo_expert/" target="_blank">
+                    <img src="images/pinterest.png" style="margin-right:10px"/>
+                </a>
+                <a href="https://www.instagram.com/devintelle_oddo/" target="_blank">
+                    <img src="images/instagram.png" style="margin-right:10px"/>
+                </a>
+            </div>
+            <div class="col-3" style="padding-top: 20px;">
+                <table>
+                    <tr>
+                        <td>
+                            <a href="mailto:devintelle@gmail.com?Subject=Hello%20again" target="_top">
+                                <img src="images/mail.png"/>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="mailto:devintelle@gmail.com?Subject=Hello%20again" target="_top">
+                                <div style="font-size:15px;color:black;">&nbsp;devintelle@gmail.com</div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <tr>
+                        <td>
+                            <img src="images/skype.png" style="padding-top: 10px;"/>
+                        </td>
+                        <td>
+                            <div style="margin-top:10px;font-size:15px;color:black;">&nbsp;devintelle</div>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <a href="https://web.whatsapp.com/send?phone=+918780543446&text=Hi" target="_blank">
+                                <img src="images/wp.png" style="padding-top: 10px;"/>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://web.whatsapp.com/send?phone=+918780543446&text=Hi" target="_blank">
+                                <div style="margin-top:10px;font-size:15px;color:black;">&nbsp;(+91) 87805 43446</div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-5" style="padding-top: 20px;">
+                <div class="row">
+                    <div class="col-4">
+                        <a href="https://www.devintellecs.com" target="_blank">
+                            <center>
+                                <img src="images/implementation.png" style="margin-right:10px"/>
+                                <br/>
+                                <span style="color:black;">
+							Odoo<br/>
+							Implementation
+							</span>
+                            </center>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="https://www.devintellecs.com" target="_blank">
+                            <center>
+                                <img src="images/customization.png" style="margin-right:10px"/>
+                                <br/>
+                                <span style="color:black;">
+							Odoo<br/>
+							Customization
+							</span>
+                            </center>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="https://www.devintellecs.com" target="_blank">
+                            <center>
+                                <img src="images/development.png" style="margin-right:10px"/>
+                                <br/>
+                                <span style="color:black;">
+							Odoo<br/>
+							development
+							</span>
+                            </center>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row" style="padding-top: 10px;">
+                    <div class="col-4">
+                        <a href="https://www.devintellecs.com" target="_blank">
+                            <center>
+                                <img src="images/training.png" style="margin-right:10px"/>
+                                <br/>
+                                <span style="color:black;">
+							Odoo<br/>
+							Training
+							</span>
+                            </center>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="https://www.devintellecs.com" target="_blank">
+                            <center>
+                                <img src="images/rocket.png" style="margin-right:10px"/>
+                                <br/>
+                                <span style="color:black;">
+							Odoo<br/>
+							Migration
+							</span>
+                            </center>
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a href="https://www.devintellecs.com" target="_blank">
+                            <center>
+                                <img src="images/support.png" style="margin-right:10px"/>
+                                <br/>
+                                <span style="color:black;">
+							Odoo<br/>
+							Support
+							</span>
+                            </center>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Footer End-->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

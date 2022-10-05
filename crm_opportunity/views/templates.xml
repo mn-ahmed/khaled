@@ -1,0 +1,180 @@
+<odoo>
+    <data>
+        <page string="others 2">
+            <h4 class="o_row row no-gutters d-flex">
+                <div class="col">
+                    <label for="is_services"  />
+                    <div class="o_row d-flex">
+                        <field name="is_services" class="oe_inline"/>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="services_planned_revenue"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="services_planned_revenue" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+                    </div>
+                </div>
+                <div class="col">
+                        <label for="services_probability" />
+                        <div class="o_row d-flex">
+                            <span class="oe_grey"> at </span>
+                            <field name="services_probability" widget="integer" class="oe_inline"/>
+                            <span class="oe_grey"> %%</span>
+                        </div>
+                    </div>
+                <div class="col">
+                    <label for="services_value_odd"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="services_value_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="services_gp_percentage" />
+                    <div class="o_row d-flex">
+                        <span class="oe_grey">   </span>
+                        <field name="services_gp_percentage" widget="integer" class="oe_inline"/>
+                        <span class="oe_grey">  %%  </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="services_gp_value"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="services_gp_value" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+                    </div>
+                </div>
+                <div class="col">
+                <label for="services_gp_odd"/>
+                <div class="o_row d-flex">
+                    <field name="company_currency" invisible="1"/>
+                    <field name="services_gp_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                    <span class="oe_topbar_name">$ </span>
+                </div>
+            </div>
+            </h4>
+
+            <h4 class="o_row row no-gutters d-flex">
+                <div class="col">
+                    <label for="is_services"  />
+                    <div class="o_row d-flex">
+                        <field name="is_services" class="oe_inline"/>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="services_planned_revenue"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="services_planned_revenue" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+                    </div>
+                </div>
+                <div class="col">
+                        <label for="services_probability" />
+                        <div class="o_row d-flex">
+                            <span class="oe_grey"> at </span>
+                            <field name="services_probability" widget="integer" class="oe_inline"/>
+                            <span class="oe_grey"> %%</span>
+                        </div>
+                    </div>
+                <div class="col">
+                    <label for="services_value_odd"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="services_value_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="services_gp_percentage" />
+                    <div class="o_row d-flex">
+                        <span class="oe_grey">   </span>
+                        <field name="services_gp_percentage" widget="integer" class="oe_inline"/>
+                        <span class="oe_grey">  %%  </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="services_gp_value"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="services_gp_value" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+                    </div>
+                </div>
+                <div class="col">
+                <label for="services_gp_odd"/>
+                <div class="o_row d-flex">
+                    <field name="company_currency" invisible="1"/>
+                    <field name="services_gp_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                    <span class="oe_topbar_name">$ </span>
+                </div>
+            </div>
+        </h4>
+
+            <h4 class="o_row row no-gutters d-flex">
+                <div class="col">
+                    <label for="is_license"  />
+                    <div class="o_row d-flex">
+                        <field name="is_license" class="oe_inline"/>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="license_planned_revenue"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="license_planned_revenue" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+                    </div>
+                </div>
+                <div class="col">
+                        <label for="license_probability" />
+                        <div class="o_row d-flex">
+                            <span class="oe_grey"> at </span>
+                            <field name="license_probability" widget="integer" class="oe_inline"/>
+                            <span class="oe_grey"> %%</span>
+                        </div>
+                    </div>
+                <div class="col">
+                    <label for="license_value_odd"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="license_value_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="license_gp_percentage" />
+                    <div class="o_row d-flex">
+                        <span class="oe_grey">   </span>
+                        <field name="license_gp_percentage" widget="integer" class="oe_inline"/>
+                        <span class="oe_grey">  %%  </span>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="license_gp_value"  />
+                    <div class="o_row d-flex">
+                        <field name="company_currency" invisible="1"/>
+                        <field name="license_gp_value" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                        <span class="oe_topbar_name">$, </span>
+                    </div>
+                </div>
+                <div class="col">
+                <label for="license_gp_odd"/>
+                <div class="o_row d-flex">
+                    <field name="company_currency" invisible="1"/>
+                    <field name="license_gp_odd" class="oe_inline" widget='monetary' options="{'currency_field': 'USD'}"/>
+                    <span class="oe_topbar_name">$ </span>
+                </div>
+            </div>
+        </h4>
+
+        </page>
+    </data>
+</odoo>

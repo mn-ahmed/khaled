@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!--form view employee request-->
+        <record id="aspl_hr_emp_travel_request_form" model="ir.ui.view">
+            <field name="name">hr.emp.travel.request.form</field>
+            <field name="model">hr.emp.travel.request</field>
+            <field name="arch" type="xml">
+                <form string="Travel Request" duplicate="false">
+                    <header>
+                        <button name="action_send_manager" id="action_send_manager" string="Send to Manager"
+                                class="btn btn-primary"
+                                type="object" attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+
+                        <button name="action_confirm" id="action_confirm" string="Confirm" class="btn btn-primary"
+                                type="object" states="waiting"/>
+
+                        <button name="action_approve" id="action_approve" string="Approve" class="btn-primary"
+                                type="object" attrs="{'invisible': [('state', 'not in', ['confirmed'])]}"
+                                groups="hr.group_hr_manager"/>
+
+                        <button name="action_ongoing" id="action_ongoing" string="Start Trip" class="btn-primary"
+                                type="object" attrs="{'invisible': [('state', 'not in', ['approved'])]}"/>
+
+                        <button name="complete_trip" id="complete_trip" string="Complete Trip" class="btn-primary"
+                                type="object" attrs="{'invisible': [('state', 'not in', ['ongoing'])]}"/>
+
+                        <button name="action_reset" id="action_reset" string="Reset Draft" class="btn-primary"
+                            type="object" attrs="{'invisible': [('state', 'not in', ['rejected', 'canceled'])]}"/>
+
+                        <button name="action_close" id="action_close" string="Close" class="btn-primary"
+                                type="object" attrs="{'invisible': [('state', 'not in', ['trip_completed'])]}"
+                                groups="hr.group_hr_manager"/>
+
+                        <button name="action_reject" id="action_reject" string="Reject" class="btn-primary"
+                                type="object" attrs="{'invisible': [('state', 'not in', ['confirmed'])]}"
+                                groups="hr.group_hr_manager"/>
+
+                        <button name="action_reject" id="action_reject" string="Reject" class="btn-primary"
+                                type="object" attrs="{'invisible': [('state', 'not in', ['waiting'])]}"/>
+
+                        <button name="action_cancel" id="action_cancel" string="Cancel" class="btn-primary"
+                                type="object"
+                                attrs="{'invisible': [('state', 'not in', ['waiting','confirmed','approved'])]}"/>
+
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,approved,ongoing,closed"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1" />
+                            </h1>
+                        </div>
+                        <group style="width:50%">
+                            <field name="employee_id" required="1"
+                                   attrs="{'readonly': [('state', 'not in', ['draft'])]}"
+                                   options="{'no_create_edit': True, 'no_create':True}" context="{'travel_request': True}"/>
+                            <field name="department_id" required="1"/>
+                            <field name="parent_id"/>
+                        </group>
+                        <group style="width:50%">
+                            <field name="job_id" required="1" readonly="1"/>
+                            <field name="company_id" required="1"/>
+                            <field name="grade_id" required="1"/>
+                        </group>
+                        <group style="width:50%">
+                            <field name="from_date" required="1"
+                                   attrs="{'readonly': [('state', 'not in', ['draft','rejected','canceled'])]}"
+                                   string="Start Date"/>
+                            <field name="reason" required="1" widget="string"
+                                    attrs="{'readonly': [('state', 'in', ['ongoing','trip_completed','approved','closed'])]}"/>
+                        </group>
+
+                        <group style="width:50%">
+                            <field name="to_date" required="1"
+                                   attrs="{'readonly': [('state', 'not in', ['draft','rejected','canceled'])]}"
+                                   string="End Date"/>
+                            <field name="expect_travel_days" required="1"
+                                   attrs="{'invisible':['|',('to_date','=',False),('from_date','=',False)]}"/>
+                            <field name="ticket_book" string="Company Books Ticket for you ?"
+                                   attrs="{'readonly':[('state', 'in', ['confirmed','trip_completed','approved','closed'])]}"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+
+                        <notebook attrs="{'readonly':[('state', 'in', ['closed'])]}">
+                            <!--Travel locations tab-->
+                            <page name="travel_information" string="Travel Information"
+                                  attrs="{'readonly':[('state', 'not in', ['draft','waiting','rejected','canceled'])]}">
+                                <field name="travel_location_ids" widget="one2many"
+                                       attrs="{'readonly':['|','|',('to_date','=',False),('from_date','=',False),('state', 'not in',['draft','waiting','rejected','canceled'])]}"/>
+                                <group class="oe_right">
+                                    <field name="total_travel_days" readonly="1" style="text-align:right"/>
+                                </group>
+                            </page>
+                            <!--Proposed Expenses tab-->
+                            <page name="proposed_expenses_tab" string="Proposed Expenses">
+                                <field name="expense_amount_ids"
+                                       attrs="{'readonly':[('state', 'in', ['trip_completed','approved','rejected','canceled','closed'])]}"
+                                       options="{'no_create': True}">
+                                    <tree readonly="True">
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="status" invisible="1"/>
+                                        <field name="expense_id" string="Expense"/>
+                                        <field name="amount" widget="Monetary"/>
+                                        <field name="approved_amount" widget="Monetary"/>
+                                        <field name="total" widget="Monetary"/>
+                                        <button name="hr_expense_action" id="hr_expense_action" string="Add to Expenses"
+                                                attrs="{'invisible':[('status','=',True)]}" type="object"
+                                                groups="hr.group_hr_manager,base.group_erp_manager"
+                                                style="width:125px"/>
+                                    </tree>
+                                </field>
+                                <group class="oe_right">
+                                    <field name="total_expense_amount" string="Grand Total"
+                                           readonly="1" widget="Monetary"/>
+                                </group>
+                            </page>
+                            <!--Expenses tab-->
+                            <page name="expenses_tab" string="Expenses">
+                                <field name="expenses_ids"
+                                       attrs="{'readonly':[('state', 'in', ['trip_completed','closed','rejected'])]}"/>
+                            </page>
+                            <!--Logs tab-->
+                            <page name="logs_tab" string="Logs">
+                                <group style="width:50%">
+                                    <field name="request_by" readonly="1"/>
+                                    <field name="request_date" readonly="1"/>
+                                </group>
+                                <group attrs="{'invisible':[('state', 'not in', ['rejected'])]}" style="width:50%">
+                                    <field name="rejected_by" readonly="1"/>
+                                    <field name="rejected_date" readonly="1"/>
+                                    <field name="reject_reason" readonly="1"/>
+                                </group>
+                                <group style="width:50%">
+                                    <field name="approved_by" readonly="1"/>
+                                    <field name="approved_date" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="user_id" readonly="1" string="Employee Manager"/>
+                                    <field name="hr_manager_user_ids" widget="many2many_tags" readonly="1" string="HR Managers"/>
+                                </group>
+                            </page>
+                            <!--Currency tab-->
+                            <page name="currency_tab" string="Currency">
+                                <field name="currency_ids"
+                                       attrs="{'readonly':[('state', 'in', ['trip_completed','closed','rejected','approved','ongoing'])]}">
+                                    <tree editable="1">
+                                        <field name="status" invisible="1"/>
+                                        <field name="currency_id" required="1"
+                                               attrs="{'readonly': [('status','=',True)]}"
+                                               options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                                        <field name="amount" required="1" widget="Monetary"
+                                               attrs="{'readonly': [('status','=',True)]}"/>
+                                        <field name="journal_id" required="1"
+                                               attrs="{'readonly': [('status','=',True)]}"
+                                               options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                                        <field name="account_id" invisible="1" attrs="{'readonly': [('status','=',True)],'required': True}"
+                                               options="{'no_create_edit': True, 'no_create':True, 'no_open':True}" />
+                                        <field name="account_move_id" readonly="1"
+                                               attrs="{'invisible': [('account_move_id','=',False)]}"/>
+                                        <button name="journal_action" string="Journal Entry" type="object"
+                                                class="btn-primary"
+                                                attrs="{'invisible': [('status','=',True)]}"
+                                                groups="account.group_account_manager"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--tree view employee request-->
+        <record id="aspl_hr_emp_travel_request_tree" model="ir.ui.view">
+            <field name="name">hr.emp.travel.request.tree</field>
+            <field name="model">hr.emp.travel.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="job_id"/>
+                    <field name="department_id"/>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                    <field name="travel_location_ids" widget="many2many_tags" string="Travel Locations"/>
+                    <field name="expect_travel_days"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="aspl_hr_emp_travel_request_kanban" model="ir.ui.view">
+            <field name="name">hr.emp.travel.request.kanban</field>
+            <field name="model">hr.emp.travel.request</field>
+            <field name="arch" type="xml">
+                 <kanban class="o_kanban_mobile">
+                    <field name="name"/>
+                     <field name="employee_id"/>
+                    <field name="travel_location_ids"/>
+                     <field name="expect_travel_days"/>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                    <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="row mb4">
+                                    <div class="col-6">
+                                        <strong>
+                                            <span>
+                                                <field name="name"/>
+                                            </span>
+                                        </strong>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <strong>
+                                           From <t t-esc="record.from_date.value"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row mb4">
+                                    <div class="col-6">
+                                        <strong>
+                                            <field name="employee_id"/>
+                                        </strong>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <strong>
+                                            To  <t t-esc="record.to_date.value"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span>
+                                            <field name="travel_location_ids" widget="many2many_tags"/>
+                                        </span>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <span class="float-right ">
+                                            <field name="state" widget="kanban_label_selection"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <!--search view employee request-->
+<!--        <record id="aspl_hr_emp_travel_request_search_view" model="ir.ui.view">-->
+<!--            <field name="name">hr.emp.travel.request.search</field>-->
+<!--            <field name="model">hr.emp.travel.request</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="Request Search">-->
+
+<!--                    <field name="employee_id" string="Employee"-->
+<!--                           filter_domain="[('employee_id.name','ilike',self)]"/>-->
+<!--                    <field name="parent_id" string="Manager"-->
+<!--                           filter_domain="[('parent_id.name','ilike',self)]"/>-->
+<!--                    <field name="department_id" string="Department"-->
+<!--                           filter_domain="[('department_id.name','ilike',self)]"/>-->
+<!--                    <field name="company_id" string="Company"-->
+<!--                           filter_domain="[('company_id.name','ilike',self)]"/>-->
+
+<!--                    <field name="state" string="State"-->
+<!--                           filter_domain="[('state','ilike',self)]"/>-->
+
+<!--                    <filter name="draft" string="Draft"-->
+<!--                            filter_domain="[('state', 'in', ['draft'])]"/>-->
+<!--                    <filter name="waiting" string="Waiting"-->
+<!--                            filter_domain="[('state', 'in', ['waiting'])]"/>-->
+<!--                    <filter name="confirmed" string="Confirmed"-->
+<!--                            domain="[('state', 'in', ['confirmed'])]"/>-->
+<!--                    <filter name="trip_completed" string="Trip Copleted"-->
+<!--                            domain="[('state', 'in', ['trip_completed'])]"/>-->
+<!--                    <filter name="approved" string="Approved"-->
+<!--                            domain="[('state', 'in', ['approved'])]"/>-->
+
+<!--                    <group expand="0" string="Group By">-->
+<!--                        <filter string="State" name="state" context="{'group_by':'state'}"/>-->
+<!--                        <filter string="Employee" name="employee_id" context="{'group_by':'employee_id'}"/>-->
+<!--                        <filter string="Grade" name="grade_id" context="{'group_by':'grade_id'}"/>-->
+<!--                        <filter string="Job Position" name="job_id" context="{'group_by':'job_id'}"/>-->
+<!--                        <filter string="Department" name="department_id" context="{'group_by':'department_id'}"/>-->
+<!--                        <filter string="Company" name="company_id" context="{'group_by':'company_id'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!--Action of Travel Request-->
+        <record id="aspl_hr_emp_travel_request_action" model="ir.actions.act_window">
+            <field name="name">Travel Request</field>
+            <field name="res_model">hr.emp.travel.request</field>
+            <!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="target">current</field>
+            <field name="context">{'search_default_draft':1, 'search_default_waiting':1, 'search_default_confirmed':1}
+            </field>
+        </record>
+
+<!--        <template id="aspl_hr_travel_button" name="aspl_hr_travel_security" inherit_id="web.assets_backend">-->
+<!--           <xpath expr="." position="inside">-->
+<!--               <script type="text/javascript" src="/flexi_hr/employee_travel_request/static/src/js/web.js"></script>-->
+<!--&lt;!&ndash;                 <link rel="stylesheet" href="/pos_invoice_thermal_print/static/src/css/pos.css" id="pos-stylesheet" /> &ndash;&gt;-->
+<!--           </xpath>-->
+<!--       </template>-->
+
+    </data>
+</odoo>

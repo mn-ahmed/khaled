@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="ess_employee_rule" model="ir.rule">
+            <field name="name">owner records assignment Rule</field>
+            <field name="model_id" ref="model_employee_self_services"/>
+            <field name="groups" eval="[(4, ref('employees_self_services.ess_group_user'))]"/>
+
+            <field name="domain_force">
+                [('employee_id.user_id','=',user.id)]
+            </field>
+        </record>
+
+        <record id="manager_all_requests_emp_rule" model="ir.rule">
+            <field name="name">owner records assignment Rule</field>
+            <field name="model_id" ref="model_employee_self_services"/>
+            <field name="groups" eval="[(4, ref('employees_self_services.ess_group_manager'))]"/>
+            <field name="domain_force">[('employee_id.parent_id.user_id','=',user.id)]</field>
+        </record>
+    </data>
+    <data>
+        <record id="admin_all_requests_rule" model="ir.rule">
+            <field name="name">all records assignment Rule</field>
+            <field name="model_id" ref="model_employee_self_services"/>
+            <field name="groups" eval="[(4, ref('employees_self_services.ess_group_admin'))]"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+    </data>
+</odoo>

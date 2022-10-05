@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_request_license" model="ir.sequence">
+           <field name="name">License Request</field>
+           <field name="code">license.request</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">REQ-</field>
+           <field name="padding">5</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

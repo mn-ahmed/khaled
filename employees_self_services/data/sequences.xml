@@ -1,0 +1,41 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="sequence_request_ess_trainee" model="ir.sequence">
+           <field name="name">Trainee sequence onboarding</field>
+           <field name="code">onboarding.proccess.trainee</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">TR</field>
+           <field name="padding">5</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+        <record id="sequence_request_ess_employee" model="ir.sequence">
+           <field name="name">Employee sequence onboarding</field>
+           <field name="code">onboarding.proccess.employee</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">EM</field>
+           <field name="padding">5</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+        <record id="sequence_request_ess_part_time" model="ir.sequence">
+           <field name="name">Part Time sequence onboarding</field>
+           <field name="code">onboarding.proccess.part.time</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">PT</field>
+           <field name="padding">5</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+        <record id="sequence_request_ess_international" model="ir.sequence">
+           <field name="name">BBI International sequence onboarding</field>
+           <field name="code">onboarding.proccess.international</field>
+           <field name="active">TRUE</field>
+           <field name="prefix">BI</field>
+           <field name="padding">5</field>
+           <field name="number_next">1</field>
+           <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

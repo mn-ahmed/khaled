@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="ir.module.category" id="onboarding_process_security_category">
+            <field name="name">Onboarding process </field>
+            <field name="description">User access level for this module</field>
+<!--            <field name="category_id" ref="base.module_category_hidden"/>-->
+<!--            <field name="sequence">7</field>-->
+        </record>
+
+         <record id="onboarding_cycle_it_lead" model="res.groups">
+            <field name="name">IT Lead</field>
+            <field name="category_id" ref="employees_self_services.onboarding_process_security_category"/>
+        </record>
+
+        <record id="onboarding_cycle_erp_admin" model="res.groups">
+            <field name="name">ERP Admin</field>
+            <field name="category_id" ref="employees_self_services.onboarding_process_security_category"/>
+        </record>
+
+
+        <record id="onboarding_cycle_finance" model="res.groups">
+            <field name="name">Finance</field>
+            <field name="category_id" ref="employees_self_services.onboarding_process_security_category"/>
+        </record>
+
+        <record id="onboarding_cycle_direct_manager" model="res.groups">
+            <field name="name">Direct Manager</field>
+            <field name="category_id" ref="employees_self_services.onboarding_process_security_category"/>
+        </record>
+
+        <record id="onboarding_cycle_hr_admin" model="res.groups">
+            <field name="name">HR Admin</field>
+            <field name="category_id" ref="employees_self_services.onboarding_process_security_category"/>
+        </record>
+
+    </data>
+</odoo>

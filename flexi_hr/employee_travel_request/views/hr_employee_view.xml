@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!--insert grade to employee form-->
+        <record id="aspl_view_employee_form" model="ir.ui.view">
+            <field name="name">inherit_view_employee_form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="resource_calendar_id" position="after">
+                    <field name="grade_id" type="one2many" options="{'no_create_edit': True, 'no_create':True, 'no_open':True}"/>
+                </field>
+            </field>
+        </record>
+
+        <!--insert one2many at HrExpenses form-->
+        <record id="aspl_view_hr_expense_form_view" model="ir.ui.view">
+            <field name="name">inherit_view_hr_expense_form</field>
+            <field name="model">hr.expense</field>
+            <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="travel_request_id_ref" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

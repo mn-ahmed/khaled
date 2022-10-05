@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="views_leave_encash_search" model="ir.ui.view">
+            <field name="name">views.leave.encash.search</field>
+            <field name="model">leave.encash</field>
+            <field name="arch" type="xml">
+                <search>
+                    <group>
+                        <filter name="leave_type" string="Leave Type" context="{'group_by' : 'leave_type_id'}" />
+                        <filter name="employee" string="Employee" context="{'group_by' : 'employee_id'}" />
+                        <filter name="date" string="Date" context="{'group_by' : 'date'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="views_leave_encash_tree" model="ir.ui.view">
+            <field name="name">views.leave.encash.tree</field>
+            <field name="model">leave.encash</field>
+            <field name="arch" type="xml">
+                <tree delete="false">
+                    <field name="employee_id" />
+                    <field name="leave_type_id" />
+                    <field name="leave_carry" />
+                    <field name="date" />
+                    <field name="amount" />
+                    <field name="state" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="views_leave_encash_form" model="ir.ui.view">
+            <field name="name">views.leave.encash.form</field>
+            <field name="model">leave.encash</field>
+            <field name="arch" type="xml">
+                <form delete="false">
+                    <header>
+                        <button name='approve' string="Approve" type="object" attrs="{'invisible':[('state','!=',('draft'))]}" style="color : white;background-color : #7c7bad;" />
+                        <button name='cancel' string="Cancel" attrs="{'invisible':[('state','!=',('draft'))]}" type="object"
+                            style="color : white;background-color : #7c7bad;" />
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approved,paid,canceled" />
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="employee_id" options="{'no_create_edit': True}" attrs="{'readonly':[('state','!=',('draft'))]}" />
+                            <field name="leave_carry" attrs="{'readonly':[('state','!=',('draft'))]}" />
+                            <field name="date" attrs="{'readonly':[('state','!=',('draft'))]}" />
+                            <field name="amount" attrs="{'readonly':[('state','!=',('draft'))]}" />
+                        </group>
+                        <group col="2">
+                            <group>
+                                <field name="department_id" options="{'no_create_edit': True}" attrs="{'readonly':[('state','!=',('draft'))]}" />
+                            </group>
+                            <group>
+                                <field name="job_id" options="{'no_create_edit': True}" attrs="{'readonly':[('state','!=',('draft'))]}" />
+                            </group>
+                            <group>
+                                <field name="leave_type_id" options="{'no_create_edit': True}" attrs="{'readonly':[('state','!=',('draft'))]}" />
+                            </group>
+                            <group>
+                                <field name="payslip_id" options="{'no_create_edit': True}" readonly="1" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_leave_encash" model="ir.actions.act_window">
+            <field name="name">Leave Encash</field>
+            <field name="res_model">leave.encash</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_leave_encash" name="Leave Encash" parent="menu_leave_encashment" sequence="2" action="action_leave_encash" groups="hr.group_hr_manager" />
+    </data>
+</odoo>
