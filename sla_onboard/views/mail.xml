@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mail_template_it_onboarding_deadline" model="mail.template">
+            <field name="name">Onboarding Deadline Process: Send by email</field>
+            <field name="model_id" ref="sla_onboard.model_onboarding_proccess"/>
+            <!--            <field name="email_from"></field>-->
+            <field name="email_to">${object.get_email_to() |safe}</field>
+            <field name="subject">Onboard Deadline for ${object.employee_id.name}</field>
+            <!--            <field name="lang">${object.partner_id.lang}</field>-->
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="xml">
+                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">
+                    <p>Dear HR,
+                        <br></br>
+
+                        There's a onboarding request for ${object.employee_id.name} opened
+
+<!--                     in state   % if object.state== 'a':-->
+<!--                            IT <br/>-->
+<!--                        % elif object.state== 'b':-->
+<!--                            ERP <br/>-->
+<!--                        % elif object.state== 'c':-->
+<!--                            Finance <br/>-->
+<!--                        % elif object.state== 'e':-->
+<!--                            HR <br/>-->
+<!--                        % endif-->
+
+                        And Deadline was on (${object.deadline}) .
+                        <br></br>
+                        <br></br>
+                         Best regards,<br/>
+                        <p class="text-center"> Odoo Support Team</p>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+<!--        <record id="mail_template_onboarding_deadline_for_erp_admin" model="mail.template">-->
+<!--            <field name="name">Onboarding Deadline: ERP Admin</field>-->
+<!--            <field name="model_id" ref="sla_onboard.model_onboarding_proccess"/>-->
+<!--            <field name="email_to">${object.user_id.email_formatted |safe}</field>-->
+<!--            <field name="subject">Onboarding Deadline for ${object.employee_id.name}</field>-->
+<!--            <field name="auto_delete" eval="True"/>-->
+<!--            <field name="body_html" type="xml">-->
+<!--                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">-->
+
+<!--                    <p>Dear (${object.user_id.name}) ,-->
+<!--                        <br></br>-->
+<!--                        as an ERP Admin ,There's a onboarding request opened And Deadline was (${object.deadline}) .-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <p class="text-center"> Odoo Support Team</p>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="mail_template_onboarding_deadline_for_finance" model="mail.template">-->
+<!--            <field name="name">Onboarding Deadline: Finance Admin</field>-->
+<!--            <field name="model_id" ref="sla_onboard.model_onboarding_proccess"/>-->
+<!--            <field name="email_to">${object.user_id.email_formatted |safe}</field>-->
+<!--            <field name="subject">Onboarding Deadline for ${object.employee_id.name}</field>-->
+<!--            <field name="auto_delete" eval="True"/>-->
+<!--            <field name="body_html" type="xml">-->
+<!--                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">-->
+<!--                    <p>Dear (${object.user_id.name}) ,-->
+<!--                        <br></br>-->
+<!--                        as an finance Admin ,There's a onboarding request opened And Deadline was (${object.deadline}) .-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <p class="text-center"> Odoo Support Team</p>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="mail_template_onboarding_deadline_for_hr_admin" model="mail.template">-->
+<!--            <field name="name">Onboarding deadline: HR  Admin</field>-->
+<!--            <field name="model_id" ref="sla_onboard.model_onboarding_proccess"/>-->
+<!--            <field name="email_to">${object.user_id.email_formatted |safe}</field>-->
+<!--            <field name="subject">Onboarding Deadline for ${object.employee_id.name}</field>-->
+<!--            <field name="auto_delete" eval="True"/>-->
+<!--            <field name="body_html" type="xml">-->
+<!--                <div style="background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;">-->
+<!--                    <p>Dear (${object.user_id.name}) ,-->
+<!--                        <br></br>-->
+<!--                        as a HR Admin ,There's a onboarding request opened And Deadline was (${object.deadline}) .-->
+<!--                        <br></br>-->
+
+<!--                        <br></br>-->
+<!--                        <br></br>-->
+<!--                        <p class="text-center"> Odoo Support Team</p>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<odoo>
+        <!--Email template -->
+        <record id="timesheet_reminder_mail_template" model="mail.template">
+            <field name="name">Timesheet Reminder</field>
+            <field name="email_from">{{(object.company_id.email and '%s &lt;%s&gt;' % (object.company_id.name, object.company_id.email) or '')}}</field>
+            <field name="subject">Reminder to fill last week timesheet</field>
+            <field name="email_to">{{object.work_email}}</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+
+               <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 14px; color: rgb(34, 34, 34); background-color: #FFF;">
+               	<p>Dear <t t-out="object.name or ''"></t>,</p>
+               	<p>Hope you doing well </p>
+               	<p>It's  reminder  that you have not filled your last week time sheet,</p>
+               	<p><b>Timesheet week</b> : <t t-out="object.timesheet_week or ''"></t></p>
+               	<p>Here is the summary of it </p>
+               	</br>
+               	<table border=1 width=70% style='margin-top: 10px;padding:5px'>
+		            <tr>
+		             	<td width="35%" style= 'background:#e0e1e2;'><b>Date</b></td>
+		             	<td width="35%" style= 'background:#e0e1e2;'><b>Hour</b></td>
+		            </tr>
+		            <tr t-foreach="object.get_timesheet_summary(object)" t-as="timesheet_table">
+						<td>
+                               <span t-esc="timesheet_table.get('date_l')"/>
+                        </td>
+                        <td>
+                               <span t-esc="timesheet_table.get('total_hour')"/>
+                        </td>
+                    </tr>
+		        </table>
+               	
+           </div>
+                
+                ]]></field>
+         </record>
+</odoo>
+        
+      
+        
+        
+    

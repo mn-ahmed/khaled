@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_reminder_tree" model="ir.ui.view">
+            <field name="name">employee.reminder.tree</field>
+            <field name="model">mail.mail</field>
+            <field name="arch" type="xml">
+                <tree string="Email Reminders">
+                    <field name="date"/>
+                    <field name="subject"/>
+                   <field name="email_to"/>
+                 
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_employee_reminder" model="ir.actions.act_window">
+            <field name="name">Reminders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mail.mail</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[('subject', '=', 'Reminder to fill last week timesheet')]</field>
+              <field name="context">{'group_by': 'email_to'}</field>
+            
+        </record>
+        <menuitem action="action_employee_reminder" id="menu_action_employee_reminder" parent="hr_timesheet.timesheet_menu_root"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,112 @@
+<odoo>
+  <data>
+
+      <record id="onboard_sla_view_form" model="ir.ui.view">
+        <field name="name">onboard.sla.form</field>
+        <field name="model">onboard.sla</field>
+        <field name="arch" type="xml">
+            <form string="SLA Onboard">
+                <sheet>
+<!--                    <div class="oe_button_box" name="button_box">-->
+<!--                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive"-->
+<!--                                attrs="{'invisible': [('active', '=', True)]}">-->
+<!--                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>-->
+<!--                        </button>-->
+<!--                    </div>-->
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Close urgent tickets within 36 hours"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                              <separator colspan="2" string="Apply on"/>
+                               <field name="stage" />
+                              <field name="priority" widget="priority"/>
+
+<!--                              <separator colspan="2" string="Target" class="mt32"/>-->
+<!--                              <field name="next_stage" />-->
+                              <label for="time_days" string="Reach In"/>
+                              <div>
+                                  <field name="time_days" class="oe_inline"/> days<br/>
+                              </div>
+                          </group>
+                    </group>
+                    <field name="description" placeholder="Description of the policy..."/>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+      <record id="onboard_sla_view_tree" model="ir.ui.view">
+        <field name="name">onboard.sla.tree</field>
+        <field name="model">onboard.sla</field>
+        <field name="arch" type="xml">
+            <tree string="SLA Onboard">
+                <field name="name"/>
+                <field name="stage"/>
+<!--                <field name="next_stage"/>-->
+                <field name="active"/>
+            </tree>
+        </field>
+      </record>
+
+      <record id="onboard_sla_action_main" model="ir.actions.act_window">
+        <field name="name">SLA Onboard</field>
+        <field name="res_model">onboard.sla</field>
+        <field name="view_mode">tree,form</field>
+<!--        <field name="help" type="html">-->
+<!--          <p class="o_view_nocontent_smiling_face">-->
+<!--            Create a new Service Level Agreement (SLA) onboard-->
+<!--          </p>-->
+<!--        </field>-->
+      </record>
+
+      <record id="onboard_sla_view_deadline" model="ir.ui.view">
+            <field name="name">deadline.sla.board.form</field>
+            <field name="model">onboarding.proccess</field>
+            <field name="inherit_id" ref="employees_self_services.onboarding_request_form_view"/>
+                <field name="arch" type="xml">
+<!--                    <xpath expr="//header" position="inside">-->
+<!--                        <button name="deadline_onboard_mail" type="object" string="send mail" class="oe_highlight" />-->
+<!--                    </xpath>-->
+
+                    <xpath expr="//field[@name='date']" position="after">
+                        <field name="deadline" readonly="1"/>
+                        <field name="priority" widget="priority"/>
+                    </xpath>
+
+                    <xpath expr="//group[2]/group" position="after">
+                        <group>
+                            <field name="employee_manager" />
+                            <field name="employee_department"/>
+                            <field name="employee_project" />
+                            <field name="task_id" />
+                        </group>
+                    </xpath>
+
+
+            </field>
+        </record>
+      <menuitem name="Onboarding Request "
+                id="employees_self_services.sub_menu_for_onboarding_poccess"
+                parent="employees_self_services.organization_request_ess_menu"
+                action="employees_self_services.request_onboarding_action"
+                sequence="3"/>
+
+
+      <menuitem id="configuration_menu_main"
+                name="Configuration"
+                sequence="10"
+                parent="employees_self_services.ess_main_menu"/>
+
+      <menuitem id="onboard_sla_menu_main"
+                name="SLA Onboard"
+                action="sla_onboard.onboard_sla_action_main"
+                sequence="1"
+                parent="configuration_menu_main"
+                groups="employees_self_services.onboarding_cycle_hr_admin"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record forcecreate="True" id="ir_cron_module_onboarding_deadline" model="ir.cron">
+            <field name="name">Onboarding Proccess Deadline</field>
+            <field name="model_id" ref="sla_onboard.model_onboarding_proccess"/>
+            <field name="state">code</field>
+            <field name="code">model.deadline_onboard_mail()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="active" eval="True"/>
+<!--            <field eval="False" name="doall" />-->
+            <field name="priority">5</field>
+        </record>
+    </data>
+</odoo>

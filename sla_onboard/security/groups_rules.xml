@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="onboard_deadline_module_category">
+            <field name="name">Onboard Deadline</field>
+            <field name="description">User access level for this module</field>
+        </record>
+
+        <record id="onboard_deadline_mail_group" model="res.groups">
+            <field name="name">HR</field>
+            <field name="category_id" ref="onboard_deadline_module_category"/>
+        </record>
+
+
+    </data>
+</odoo>
